@@ -1,5 +1,5 @@
 import SneakersCard from "./SneakersCard";
-import "../styles/LatestList.css";
+import "../assets/css/LatestList.css";
 
 export default function LatestList({ sneakers }) {
   // const sortedSneakers: x memorizzare l'array delle sneakers ordinate
@@ -22,7 +22,7 @@ export default function LatestList({ sneakers }) {
         <h2 className="latest-title fw-bold">Ultimi arrivi</h2>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {latest.map((sneaker) => (
-            <div className="col" key={sneaker.sneaker_id}>
+            <div className="col" key={sneaker.id_sneaker}>
               <SneakersCard sneaker={sneaker} />
             </div>
           ))}

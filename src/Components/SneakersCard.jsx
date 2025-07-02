@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles/SneakersCard.css";
+import "../assets/css/SneakersCard.css";
 
 export default function SneakersCard({ sneaker }) {
   const [liked, setLiked] = useState(false);

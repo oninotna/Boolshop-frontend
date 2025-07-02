@@ -1,18 +1,13 @@
-import "./styles/HeroSpace.css";
+import "../assets/css/Herospace.css";
 
-export default function HeroSpace() {
+export default function Herospace() {
   return (
     <section className="hero-custom d-flex align-items-center justify-content-center">
       <div className="container">
         <div className="row align-items-center">
-          
           {/* Colonna immagine */}
           <div className="col-md-6 text-center mb-4 mb-md-0">
-            <img
-              src=""
-              alt="Sneaker preview"
-              className="img-fluid hero-img"
-            />
+            <img src="" alt="Sneaker preview" className="img-fluid hero-img" />
           </div>
 
           {/* Colonna testo */}
@@ -28,9 +23,8 @@ export default function HeroSpace() {
               Scopri ora
             </a>
           </div>
-
         </div>
       </div>
     </section>
-  )
+  );
 }

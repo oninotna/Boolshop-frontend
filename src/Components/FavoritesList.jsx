@@ -1,10 +1,10 @@
-import SneakersCard from "./SneakersCard"
-import "../styles/FavoritesList.css"
+import SneakersCard from "./SneakersCard";
+import "../assets/css/FavoritesList.css";
 
 export default function FavoritesList({ favorites }) {
   // seleziona massimo 4 preferiti random
-  const shuffled = [...favorites].sort(() => 0.5 - Math.random())
-  const selected = shuffled.slice(0, 4)
+  const shuffled = [...favorites].sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, 4);
 
   return (
     <section className="favorites-list">
@@ -15,7 +15,7 @@ export default function FavoritesList({ favorites }) {
         ) : (
           <div className="row row-cols-1 row-cols-md-4 g-4">
             {selected.map((sneaker) => (
-              <div className="col" key={sneaker.sneaker_id}>
+              <div className="col" key={sneaker.id_sneaker}>
                 <SneakersCard sneaker={sneaker} />
               </div>
             ))}
@@ -23,5 +23,5 @@ export default function FavoritesList({ favorites }) {
         )}
       </div>
     </section>
-  )
+  );
 }

@@ -1,17 +1,14 @@
-import HeroSpace from "../Components/HeroSpace";
-import SneakersCard from "../Components/SneakersCard";
+import HeroSpace from "../Components/Herospace";
+import LatestList from "../Components/LatestList";
+import FavoritesList from "../Components/FavoritesList";
 import Footer from "../Components/Footer";
 
 export default function HomePage() {
   return (
     <div>
-      <HeroSpace />
-      <section className="text-center">
-        <h1>Ultimi arrivi</h1>
-      </section>
-      <section className="text-center">
-        <h1>Più economiche</h1>
-      </section>
+      <Herospace />
+      <LatestList />
+      <FavoritesList />
       <Footer />
     </div>
   );
