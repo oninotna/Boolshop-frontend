@@ -1,0 +1,13 @@
+.brand-title {
+  font-size: 0.85rem;
+}
+
+.model-title {
+  font-size: 1.1rem;
+}
+
+.desc-limit {
+  max-height: 3.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
