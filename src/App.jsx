@@ -1,7 +1,6 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <><h1 className='text-center'>boilerplate</h1></>
