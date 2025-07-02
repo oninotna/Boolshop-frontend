@@ -7,7 +7,7 @@ export default function Herospace() {
         <div className="row align-items-center">
           {/* Colonna immagine */}
           <div className="col-md-6 text-center mb-4 mb-md-0">
-            <img src="" alt="Sneaker preview" className="img-fluid hero-img" />
+            <img src="#" alt="Sneaker preview" className="img-fluid hero-img" />
           </div>
 
           {/* Colonna testo */}

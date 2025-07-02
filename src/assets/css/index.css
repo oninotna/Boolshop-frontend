@@ -3,6 +3,7 @@ body {
 }
 
 .my-navbar {
-    height: 80px;
+    height: 85px;
     font-size: 23px;
+    background-color: #CAC8CD;
 }

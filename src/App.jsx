@@ -6,6 +6,7 @@ import NoveltyPage from "./Pages/NoveltyPage";
 import WishListPage from "./Pages/WishListPage";
 import CartPage from "./Pages/CartPage";
 
+
 export default function App() {
 
   return (

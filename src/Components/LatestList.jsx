@@ -1,7 +1,7 @@
 import SneakersCard from "./SneakersCard";
 import "../assets/css/LatestList.css";
 
-export default function LatestList({ sneakers }) {
+export default function LatestList({ sneakers = [] }) {
   // const sortedSneakers: x memorizzare l'array delle sneakers ordinate
   // [...sneakers] "spread operator" (...) x creare shallow copy
   // .sort(...) x ordinare l'array. Viene chiamato sulla shallow copy.

@@ -11,3 +11,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.card-img-top {
+  width: 100%; /* L'immagine occupa tutta la larghezza della card */
+  height: 200px; /* <--- ALTEZZA FISSA QUI */
+  object-fit: cover; /* Questo è importante! Assicura che l'immagine copra l'area senza distorcersi */
+  /* Se l'immagine è più grande o più piccola, verrà tagliata o ingrandita per riempire lo spazio */
+}

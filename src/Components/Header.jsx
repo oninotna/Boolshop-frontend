@@ -3,13 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
+// <img
+//   src="../../public/img/logo(11).jpg"
+//   alt="Sneaker preview"
+//   className="img-fluid hero-img"
+// />
 
-export default function Header () {
-    return (
-        <nav className="my-navbar navbar navbar-expand-md bg-body-tertiary">
+export default function Header() {
+  return (
+    <nav className="my-navbar navbar navbar-expand-md">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <strong>ZneakDrop</strong>
+          <img
+            src="../../public/img/logo(11).jpg"
+            alt="ZneakDrop logo"
+            height="80"
+            className="d-inline-block align-text-top"
+          />
         </Link>
         <button
           className="navbar-toggler"
@@ -53,5 +63,5 @@ export default function Header () {
         </div>
       </div>
     </nav>
-    );
-};
+  );
+}
