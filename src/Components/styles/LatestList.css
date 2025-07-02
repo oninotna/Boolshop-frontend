@@ -1,0 +1,13 @@
+.latest-list {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+}
+
+.latest-title {
+  color: #212529;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-left: 6px solid #bfff00;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
