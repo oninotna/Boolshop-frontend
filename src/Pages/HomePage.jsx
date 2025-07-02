@@ -8,7 +8,6 @@ export default function HomePage() {
       <HeroSpace />
       <section className="text-center">
         <h1>Ultimi arrivi</h1>
-                <SneakersCard />
       </section>
       <section className="text-center">
         <h1>Più economiche</h1>
