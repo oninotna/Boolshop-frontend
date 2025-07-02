@@ -1,3 +1,5 @@
+import Footer from "../Components/Footer";
+
 export default function HomePage () {
 
     return (
@@ -11,6 +13,7 @@ export default function HomePage () {
             <section className="text-center">
                 <h1>Più economiche</h1>
             </section>
+            <Footer />
         </div>
     );
 };
