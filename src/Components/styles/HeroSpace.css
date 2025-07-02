@@ -1,0 +1,49 @@
+.hero-custom {
+  background-color: #212529;
+  padding: 4rem 1rem;
+}
+
+.hero-img {
+  max-height: 320px;
+  transform: rotate(-4deg);
+}
+
+.hero-title,
+.hero-brand,
+.hero-model {
+  color: white;
+  text-shadow: 1px 1px 3px #aaff00;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.hero-brand {
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.hero-model {
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.hero-btn {
+  border: 2px solid #aaff00;
+  color: #aaff00;
+  font-size: 0.9rem;
+  padding: 0.4rem 1.5rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: white;
+  color: #212529;
+  border: 2px solid #aaff00;
+  cursor: pointer;
+}
