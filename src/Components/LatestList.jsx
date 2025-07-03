@@ -12,7 +12,9 @@ export default function LatestList() {
     axios
       .get("http://localhost:3000/sneakers/latest")
       .then((response) => {
-        setSneakers(response.data);
+        setSneakers(response.data.results);  
+        console.log(response.data.results);
+              
         setLoading(false);
       })
       .catch((err) => {
@@ -21,23 +23,19 @@ export default function LatestList() {
         setLoading(false);
       });
   }, []);
-
- const latestSneakers = sneakers
  
   return (
     <section className="latest-list">
-      <div className="container">
+      <div className="container-fluid">
         <h2 className="latest-title fw-bold">Ultimi arrivi</h2>
 
         {loading && <p>Caricamento...</p>}
         {error && <p className="text-danger">{error}</p>}
 
         {!loading && !error && (
-          <div className="row row-cols-1 row-cols-md-4 g-4">
-            {latestSneakers.map((sneaker) => (
-              <div className="col" key={sneaker.id}>
-                <SneakersCard data={sneaker} />
-              </div>
+          <div className="row g-5 flex-nowrap">
+            {sneakers.map((sneaker) => (
+                <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
             ))}
           </div>
         )}

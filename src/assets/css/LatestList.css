@@ -1,7 +1,15 @@
 .latest-list {
   background-color: #f8f9fa;
   padding: 3rem 1rem;
+  overflow-x: scroll;
+  /* scrollbar-color: #bfff00 #f8f9fa; */
+  padding-bottom: 2rem;
 }
+
+/* .latest-list::-webkit-scrollbar {
+  width: 15px;
+  height: 3px;
+} */
 
 .latest-title {
   color: #212529;
