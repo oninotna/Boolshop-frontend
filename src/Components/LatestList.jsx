@@ -1,20 +1,7 @@
 import SneakersCard from "./SneakersCard";
 import "../assets/css/LatestList.css";
 
-export default function LatestList({ sneakers = [] }) {
-  // const sortedSneakers: x memorizzare l'array delle sneakers ordinate
-  // [...sneakers] "spread operator" (...) x creare shallow copy
-  // .sort(...) x ordinare l'array. Viene chiamato sulla shallow copy.
-  // Al suo interno, funzione di confronto che determina l'ordine degli elementi
-  // (a, b) => new Date(b.date_of_arrival) - new Date(a.date_of_arrival)
-  // Sottrazione: quando sottrai due oggetti Date, JavaScript li converte automaticamente nei loro valori numerici e restituisce la differenza.
-  // Se b.date_of_arrival > a allora è positivo (un risultato positivo significa che b viene prima di a)
-  // Se b.date_of_arrival < a allora è negativo (un risultato negativo significa che b viene dopo di a)
-  // ordiniamo in ordine decrescente di data.
-  const sortedSneakers = [...sneakers].sort(
-    (a, b) => new Date(b.date_of_arrival) - new Date(a.date_of_arrival)
-  );
-  const latest = sortedSneakers.slice(0, 4);
+export default function LatestList () {
 
   return (
     <section className="latest-list">

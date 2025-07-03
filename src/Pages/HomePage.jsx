@@ -7,8 +7,8 @@ export default function HomePage() {
   return (
     <div>
       <Herospace />
-      {/* <LatestList />
-      <FavoritesList /> */}
+      <LatestList />
+      {/* <FavoritesList /> */}
       <Footer />
     </div>
   );
