@@ -1,4 +1,4 @@
-import CardProvv from "./CardProvv";
+import SneakersCard from "./SneakersCard";
 import "../assets/css/LatestList.css";
 
 export default function LatestList () {
@@ -13,10 +13,6 @@ export default function LatestList () {
               <SneakersCard sneaker={sneaker} />
             </div>
           ))} */}
-          <CardProvv />
-          <CardProvv />
-          <CardProvv />
-          <CardProvv />
         </div>
       </div>
     </section>

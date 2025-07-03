@@ -1,6 +1,6 @@
 import Herospace from "../Components/Herospace";
 import LatestList from "../Components/LatestList";
-import FavoritesList from "../Components/FavoritesList";
+import CheapestList from "../Components/CheapestList";
 import Footer from "../Components/Footer";
 
 export default function HomePage() {
@@ -8,10 +8,7 @@ export default function HomePage() {
     <div>
       <Herospace />
       <LatestList />
-      
-      <LatestList />
-
-      {/* <FavoritesList /> */}
+      <CheapestList />
       <Footer />
     </div>
   );
