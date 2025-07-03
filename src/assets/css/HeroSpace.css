@@ -1,4 +1,4 @@
-.hero-custom {
+/* .hero-custom {
   background-color: #212529;
   padding: 4rem 1rem;
 }
@@ -47,4 +47,112 @@
   color: #212529;
   border: 2px solid #aaff00;
   cursor: pointer;
+} */
+
+.hero-custom {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  flex-direction: column;
+  /* flex-grow per spingere il contenuto a occupare lo spazio tra badge e bottone */
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #000000, #1a1a1a, #000000);
+  opacity: 0.35; /* meno scuro */
+  z-index: 1;
+}
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #39FF14;
+  background-color: rgba(57, 255, 20, 0.1);
+  color: #39FF14;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 10;
+  margin-bottom: 10px;
+}
+
+
+.hero-title-gradient {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-align: right;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #cccccc;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+.hero-btn-modern {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: black;
+  background: linear-gradient(to right, #39FF14, #f3f7f7);
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.hero-btn-modern:hover {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+.hero-btn-modern {
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.hero-btn-modern:hover {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+  transform: translateY(-2px);
 }

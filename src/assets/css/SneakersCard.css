@@ -18,3 +18,63 @@
   object-fit: cover; /* Questo è importante! Assicura che l'immagine copra l'area senza distorcersi */
   /* Se l'immagine è più grande o più piccola, verrà tagliata o ingrandita per riempire lo spazio */
 }
+
+.card-body {
+  background-color: #212529;
+  color: white;
+}
+
+/* BOTTONE CART*/
+
+.btn-cart {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.btn-cart:hover {
+  color: #00FFFF;      /* neon cyan per l'icona */
+  border-color: #00FFFF;
+  background: transparent; /* niente sfondo */
+}
+
+
+/*BOTTONE WISHLIST*/
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem; /* più grande per l'icona */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.liked {
+  color: rgb(255, 0, 0);
+  border-radius: 4px;
+  background: transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.liked:hover {
+  color: red;
+  border-color: red;
+}
+
+.not-liked {
+  color: white;
+  border-radius: 4px;
+  background: transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.not-liked:hover {
+  color: red;
+  border-color: red;
+}
+
