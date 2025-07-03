@@ -15,7 +15,7 @@ export default function Header() {
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img
-            src="../../public/img/logo(11).jpg"
+            src="../../public/img/logo(19).jpg"
             alt="ZneakDrop logo"
             height="80"
             className="d-inline-block align-text-top"

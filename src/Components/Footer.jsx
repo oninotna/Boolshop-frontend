@@ -68,7 +68,7 @@ export default function Footer() {
 
           {/* COLONNA DESTRA – Logo intero */}
           <div className="col-12 col-md-4 footer-logo-col d-flex align-items-center justify-content-center justify-content-md-end">
-            <img src="/img/logo(11).jpg" alt="Logo BoolSneakers" className="footer-logo" />
+            <img src="/img/logo(19).jpg" alt="Logo BoolSneakers" className="footer-logo" />
           </div>
         </div>
       </div>
