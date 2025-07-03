@@ -8,6 +8,9 @@ export default function HomePage() {
     <div>
       <Herospace />
       <LatestList />
+      
+      <LatestList />
+
       {/* <FavoritesList /> */}
       <Footer />
     </div>

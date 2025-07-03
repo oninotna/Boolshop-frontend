@@ -1,4 +1,4 @@
-import SneakersCard from "./SneakersCard";
+import CardProvv from "./CardProvv";
 import "../assets/css/LatestList.css";
 
 export default function LatestList () {
@@ -8,11 +8,15 @@ export default function LatestList () {
       <div className="container">
         <h2 className="latest-title fw-bold">Ultimi arrivi</h2>
         <div className="row row-cols-1 row-cols-md-4 g-4">
-          {latest.map((sneaker) => (
+          {/* {latest.map((sneaker) => (
             <div className="col" key={sneaker.id_sneaker}>
               <SneakersCard sneaker={sneaker} />
             </div>
-          ))}
+          ))} */}
+          <CardProvv />
+          <CardProvv />
+          <CardProvv />
+          <CardProvv />
         </div>
       </div>
     </section>
