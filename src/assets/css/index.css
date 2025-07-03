@@ -1,9 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
     color: lime;
 }
 
-.my-navbar {
-    height: 85px;
-    font-size: 23px;
-    background-color: #CAC8CD;
+
+/* NAVBAR */
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #1f1f1f;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  height: 64px;
 }
+
+/* .navbar-container {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.navbar-brand .gradient-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #39FF14, #f3f7f7);
+  background-clip: text;             /* Standard – per futuro supporto */
+  -webkit-background-clip: text;     /* Compatibilità con WebKit (Chrome, Safari) */
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 64px;          /* <<< importante: stesso height della navbar */
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.navbar-links .nav-link,
+.navbar-links .icon-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  display: flex;               /* permette allineamento interno */
+  align-items: center;         /* centra l'icona o il testo verticalmente */
+  height: 100%;                /* occupano tutta l'altezza del genitore */
+  padding: 0 8px;
+}
+
+
+/* Generico: stile base */
+.icon-link {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Wishlist: neon pink */
+.icon-link.wishlist-icon:hover {
+  color: #ff0000;
+}
+
+/* Cart: neon cyan */
+.icon-link.cart-icon:hover {
+  color: #00ffff;
+}
+
+/* link */
+.nav-link:hover {
+    color: #39FF14;
+}
+
+
+
+
