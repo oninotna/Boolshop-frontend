@@ -10,7 +10,7 @@ export default function LatestList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/sneakers/latest")
+      .get("http://localhost:3000/sneakers/latest")
       .then((response) => {
         setSneakers(response.data);
         setLoading(false);
@@ -22,12 +22,8 @@ export default function LatestList() {
       });
   }, []);
 
-  // ordinare se non lo fa il backend
-  const latestSneakers = sneakers
-    .sort((a, b) => new Date(b.arrivalDate) - new Date(a.arrivalDate))
-    .slice(0, 4);
-  // const latestSneakers = sneakers;
-
+ const latestSneakers = sneakers
+ 
   return (
     <section className="latest-list">
       <div className="container">

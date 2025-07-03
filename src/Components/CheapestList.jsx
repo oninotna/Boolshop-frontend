@@ -10,7 +10,7 @@ export default function CheapestList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/sneakers/cheapest")
+      .get("http://localhost:3000/sneakers/cheapest")
       .then((response) => {
         setSneakers(response.data);
         setLoading(false);
