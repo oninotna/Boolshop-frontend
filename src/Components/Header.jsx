@@ -1,16 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/index.css";
 
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark custom-navbar">
-      <div className="container-fluid d-flex align-items-center w-100">
+      <div className="container-fluid d-flex align-items-center justify-content-between w-100 flex-nowrap">
         {/* Colonna sinistra: logo */}
-        <div className="navbar-brand" style={{ flex: "0 0 20%" }}>
+        <div className="navbar-brand d-flex align-items-center">
           <Link to="/" className="brand-link">
             <img src="/img/logo.png" alt="logo" className="header-logo" />
             <h1 className="gradient-text">ZneakDrop</h1>
@@ -18,11 +16,8 @@ export default function Header() {
         </div>
 
         {/* Colonna centrale: searchbar */}
-        <div
-          className="searchbar-container d-none d-md-flex justify-content-center"
-          style={{ flex: "0 0 60%" }}
-        >
-          <div className="searchbar-wrapper w-100">
+        <div class="searchbar-container">
+          <div class="searchbar-wrapper">
             <input
               type="text"
               className="searchbar-input"
@@ -34,7 +29,7 @@ export default function Header() {
         </div>
 
         {/* Colonna destra: link/menu */}
-        <div className="d-flex align-items-center justify-content-end" style={{ flex: "0 0 20%" }}>
+        <div className="d-flex align-items-center justify-content-end">
           <button
             className="navbar-toggler"
             type="button"
