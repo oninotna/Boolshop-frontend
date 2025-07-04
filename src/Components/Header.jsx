@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/index.css";
+import SearchBar from "./SearchBar";
 
 export default function Header() {
   return (
@@ -18,13 +19,7 @@ export default function Header() {
         {/* Colonna centrale: searchbar */}
         <div className="searchbar-container">
           <div className="searchbar-wrapper">
-            <input
-              type="text"
-              className="searchbar-input"
-              placeholder="Cerca sneakers..."
-              onFocus={(e) => e.target.classList.add("expanded")}
-              onBlur={(e) => e.target.classList.remove("expanded")}
-            />
+            <SearchBar />
           </div>
         </div>
 
