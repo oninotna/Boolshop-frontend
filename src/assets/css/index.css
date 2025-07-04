@@ -30,6 +30,17 @@ body {
   justify-content: space-between;
   align-items: center;
 } */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
 
 .navbar-brand .gradient-text {
   font-size: 1.2rem;
@@ -102,6 +113,43 @@ body {
 
 
 /* media query */
+/* SEARCHBAR container (centrata) */
+.searchbar-container {
+  flex-grow: 1;
+}
+
+/* Wrapper per padding e animazione */
+.searchbar-wrapper {
+  width: 100%;
+}
+
+/* Searchbar input */
+.searchbar-input {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Effetto al focus */
+.searchbar-input.expanded {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  font-size: 1.05rem;
+  box-shadow: 0 0 5px #39FF14, 0 0 10px #39FF14;
+}
+
+/* Placeholder visibile */
+.searchbar-input::placeholder {
+  color: #ccc;
+}
 
 @media (max-width: 768px) {
   .header-logo {
@@ -112,16 +160,31 @@ body {
   .navbar-brand .gradient-text {
     display: none;
   }
-
-  @media (max-width: 768px) {
+  
   .navbar-collapse {
-    background-color: rgba(0, 0, 0, 0.95); /* Sfondo scuro come la navbar */
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem;
-    position: absolute;
-    top: 80px; /* esattamente sotto la navbar */
-    right: 0;
-    left: 0;
-    z-index: 998;
+    position: absolute;         /* posizione assoluta per ancorare sotto navbar */
+    top: 80px;                  /* subito sotto la navbar alta 80px */
+    right: 10px;                /* vicino al bordo destro (hamburger) */
+    left: auto;                 /* no espansione a sinistra */
+    width: 150px;               /* larghezza compatta */
+    border-radius: 8px;
+    z-index: 999;               /* sopra tutto */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+
+    padding-bottom: 30px;       /* spazio in basso per bottone */
+  }
+
+  .navbar-collapse.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .navbar-links {
@@ -136,10 +199,38 @@ body {
     height: auto;
     padding: 0.5rem 0;
     width: 100%;
+    font-size: 0.95rem;
   }
+
+  /* Bottone chiusura */
+  .close-btn {
+    position: absolute;
+    bottom: -20px;              /* sporge fuori dal menu */
+    left: 50%;                  /* centrato orizzontalmente */
+    transform: translateX(-50%);
+    width: 45px;
+    height: 45px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000;              /* sopra il menu */
+  }
+
+  .close-btn:hover {
+    background-color: #cc0000;
+  }
+
+ 
 }
 
-}
 
 @media (max-width: 576px) {
   .navbar-brand .gradient-text {

@@ -1,28 +1,52 @@
+.card.h-100 {
+  min-height: 480px; /* adatta in base alla tua esigenza visiva */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .brand-title {
-  font-size: 0.85rem;
+  font-size: 0.75rem; /* più piccolo */
+  margin-bottom: 0.3rem;
 }
 
 .model-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: bold; /* grassetto */
+  margin-bottom: 0.5rem;
 }
 
 .desc-limit {
   max-height: 3.2em;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-style: italic;
+  color: #adb5bd; /* grigio chiaro bootstrap */
+  font-size: 0.85rem;
+}
+
+.img-wrapper {
+  height: 250px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-img-top {
-  width: 100%; /* L'immagine occupa tutta la larghezza della card */
-  height: 200px; /* <--- ALTEZZA FISSA QUI */
-  object-fit: cover; /* Questo è importante! Assicura che l'immagine copra l'area senza distorcersi */
-  /* Se l'immagine è più grande o più piccola, verrà tagliata o ingrandita per riempire lo spazio */
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .card-body {
   background-color: #212529;
   color: white;
+  padding: 0.75rem; /* ridotto */
+  font-size: 0.9rem; /* più compatto */
 }
+
 
 /* BOTTONE CART*/
 
@@ -78,3 +102,15 @@
   border-color: red;
 }
 
+/* BOTTONE VISUALIZZA DI PIù */
+.btn-outline-secondary {
+  font-size: 0.8rem; /* leggermente più piccolo */
+  padding: 0.25rem 0.5rem;
+  color: #adb5bd; /* grigio chiaro */
+  border-color: #adb5bd;
+}
+
+.btn-outline-secondary:hover {
+  color: white;
+  border-color: white;
+}

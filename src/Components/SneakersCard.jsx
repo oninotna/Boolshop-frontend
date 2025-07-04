@@ -13,11 +13,13 @@ export default function SneakersCard({ data }) {
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div className="card h-100 shadow-sm">
-        <img
-          src={data.images[0] }
-          alt={data.model || "modello"}
-          className="card-img-top"
-        />
+        <div className="img-wrapper">
+          <img 
+            src={data.images[0]} 
+            alt={data.model || "modello"} 
+            className="card-img-top" 
+          />
+        </div>
 
         <div className="card-body d-flex flex-column justify-content-between">
           <div>
@@ -36,7 +38,7 @@ export default function SneakersCard({ data }) {
                   <FontAwesomeIcon icon={faCartShopping} />
                 </button>
                 <button
-                  className={`btn btn-sm ${liked ? "liked" : "not-liked"}`}
+                  className={`btn-like btn-sm ${liked ? "liked" : "not-liked"}`}
                   onClick={() => setLiked(!liked)}
                 >
                   <FontAwesomeIcon icon={liked ? faHeartSolid : faHeartRegular} />

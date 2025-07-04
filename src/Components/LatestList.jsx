@@ -12,8 +12,8 @@ export default function LatestList() {
     axios
       .get("http://localhost:3000/sneakers/latest")
       .then((response) => {
-        setSneakers(response.data.results);  
-              
+        setSneakers(response.data.results);
+
         setLoading(false);
       })
       .catch((err) => {
@@ -22,11 +22,14 @@ export default function LatestList() {
         setLoading(false);
       });
   }, []);
- 
+
   return (
     <section className="latest-list">
       <div className="container-fluid">
         <h2 className="latest-title fw-bold">Ultimi arrivi</h2>
+        <p className="latest-subtitle fst-italic text-secondary">
+          Le novità più fresche per i tuoi piedi
+        </p>
 
         {loading && <p>Caricamento...</p>}
         {error && <p className="text-danger">{error}</p>}
@@ -34,7 +37,7 @@ export default function LatestList() {
         {!loading && !error && (
           <div className="row g-3 flex-nowrap">
             {sneakers.map((sneaker) => (
-                <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
+              <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
             ))}
           </div>
         )}

@@ -23,9 +23,12 @@ export default function CheapestList() {
   }, []);
 
   return (
-    <section className="favorites-list">
+    <section className="cheapest-list">
       <div className="container-fluid">
-        <h2 className="favorites-title fw-bold">I più economici</h2>
+        <h2 className="cheapest-title fw-bold">I più economici</h2>
+        <p className="cheapest-subtitle fst-italic text-secondary">
+          La qualità non deve per forza costare troppo
+        </p>
 
         {loading && <p>Caricamento...</p>}
         {error && <p className="text-danger">{error}</p>}
@@ -33,7 +36,7 @@ export default function CheapestList() {
         {!loading && !error && (
           <div className="row g-3 flex-nowrap">
             {sneakers.map((sneaker) => (
-                <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
+              <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
             ))}
           </div>
         )}
