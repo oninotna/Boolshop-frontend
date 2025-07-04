@@ -4,10 +4,27 @@
   padding: 0;
 }
 
-body {
-    color: lime;
+ /* SCROLLBAR VERTICALE */
+/* Per Chrome, Edge, Safari */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll; /* Assicura scroll verticale sempre abilitato */
 }
 
+/* Per Chrome e Safari */
+body::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Per Firefox */
+body {
+  scrollbar-width: none; /* nasconde la scrollbar */
+  -ms-overflow-style: none; /* per vecchi IE/Edge */
+}
+/* ------------------*/
 
 /* NAVBAR */
 .custom-navbar {
