@@ -122,8 +122,8 @@
 /* IMMAGINE*/
 .hero-img-container {
   position: relative;
-  transform: translateX(-10%) rotate(-5deg);  /* Inclinazione e spostamento orizzontale */
-  transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out; /* Animazione fluida */
+  transform: translateX(-10%) rotate(-5deg) scale(1.2); /* Aggiunto scale */
+  transition: transform 0.5s ease-in-out;
 }
 
 .hero-img-container:hover {
