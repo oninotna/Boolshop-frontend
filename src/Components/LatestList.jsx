@@ -33,7 +33,7 @@ export default function LatestList() {
         {error && <p className="text-danger">{error}</p>}
 
         {!loading && !error && (
-          <div className="row g-5 flex-nowrap">
+          <div className="row g-3 flex-nowrap">
             {sneakers.map((sneaker) => (
                 <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
             ))}
