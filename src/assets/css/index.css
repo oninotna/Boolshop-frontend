@@ -4,10 +4,27 @@
   padding: 0;
 }
 
-body {
-    color: lime;
+ /* SCROLLBAR VERTICALE */
+/* Per Chrome, Edge, Safari */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll; /* Assicura scroll verticale sempre abilitato */
 }
 
+/* Per Chrome e Safari */
+body::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Per Firefox */
+body {
+  scrollbar-width: none; /* nasconde la scrollbar */
+  -ms-overflow-style: none; /* per vecchi IE/Edge */
+}
+/* ------------------*/
 
 /* NAVBAR */
 .custom-navbar {
@@ -22,14 +39,6 @@ body {
   align-items: center;
 }
 
-/* .navbar-container {
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -58,7 +67,6 @@ body {
   align-items: center;
   gap: 10px;
   height: 64px;          /* <<< importante: stesso height della navbar */
-  list-style: none;
   margin-bottom: 0;
 }
 
@@ -82,13 +90,6 @@ body {
   object-position: center;
   border-radius: 0.25rem;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
-}
-
-
-/* Generico: stile base */
-.icon-link {
-  color: white;
-  transition: color 0.3s ease;
 }
 
 /* Wishlist: neon pink */
@@ -228,16 +229,30 @@ body {
     background-color: #cc0000;
   }
 
- 
-}
-
-
-@media (max-width: 576px) {
+  /* Nascondi il testo gradient-text nel brand */
   .navbar-brand .gradient-text {
     display: none;
   }
-}
 
+  /* Rendi la searchbar più piccola e compatta */
+  .searchbar-container {
+    flex-grow: 1; /* mantiene flessibilità */
+    max-width: 200px; /* limite larghezza */
+    margin: 0 10px; /* piccolo margine per distanziare */
+  }
+
+  .searchbar-input {
+    padding: 6px 10px;  /* meno padding */
+    font-size: 0.85rem; /* testo più piccolo */
+    border-radius: 15px; /* più piccola e arrotondata */
+  }
+
+  /* Assicura che la navbar sia flex e allinea gli elementi */
+  .custom-navbar {
+    justify-content: space-between;
+  }
+ 
+}
 
 
 
