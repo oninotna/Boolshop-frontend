@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../assets/css/SneakersCard.css";
+import { Link } from "react-router-dom";
 
 // Font Awesome React
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,9 +44,9 @@ export default function CardProvv({  }) {
           </div>
 
           <div className="d-grid mt-3">
-            <a href={`/product/`} className="btn btn-outline-secondary btn-sm">
+            <Link to={`/product/`} className="btn btn-outline-secondary btn-sm">
               Visualizza di più
-            </a>
+            </Link>
           </div>
         </div>
       </div>

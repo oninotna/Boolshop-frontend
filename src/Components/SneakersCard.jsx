@@ -5,6 +5,7 @@ import "../assets/css/SneakersCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function SneakersCard({ data }) {
   const [liked, setLiked] = useState(false);
@@ -44,9 +45,9 @@ export default function SneakersCard({ data }) {
             </div>
 
             <div className="d-grid mt-3">
-              <a href={`/product/${data.id_sneaker}`} className="btn btn-outline-secondary btn-sm">
+              <Link to={`/product/${data.id_sneaker}`} className="btn btn-outline-secondary btn-sm">
                 Visualizza di più
-              </a>
+              </Link>
             </div>
           </div>
         </div>

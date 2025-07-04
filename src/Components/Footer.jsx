@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faInstagram, faXTwitter, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import "../assets/css/Footer.css";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -15,16 +16,16 @@ export default function Footer() {
                 <h5 className="footer-title">Link utili</h5>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="/privacy">Privacy Policy</a>
+                    <Link to="/privacy">Privacy Policy</Link>
                   </li>
                   <li>
-                    <a href="/terms">Termini e condizioni</a>
+                    <Link to="/terms">Termini e condizioni</Link>
                   </li>
                   <li>
-                    <a href="/faq">Domande frequenti</a>
+                    <Link to="/faq">Domande frequenti</Link>
                   </li>
                   <li>
-                    <a href="/support">Supporto</a>
+                    <Link to="/support">Supporto</Link>
                   </li>
                 </ul>
               </div>
@@ -32,16 +33,16 @@ export default function Footer() {
                 <h5 className="footer-title">Mappa del sito</h5>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="/cart">Carrello</a>
+                    <Link to="/cart">Carrello</Link>
                   </li>
                   <li>
-                    <a href="/favorites">Preferiti</a>
+                    <Link to="/favorites">Preferiti</Link>
                   </li>
                   <li>
-                    <a href="/shop">Tutti i prodotti</a>
+                    <Link to="/shop">Tutti i prodotti</Link>
                   </li>
                   <li>
-                    <a href="/account">Il mio profilo</a>
+                    <Link to="/account">Il mio profilo</Link>
                   </li>
                 </ul>
               </div>
@@ -50,18 +51,18 @@ export default function Footer() {
             {/* Sub-row: social icons */}
             <div className="row">
               <div className="col-12 d-flex justify-content-md-start social-icons mt-3">
-                <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                <Link to="https://facebook.com" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faFacebookF} />
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                </Link>
+                <Link to="https://instagram.com" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faInstagram} />
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                </Link>
+                <Link to="https://twitter.com" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faXTwitter} />
-                </a>
-                <a href="https://tiktok.com" target="_blank" rel="noreferrer">
+                </Link>
+                <Link to="https://tiktok.com" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faTiktok} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

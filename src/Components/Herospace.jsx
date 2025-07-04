@@ -1,4 +1,5 @@
 import "../assets/css/Herospace.css";
+import { Link } from "react-router-dom";
 
 export default function Herospace() {
   return (
@@ -49,9 +50,9 @@ export default function Herospace() {
             </p>
             {/* Bottone */}
             <div className="hero-btn-container mt-4 mb-3 w-100">
-              <a href="#" className="hero-btn-modern btn btn-outline-success px-4 py-2">
+              <Link to="#" className="hero-btn-modern btn btn-outline-success px-4 py-2">
                 SCOPRI ORA
-              </a>
+              </Link>
             </div>
           </div>
         </div>
