@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/index.css";
 
 export default function Header() {
@@ -55,6 +56,17 @@ export default function Header() {
               </NavLink>
             </li>
           </ul>
+
+          {/* Bottone chiusura mobile */}
+          <button
+            className="close-btn d-md-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-label="Chiudi menu"
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
         </div>
       </div>
     </nav>
