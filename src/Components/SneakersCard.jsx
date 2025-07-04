@@ -13,7 +13,7 @@ export default function SneakersCard({ data }) {
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div className="card h-100 shadow-sm">
         <img
-          src={data.image }
+          src={data.images[0] }
           alt={data.model || "modello"}
           className="card-img-top"
         />

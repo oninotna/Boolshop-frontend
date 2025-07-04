@@ -5,12 +5,14 @@ import SneakersCard from "../Components/SneakersCard";
 export default function CatalogPage () {
   const [sneakers, setSneakers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   
   useEffect(() => {
     axios
       .get("http://localhost:3000/sneakers")
       .then((response) => {
-        setSneakers(response.data.results);
+        setSneakers(response.data);
+        
         setLoading(false);
       })
       .catch((err) => {
