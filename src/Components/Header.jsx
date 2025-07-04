@@ -8,65 +8,85 @@ import "../assets/css/index.css";
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark custom-navbar">
-      <div className="container-fluid d-flex justify-content-between align-items-center">
-        {/* Logo */}
-        <Link to="/" className="navbar-brand">
-          <img src="/img/logo.png" alt="logo" className="header-logo" />
-        </Link>
+      <div className="container-fluid d-flex align-items-center w-100">
+        {/* Colonna sinistra: logo */}
+        <div className="navbar-brand" style={{ flex: "0 0 20%" }}>
+          <Link to="/" className="brand-link">
+            <img src="/img/logo.png" alt="logo" className="header-logo" />
+            <h1 className="gradient-text">ZneakDrop</h1>
+          </Link>
+        </div>
 
-        {/* Hamburger */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        {/* Colonna centrale: searchbar */}
+        <div
+          className="searchbar-container d-none d-md-flex justify-content-center"
+          style={{ flex: "0 0 60%" }}
         >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <div className="searchbar-wrapper w-100">
+            <input
+              type="text"
+              className="searchbar-input"
+              placeholder="Cerca sneakers..."
+              onFocus={(e) => e.target.classList.add("expanded")}
+              onBlur={(e) => e.target.classList.remove("expanded")}
+            />
+          </div>
+        </div>
 
-        {/* Menu (collapse) */}
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-links d-flex flex-column flex-md-row">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/" end>
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/catalog">
-                Catalogo
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/novelty">
-                Novità
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="icon-link wishlist-icon" to="/wishlist">
-                <FontAwesomeIcon icon={faHeart} />
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="icon-link cart-icon" to="/cart">
-                <FontAwesomeIcon icon={faCartShopping} />
-              </NavLink>
-            </li>
-          </ul>
-
-          {/* Bottone chiusura mobile */}
+        {/* Colonna destra: link/menu */}
+        <div className="d-flex align-items-center justify-content-end" style={{ flex: "0 0 20%" }}>
           <button
-            className="close-btn d-md-none"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
-            aria-label="Chiudi menu"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <FontAwesomeIcon icon={faTimes} />
+            <span className="navbar-toggler-icon"></span>
           </button>
+
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-links d-flex flex-column flex-md-row justify-content-end">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/" end>
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/catalog">
+                  Catalogo
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/novelty">
+                  Novità
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="icon-link wishlist-icon" to="/wishlist">
+                  <FontAwesomeIcon icon={faHeart} />
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="icon-link cart-icon" to="/cart">
+                  <FontAwesomeIcon icon={faCartShopping} />
+                </NavLink>
+              </li>
+            </ul>
+
+            {/* Bottone chiusura mobile */}
+            <button
+              className="close-btn d-md-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-label="Chiudi menu"
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
         </div>
       </div>
     </nav>

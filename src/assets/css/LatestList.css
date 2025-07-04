@@ -1,21 +1,56 @@
 .latest-list {
   background-color: #f8f9fa;
   padding: 3rem 1rem;
-  overflow-x: scroll;
-  /* scrollbar-color: #bfff00 #f8f9fa; */
+  overflow-x: auto;  
   padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
-
-/* .latest-list::-webkit-scrollbar {
-  width: 15px;
-  height: 3px;
-} */
 
 .latest-title {
   color: #212529;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border-left: 6px solid #bfff00;
+  letter-spacing: 3px;
+  border-left: 6px solid #96FC02;
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+  margin-left: 3rem;
+}
+
+.latest-subtitle {
+  font-size: 1rem;
+  color: #6c757d; /* grigio bootstrap */
   padding-left: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+  user-select: none;
+  margin-left: 5rem;
+}
+
+/* Scrollbar personalizzata */
+.latest-list::-webkit-scrollbar {
+  height: 6px;              /* più sottile */
+}
+
+.latest-list::-webkit-scrollbar-track {
+  background: #f8f9fa;
+  border-radius: 3px;
+}
+
+.latest-list::-webkit-scrollbar-thumb {
+  background-color: #96FC02;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  height: 4px; /* prova a diminuire altezza thumb, ma attenzione dipende da contenuto */
+}
+
+.latest-list::-webkit-scrollbar-thumb:hover {
+  height: 8px;   /* "zoom" della thumb su hover */
+  background-color: #96FC02;
+  cursor: pointer;
+}
+
+/* Per Firefox */
+.latest-list {
+  scrollbar-width: thin;
+  scrollbar-color: #96FC02 #f8f9fa;
 }
