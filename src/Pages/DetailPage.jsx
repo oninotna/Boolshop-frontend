@@ -9,6 +9,7 @@ export default function DetailPage () {
     const [sneaker, setSneaker] = useState({});
     const [relatedSneaker, setRelatedSneaker] = useState([]);
     const [sneakerImg, setSneakerImg] = useState([]);
+    const [currentImg, setCurrentImg] = useState();
 
 
     useEffect(() => {
@@ -17,22 +18,22 @@ export default function DetailPage () {
             setSneaker(res.data.sneaker)
             setRelatedSneaker(res.data.sneaker.related)
             setSneakerImg(res.data.sneaker.images)
-            console.log(res.data.sneaker);
-            console.log(res.data.sneaker.related);
-
-            
+            setCurrentImg(res.data.sneaker.images[0])
+            console.log(res.data.sneaker.images);    
         })
-    }, [slug])
+    }, [slug]);
+
     return (
         <div className="container-fluid">
         <h1>{sneaker.brand} {sneaker.model}</h1>
         <div className="container my-5">
-      <h1 className="mb-4 text-white">{sneaker.model}</h1>
+            <div className="row">
       <img
-        src={sneakerImg[0]}
+        src={currentImg || sneakerImg[0]}
         alt=""
         className="img-fluid mb-4 w-50"
       />
+      <div className="col-4">
       <p>
         <strong className="text-danger">Prezzo:</strong> {sneaker.price}
       </p>
@@ -45,7 +46,12 @@ export default function DetailPage () {
       <p>
         <strong className="text-danger">Descrzione:</strong> {sneaker.description}
       </p>
-        <div className="row justify-content-center">
+      </div>
+      </div>
+      {sneakerImg.map((img, index) => (
+        <img className="all-img me-3" src={img} onClick={() => setCurrentImg(img)} key={index} />
+      ))}
+        <div className="row justify-content-center my-5">
         {relatedSneaker.map(rel => <SneakersCard data={rel} key={rel.id_sneaker} />)}
         </div>
         </div>
