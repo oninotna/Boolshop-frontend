@@ -102,6 +102,13 @@ body {
   }
 }
 
+@media (max-width: 576px) {
+  .navbar-brand .gradient-text {
+    display: none;
+  }
+}
+
+
 
 
 
