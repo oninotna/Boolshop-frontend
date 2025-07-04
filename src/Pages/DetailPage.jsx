@@ -19,8 +19,7 @@ export default function DetailPage () {
             setRelatedSneaker(res.data.sneaker.related)
             setSneakerImg(res.data.sneaker.images)
             setCurrentImg(res.data.sneaker.images[0])
-            console.log(res.data.sneaker.images);    
-        })
+        });
     }, [slug]);
 
     return (
