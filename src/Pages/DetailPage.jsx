@@ -8,12 +8,15 @@ export default function DetailPage () {
     const {slug} = useParams()
     const [sneaker, setSneaker] = useState({});
     const [relatedSneaker, setRelatedSneaker] = useState([]);
+    const [sneakerImg, setSneakerImg] = useState([]);
+
 
     useEffect(() => {
         axios.get(`http://localhost:3000/sneakers/${slug}`)
         .then((res) => {
             setSneaker(res.data.sneaker)
             setRelatedSneaker(res.data.sneaker.related)
+            setSneakerImg(res.data.sneaker.images)
             console.log(res.data.sneaker);
             console.log(res.data.sneaker.related);
 
@@ -26,7 +29,7 @@ export default function DetailPage () {
         <div className="container my-5">
       <h1 className="mb-4 text-white">{sneaker.model}</h1>
       <img
-        src={sneaker.images[0]}
+        src={sneakerImg[0]}
         alt=""
         className="img-fluid mb-4 w-50"
       />
