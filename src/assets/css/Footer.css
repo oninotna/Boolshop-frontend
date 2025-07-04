@@ -1,5 +1,5 @@
 .footer-custom {
-  background-color: #CACACC;
+  background-color: #333333;
   color: #f8f9fa;
   font-size: 0.95rem;
   overflow: hidden;
@@ -53,4 +53,8 @@
 
 .social-icons a:hover {
   color: #bfff00;
+}
+
+.row .social-icons {
+  padding-bottom: 20px;
 }

@@ -65,7 +65,7 @@ export default function Header() {
     //   </div>
     // </nav>
 
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark sticky-top custom-navbar">
+    <nav className="navbar navbar-expand-md navbar-dark sticky-top custom-navbar">
       <div className="container-fluid navbar-brand">
         {/* Logo */}
         <Link to="/" className="gradient-text">

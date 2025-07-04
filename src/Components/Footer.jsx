@@ -49,7 +49,7 @@ export default function Footer() {
 
             {/* Sub-row: social icons */}
             <div className="row">
-              <div className="col-12 d-flex justify-content-center justify-content-md-start social-icons mt-3">
+              <div className="col-12 d-flex justify-content-md-start social-icons mt-3">
                 <a href="https://facebook.com" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faFacebookF} />
                 </a>
@@ -71,6 +71,10 @@ export default function Footer() {
             <img src="/img/logo(19).jpg" alt="Logo BoolSneakers" className="footer-logo" />
           </div>
         </div>
+      </div>
+
+      <div className="footer-bottom text-center py-3">
+        <small>© 2025 ZneakDrop. Tutti i diritti riservati.</small>
       </div>
     </footer>
   );
