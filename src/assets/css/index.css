@@ -95,6 +95,14 @@ body {
     color: #39FF14;
 }
 
+.all-img {
+  height: 150px;
+  width: 150px;
+}
+
+
+/* media query */
+
 @media (max-width: 768px) {
   .header-logo {
     height: 3.2rem;
