@@ -22,7 +22,7 @@ export default function DetailPage () {
 
             
         })
-    }, [])
+    }, [slug])
     return (
         <div className="container-fluid">
         <h1>{sneaker.brand} {sneaker.model}</h1>
