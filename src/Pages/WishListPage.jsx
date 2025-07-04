@@ -1,6 +1,11 @@
-export default function WishListPage () {
+import SneakersCard from "../Components/SneakersCard";
+import { useWishList } from "../Contexts/WishListContext";
 
-    return (
-        <h1>sono la wishlist</h1>
-    );
-};
+export default function WishListPage() {
+  const { wishList } = useWishList();
+  return wishList.length ? (
+    wishList.map((wish, index) => <SneakersCard data={wish} key={index} />)
+  ) : (
+    <h1>La tua lista è vuota</h1>
+  );
+}
