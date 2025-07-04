@@ -10,10 +10,10 @@ export default function SneakersCard({ data }) {
   const [liked, setLiked] = useState(false);
 
   return (
-    <div className="col-3">
+    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div className="card h-100 shadow-sm">
         <img
-          src={data.image || "https://via.placeholder.com/300x200?text=Sneaker"}
+          src={data.image }
           alt={data.model || "modello"}
           className="card-img-top"
         />
