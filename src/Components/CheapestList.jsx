@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SneakersCard from "./SneakersCard";
 import "../assets/css/CheapestList.css";
+import { useCart } from "../Contexts/CartContext";
 
 export default function CheapestList() {
   const [sneakers, setSneakers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
 
   useEffect(() => {
     axios

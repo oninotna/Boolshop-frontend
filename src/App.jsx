@@ -6,12 +6,14 @@ import NoveltyPage from "./Pages/NoveltyPage";
 import WishListPage from "./Pages/WishListPage";
 import CartPage from "./Pages/CartPage";
 import DetailPage from "./Pages/DetailPage";
+import { CartProvider } from "./Contexts/CartContext";
 
 
 export default function App() {
 
   return (
     <>
+    <CartProvider>
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
@@ -24,6 +26,7 @@ export default function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+    </CartProvider>
     </>
   );
 };

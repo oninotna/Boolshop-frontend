@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCart } from "../Contexts/CartContext";
 
 const defaultOrder = {
   name: "",
@@ -11,6 +12,9 @@ const defaultOrder = {
 
 export default function CartPage() {
   const [order, setOrder] = useState(defaultOrder);
+  const cart = useCart();
+
+
 
   const sendForm = () => {
         axios.post(`http://localhost:3000/sneakers/checkout`, order)
@@ -34,6 +38,7 @@ export default function CartPage() {
 
   return (
     <div>
+      {JSON.stringify(cart)}
       <h1>Procedi al checkout</h1>
       <form className="row" onSubmit={handleSubmit}>
         <div className="col-4">
@@ -82,7 +87,7 @@ export default function CartPage() {
                     type="email"
                     id="email" 
                     name="email"
-                    value={order.address}
+                    value={order.email}
                     onChange={handleInputChange}
                     required/>
                 </div>
