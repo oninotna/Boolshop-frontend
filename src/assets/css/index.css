@@ -57,14 +57,14 @@ body {
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 1rem;
-  display: flex;               /* permette allineamento interno */
-  align-items: center;         /* centra l'icona o il testo verticalmente */
-  height: 100%;                /* occupano tutta l'altezza del genitore */
+  display: flex;               
+  align-items: center;         
+  height: 100%;              
   padding: 0 8px;
 }
 
 .header-logo {
-  height: 5rem;               /* Adatta alla navbar da 80px */
+  height: 5rem;        
   max-width: 140px;
   width: auto;
   object-fit: contain;
@@ -100,6 +100,37 @@ body {
     height: 3.2rem;
     max-width: 100px;
   }
+
+  .navbar-brand .gradient-text {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.95); /* Sfondo scuro come la navbar */
+    padding: 1rem;
+    position: absolute;
+    top: 80px; /* esattamente sotto la navbar */
+    right: 0;
+    left: 0;
+    z-index: 998;
+  }
+
+  .navbar-links {
+    flex-direction: column !important;
+    align-items: flex-end;
+    gap: 1rem;
+    height: auto;
+  }
+
+  .navbar-links .nav-link,
+  .navbar-links .icon-link {
+    height: auto;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+}
+
 }
 
 @media (max-width: 576px) {
