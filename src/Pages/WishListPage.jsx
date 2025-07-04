@@ -3,9 +3,16 @@ import { useWishList } from "../Contexts/WishListContext";
 
 export default function WishListPage() {
   const { wishList } = useWishList();
-  return wishList.length ? (
-    wishList.map((wish, index) => <SneakersCard data={wish} key={index} />)
+
+  return (
+    wishList.length ? (
+      <div className="container">
+    <h1 className="my-3 text-center">La tua lista dei desideri</h1>
+    <div className="row">
+    {wishList.map((wish, index) => <SneakersCard data={wish} key={index} />)}
+    </div>
+    </div>
   ) : (
-    <h1>La tua lista è vuota</h1>
-  );
+    <h1 className="my-3 text-center">La tua lista dei desideri è vuota</h1>
+  ));
 }
