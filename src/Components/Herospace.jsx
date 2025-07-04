@@ -17,7 +17,7 @@ export default function Herospace() {
             {/* Badge */}
             <div className="hero-badge mt-3">SCOPRI LA NOVITÀ</div>
             {/* Titolo */}
-            <h1 className="hero-title-gradient mb-3">Nike Air Max 90</h1>
+            <h1 className="hero-title-gradient mb-3">Nike Air Force 1</h1>
             <p className="hero-subtitle">
               Dove il futuro incontra lo streetwear. Scopri la nuova collezione che ridefinisce il
               lusso urbano.
