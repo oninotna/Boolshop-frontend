@@ -49,58 +49,46 @@
 
 
 /* BOTTONE CART*/
-
+/* Carrello */
 .btn-cart {
-  background: transparent;
-  border: 1px solid white;
+  background-color: #343a40;
   color: white;
-  padding: 0.25rem 0.5rem;
-  font-size: 1.25rem;
+  border: none;
+  padding: 8px 12px;
+  transition: all 0.2s ease-in-out;
   border-radius: 4px;
-  cursor: pointer;
-  transition: color 0.3s, border-color 0.3s;
 }
 
 .btn-cart:hover {
-  color: #00FFFF;      /* neon cyan per l'icona */
-  border-color: #00FFFF;
-  background: transparent; /* niente sfondo */
+  background-color: #212529;
 }
 
-
-/*BOTTONE WISHLIST*/
-
-.btn-sm {
-  padding: 0.25rem 0.5rem;
-  font-size: 1.25rem; /* più grande per l'icona */
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.liked {
-  color: rgb(255, 0, 0);
+/* Wishlist */
+.btn-like {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #ff0019;
+  padding: 8px 12px;
+  transition: all 0.2s ease-in-out;
   border-radius: 4px;
-  background: transparent;
-  transition: color 0.3s, border-color 0.3s;
 }
 
-.liked:hover {
-  color: red;
-  border-color: red;
-}
-
-.not-liked {
+.btn-like.liked {
+  background-color: #ff0019;
   color: white;
-  border-radius: 4px;
-  background: transparent;
-  transition: color 0.3s, border-color 0.3s;
+  border-color: #ff0019;
 }
 
-.not-liked:hover {
-  color: red;
-  border-color: red;
+.btn-like:hover {
+  opacity: 0.9;
 }
+
+/* Dropdown error */
+select.border-danger {
+  border-color: #ff0019 !important;
+  box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.25);
+}
+
 
 /* BOTTONE VISUALIZZA DI PIù */
 .btn-outline-secondary {

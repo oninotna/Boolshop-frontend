@@ -16,8 +16,8 @@ export default function Header() {
         </div>
 
         {/* Colonna centrale: searchbar */}
-        <div class="searchbar-container">
-          <div class="searchbar-wrapper">
+        <div className="searchbar-container">
+          <div className="searchbar-wrapper">
             <input
               type="text"
               className="searchbar-input"
