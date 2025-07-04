@@ -13,7 +13,6 @@ export default function LatestList() {
       .get("http://localhost:3000/sneakers/latest")
       .then((response) => {
         setSneakers(response.data.results);  
-        console.log(response.data.results);
               
         setLoading(false);
       })

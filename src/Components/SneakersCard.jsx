@@ -45,7 +45,7 @@ export default function SneakersCard({ data }) {
             </div>
 
             <div className="d-grid mt-3">
-              <Link to={`/product/${data.id_sneaker}`} className="btn btn-outline-secondary btn-sm">
+              <Link to={`/detailpage/${data.slug}`} className="btn btn-outline-secondary btn-sm">
                 Visualizza di più
               </Link>
             </div>
