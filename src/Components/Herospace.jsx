@@ -28,36 +28,33 @@ export default function Herospace() {
     // </section>
 
     <section className="hero-custom position-relative d-flex flex-column">
-      {/* Badge centrato in alto */}
-      <div className="hero-badge position-absolute top-0 start-50 translate-middle-x mt-3 z-3">
-        SCOPRI LA NOVITÀ
-      </div>
-
-      {/* Immagine + testi */}
+      {/* Immagine */}
       <div className="container flex-grow-1 d-flex align-items-center">
         <div className="row w-100 align-items-center">
-          <div className="col-md-6 d-none d-md-block">
+          <div className="col-md-6 d-none d-md-block hero-img-container">
             <img
-              src="/img/your-hero-image.jpg"
+              src="/img/nike_air_max_90.jpg"
               alt="Sneaker preview"
               className="img-fluid h-100 w-100 object-fit-cover"
             />
           </div>
           <div className="col-12 col-md-6 text-center text-md-end text-white">
+            {/* Badge */}
+            <div className="hero-badge mt-3">SCOPRI LA NOVITÀ</div>
+            {/* Titolo */}
             <h1 className="hero-title-gradient mb-3">Nike Air Max 90</h1>
             <p className="hero-subtitle">
               Dove il futuro incontra lo streetwear. Scopri la nuova collezione che ridefinisce il
               lusso urbano.
             </p>
+            {/* Bottone */}
+            <div className="hero-btn-container mt-4 mb-3 w-100">
+              <a href="#" className="hero-btn-modern btn btn-outline-success px-4 py-2">
+                SCOPRI ORA
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottone centrato in basso */}
-      <div className="text-center mt-4 position-absolute bottom-0 start-50 translate-middle-x mb-3 w-100">
-        <a href="#" className="hero-btn-modern btn btn-outline-success px-4 py-2">
-          SCOPRI ORA
-        </a>
       </div>
     </section>
   );

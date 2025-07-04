@@ -66,13 +66,14 @@ export default function Header() {
     // </nav>
 
     <nav className="navbar navbar-expand-md navbar-dark sticky-top custom-navbar">
-      <div className="container-fluid navbar-brand">
-        {/* Logo */}
-        <Link to="/" className="gradient-text">
-          ZneakDrop
+      <div className="container-fluid">
+        {/* LOGO */}
+        <Link to="/" className="navbar-brand">
+          <img src="./img/logo.png" alt="logo" className="header-logo" />
+          <span className="navbar-brand gradient-text">ZneakDrop</span>
         </Link>
 
-        {/* Bottone hamburger */}
+        {/* HAMBURGER */}
         <button
           className="navbar-toggler"
           type="button"
@@ -85,7 +86,7 @@ export default function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Link navigazione */}
+        {/* NAVIGATION LINKS */}
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-links align-items-center">
             <li className="nav-item">

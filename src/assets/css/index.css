@@ -17,10 +17,9 @@ body {
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid #1f1f1f;
-  height: 64px;
+  height: 80px;
   display: flex;
   align-items: center;
-  height: 64px;
 }
 
 /* .navbar-container {
@@ -33,11 +32,11 @@ body {
 } */
 
 .navbar-brand .gradient-text {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  background: linear-gradient(90deg, #39FF14, #f3f7f7);
-  background-clip: text;             /* Standard – per futuro supporto */
-  -webkit-background-clip: text;     /* Compatibilità con WebKit (Chrome, Safari) */
+  background: linear-gradient(90deg, #94FB01, #f3f7f7);
+  background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
 }
@@ -64,6 +63,16 @@ body {
   padding: 0 8px;
 }
 
+.header-logo {
+  height: 5rem;               /* Adatta alla navbar da 80px */
+  max-width: 140px;
+  width: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0.25rem;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
+}
+
 
 /* Generico: stile base */
 .icon-link {
@@ -85,6 +94,20 @@ body {
 .nav-link:hover {
     color: #39FF14;
 }
+
+@media (max-width: 768px) {
+  .header-logo {
+    height: 3.2rem;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand .gradient-text {
+    display: none;
+  }
+}
+
 
 
 

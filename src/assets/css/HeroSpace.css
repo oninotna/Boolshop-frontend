@@ -1,54 +1,3 @@
-/* .hero-custom {
-  background-color: #212529;
-  padding: 4rem 1rem;
-}
-
-.hero-img {
-  max-height: 320px;
-  transform: rotate(-4deg);
-}
-
-.hero-title {
-  text-shadow: 2px 2px 4px #aaff00;  
-  font-size: 3rem;
-  font-weight: 700;
-}
-
-.hero-title,
-.hero-brand,
-.hero-model {
-    color: white;
-}
-
-.hero-brand {
-  font-size: 1rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.hero-model {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.hero-btn {
-  border: 2px solid #aaff00;
-  box-shadow: 1.5px 1.5px 3px #aaff00;
-  color: #aaff00;
-  font-size: 0.9rem;
-  padding: 0.4rem 1.5rem;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-.hero-btn:hover {
-  background-color: white;
-  color: #212529;
-  border: 2px solid #aaff00;
-  cursor: pointer;
-} */
-
 .hero-custom {
   position: relative;
   height: 80vh;
@@ -58,7 +7,19 @@
   justify-content: center;
   background-color: black;
   flex-direction: column;
+  animation: fadeInUp 1s ease-out; /* animazione fade-in */
   /* flex-grow per spingere il contenuto a occupare lo spazio tra badge e bottone */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-background {
@@ -72,7 +33,6 @@
 }
 
 .hero-overlay {
-.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -82,13 +42,13 @@
   opacity: 0.35; /* meno scuro */
   z-index: 1;
 }
-}
 
 .hero-content {
   position: relative;
   z-index: 2;
 }
 
+/*BADGE*/
 .hero-badge {
   display: inline-block;
   padding: 8px 16px;
@@ -99,15 +59,33 @@
   font-size: 0.875rem;
   font-weight: 500;
   z-index: 10;
-  margin-bottom: 10px;
+  margin-bottom: 16px;  /* Distanza tra badge e titolo */
+  
+  /* Allineamento badge */
+  margin-left: 0;
+  margin-right: auto;  /* Per allineare a sinistra */
+  text-align: left;   /* Allinea il testo a sinistra */
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+/*TITOLO E SOTTOTITOLO*/
 .hero-title-gradient {
   font-size: 3rem;
   font-weight: bold;
   color: white;
-  text-align: right;
+  text-align: right; 
   margin-bottom: 24px;
 }
 
@@ -115,11 +93,11 @@
   font-size: 1.25rem;
   color: #cccccc;
   max-width: 700px;
-  margin-left: auto;
-  margin-right: 0;
+  margin-left: 0;
   text-align: right;
 }
 
+/* Stile per il bottone */
 .hero-btn-modern {
   display: inline-block;
   padding: 14px 32px;
@@ -130,29 +108,98 @@
   border: none;
   border-radius: 6px;
   text-decoration: none;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.hero-btn-modern:hover {
-  box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
-  transform: translateY(-2px);
-}
-
-
-
-
-
-
-.hero-btn-modern {
-  font-weight: bold;
-  font-size: 1.1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  transition: box-shadow 0.3s ease, transform 0.2s ease, background 0.3s ease;
   z-index: 10;
 }
 
+/* Effetto hover per il bottone */
 .hero-btn-modern:hover {
   box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
   transform: translateY(-2px);
+  background: linear-gradient(to right, #39FF14, #00FF7F);
+}
+
+/* IMMAGINE*/
+.hero-img-container {
+  position: relative;
+  transform: translateX(-10%) rotate(-5deg);  /* Inclinazione e spostamento orizzontale */
+  transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out; /* Animazione fluida */
+}
+
+.hero-img-container:hover {
+  transform: translateX(-12%) rotate(-6deg) scale(1.1); /* Zoom e inclinazione al passaggio del mouse */
+}
+
+.hero-img-container img {
+  filter: blur(0px); /* Nessun blur di default */
+  transition: filter 0.3s ease-in-out;  /* Animazione fluida */
+}
+
+@media (max-width: 576px) {
+  .hero-title-gradient {
+    font-size: 2rem; /* Riduci ulteriormente su schermi molto piccoli */
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .hero-btn-container {
+    width: auto;
+    margin: 0 auto; /* Centra il bottone */
+    text-align: center;
+  }
+
+  .hero-btn-modern {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title-gradient {
+    font-size: 2.5rem;  /* Riduci la dimensione del titolo sui dispositivi più piccoli */
+    text-align: center; /* Centra il titolo su schermi piccoli */
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    text-align: center; /* Centra il sottotitolo su dispositivi piccoli */
+  }
+
+.hero-badge {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 0;
+  }
+
+  .hero-btn-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-btn-modern {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+    .hero-img-container {
+    transform: translateX(0) rotate(0deg); /* Rimuovi inclinazione su schermi piccoli */
+  }
+
+  .hero-img-container:hover {
+    transform: scale(1.05); /* Zoom meno invasivo sui dispositivi mobili */
+  }
+}
+
+
+/* Schermi medi (min-width: 992px) */
+@media (min-width: 992px) {
+  .hero-btn-modern {
+    padding: 16px 40px;
+    font-size: 1.2rem;
+  }
+
 }
