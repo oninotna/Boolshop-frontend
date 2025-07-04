@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCart } from "../Contexts/CartContext";
 import "../assets/css/SneakersCard.css";
 
 // Font Awesome React
@@ -9,6 +10,7 @@ import { Link, NavLink } from "react-router-dom";
 
 export default function SneakersCard({ data }) {
   const [liked, setLiked] = useState(false);
+  const {addToCart} = useCart();
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -34,7 +36,7 @@ export default function SneakersCard({ data }) {
             <div className="d-flex justify-content-between align-items-center">
               <span className="fw-bold text-dark">€{data.price}</span>
               <div className="d-flex gap-2">
-                <button className="btn btn-sm btn-cart">
+                <button className="btn btn-sm btn-cart" onClick={() => addToCart(data)}>
                   <FontAwesomeIcon icon={faCartShopping} />
                 </button>
                 <button
