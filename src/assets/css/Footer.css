@@ -24,10 +24,11 @@
 
 .footer-logo {
   height: 15rem;           /* Altezza forzata */
-  width: 100%;             /* Occupa tutta la colonna */
-  object-fit: cover;       /* Ritaglia i bordi per riempire */
+  width: 115%;             /* Occupa tutta la colonna */
+  object-fit: none;       /* Ritaglia i bordi per riempire */
   object-position: center; /* Centra il ritaglio */
   border-radius: 0.25rem;  /* Opzionale: angoli leggermente arrotondati */
+  filter: drop-shadow(0 15px 2px rgba(0, 0, 0, 0.9));
 }
 
 .footer-custom .row {
