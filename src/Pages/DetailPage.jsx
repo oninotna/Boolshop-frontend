@@ -48,8 +48,9 @@ export default function DetailPage () {
       </div>
       </div>
       {sneakerImg.map((img, index) => (
-        <img className="all-img me-3" src={img} onClick={() => setCurrentImg(img)} key={index} />
+        <img className="all-img me-3 mb-5" src={img} onClick={() => setCurrentImg(img)} key={index} />
       ))}
+      <h1>Prodotti correlati</h1>
         <div className="row justify-content-center my-5">
         {relatedSneaker.map(rel => <SneakersCard data={rel} key={rel.id_sneaker} />)}
         </div>
