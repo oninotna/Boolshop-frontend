@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SneakersCard from "../Components/SneakersCard";
+import "../assets/css/index.css";
 
-export default function CatalogPage () {
+export default function CatalogPage() {
   const [sneakers, setSneakers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/sneakers")
       .then((response) => {
         setSneakers(response.data);
-        
+
         setLoading(false);
       })
       .catch((err) => {
@@ -22,20 +23,23 @@ export default function CatalogPage () {
       });
   }, []);
 
-    return (
-      <div className="container-fluid">
-        <h1 className="my-3 text-center">sono la pagina dei prodotti</h1>
+  return (
+    <div className="container-fluid">
+      <h2 className="latest-title fw-bold mt-5">Il nostro catalogo</h2>
+      <p className="latest-subtitle fst-italic text-secondary mb-5">
+        Scopri tutti i nostri prodotti
+      </p>
 
-        {loading && <p>Caricamento...</p>}
-        {error && <p className="text-danger">{error}</p>}
+      {loading && <p>Caricamento...</p>}
+      {error && <p className="text-danger">{error}</p>}
 
-        {!loading && !error && (
+      {!loading && !error && (
         <div className="row g-3">
           {sneakers.map((sneaker) => (
             <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
           ))}
         </div>
-        )}
-      </div>
-    );
-};
+      )}
+    </div>
+  );
+}
