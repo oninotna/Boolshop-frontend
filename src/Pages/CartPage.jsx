@@ -31,7 +31,8 @@ export default function CartPage() {
       ...order,
       items: cart || [],
     };
-
+    console.log(orderWithItems);
+    
     axios
       .post(`http://localhost:3000/sneakers/checkout`, orderWithItems)
       .then((res) => {
@@ -74,12 +75,12 @@ export default function CartPage() {
               {cart.map((item, index) => (
                 <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
                   {/* Immagine prodotto */}
-                  <img src={item.image} alt={item.model} width="100" className="me-3 rounded" />
+                  <img src={item.images[0]} alt={item.model} width="100" className="me-3 rounded" />
 
                   {/* Dettagli del prodotto */}
                   <div className="flex-grow-1">
                     <Link
-                      to={`/product/${item.id}`}
+                      to={`/detailpage/${item.slug}`}
                       className="fw-bold text-dark text-decoration-none"
                     >
                       {item.brand} - {item.model}

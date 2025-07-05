@@ -17,7 +17,7 @@ export default function SneakersCard({ data }) {
 
         <div className="card-body d-flex flex-column justify-content-between">
           <div>
-            <h6 className="text-muted mb-1 brand-title">{data.brand}</h6>
+            <h6 className="mb-1 brand-title">{data.brand}</h6>
             <h5 className="mb-2 fw-semibold model-title">{data.model}</h5>
             <p className="card-text desc-limit">
               {data.description || "Modello esclusivo e versatile per ogni occasione."}
@@ -28,9 +28,9 @@ export default function SneakersCard({ data }) {
             <div className="d-flex justify-content-between align-items-center">
               <span className="fw-bold text-dark">€{data.price}</span>
               <div className="d-flex gap-2">
-                <button className="btn btn-sm btn-cart" onClick={() => addToCart(data)}>
+                {/* <button className="btn btn-sm btn-cart" onClick={() => addToCart(data)}>
                   <FontAwesomeIcon icon={faCartShopping} />
-                </button>
+                </button> */}
                 <LikeButton sneaker={data} />
               </div>
             </div>

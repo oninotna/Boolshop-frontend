@@ -51,6 +51,8 @@ export default function DetailPage() {
     }
     setErrorSize(false);
     addToCart({ ...sneaker, size: selectedSize, quantity: selectedQty });
+    console.log(sneaker);
+    
     alert("Prodotto aggiunto al carrello!");
   };
 
