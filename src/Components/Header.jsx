@@ -45,27 +45,47 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-links d-flex flex-column flex-md-row justify-content-end">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/" end>
+                <NavLink
+                  to="/"
+                  end
+                  className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/catalog">
+                <NavLink
+                  to="/catalog"
+                  className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
+                >
                   Catalogo
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/novelty">
+                <NavLink
+                  to="/novelty"
+                  className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
+                >
                   Novità
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="icon-link wishlist-icon" to="/wishlist">
+                <NavLink
+                  to="/wishlist"
+                  className={({ isActive }) =>
+                    "icon-link wishlist-icon" + (isActive ? " active-link" : "")
+                  }
+                >
                   <FontAwesomeIcon icon={faHeart} />
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="icon-link cart-icon" to="/cart">
+                <NavLink
+                  to="/cart"
+                  className={({ isActive }) =>
+                    "icon-link cart-icon" + (isActive ? " active-link" : "")
+                  }
+                >
                   <FontAwesomeIcon icon={faCartShopping} />
                 </NavLink>
               </li>

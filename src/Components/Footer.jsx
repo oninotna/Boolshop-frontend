@@ -8,41 +8,40 @@ export default function Footer() {
     <footer className="footer-custom text-light overflow-hidden">
       <div className="container py-5">
         <div className="row">
-          {/* COLONNA SINISTRA – 8/12 = Link + Mappa + Social */}
+          
+          {/* LINK UTILI - AL MOMENTO PORTANO TUTTI ALLA HOME*/}
           <div className="col-12 col-md-8">
-            {/* Sub-row: link + mappa */}
             <div className="row">
               <div className="col-12 col-md-6 mb-4">
                 <h5 className="footer-title">Link utili</h5>
-                <ul className="list-unstyled">
+                <ul>
                   <li>
-                    <Link to="/privacy">Privacy Policy</Link>
+                    <a href="/">Privacy Policy</a>
                   </li>
                   <li>
-                    <Link to="/terms">Termini e condizioni</Link>
+                    <a href="/">Termini e condizioni</a>
                   </li>
                   <li>
-                    <Link to="/faq">Domande frequenti</Link>
+                    <a href="/">Domande frequenti</a>
                   </li>
                   <li>
-                    <Link to="/support">Supporto</Link>
+                    <a href="/">Supporto</a>
                   </li>
                 </ul>
               </div>
+
+              {/* MAPPA SITO */}
               <div className="col-12 col-md-6 mb-4">
                 <h5 className="footer-title">Mappa del sito</h5>
-                <ul className="list-unstyled">
+                <ul>
                   <li>
-                    <Link to="/cart">Carrello</Link>
+                    <a href="/cart">Carrello</a>
                   </li>
                   <li>
-                    <Link to="/favorites">Preferiti</Link>
+                    <a href="/wishlist">Preferiti</a>
                   </li>
                   <li>
-                    <Link to="/shop">Tutti i prodotti</Link>
-                  </li>
-                  <li>
-                    <Link to="/account">Il mio profilo</Link>
+                    <a href="/catalog">Tutti i prodotti</a>
                   </li>
                 </ul>
               </div>
