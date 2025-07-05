@@ -8,10 +8,12 @@ import CartPage from "./Pages/CartPage";
 import DetailPage from "./Pages/DetailPage";
 import { CartProvider } from "./Contexts/CartContext";
 import { WishListProvider } from "./Contexts/WishListContext";
+import { SearchProvider } from "./Contexts/SearchContext";
 
 export default function App() {
   return (
     <>
+    <SearchProvider>
       <WishListProvider>
         <CartProvider>
           <BrowserRouter>
@@ -28,6 +30,7 @@ export default function App() {
           </BrowserRouter>
         </CartProvider>
       </WishListProvider>
+    </SearchProvider>
     </>
   );
 }
