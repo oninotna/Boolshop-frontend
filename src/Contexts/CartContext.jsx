@@ -1,14 +1,14 @@
 import { createContext, useContext, useState } from "react";
 
-//* CREA IL CONTESTO DEL CARRELLO
+
 const CartContext = createContext();
 
-//* PROVIDER DEL CARRELLO CHE AVVOLGE L'APP
+
 function CartProvider({ children }) {
-  //* STATO PER TENERE GLI ARTICOLI NEL CARRELLO
+
   const [cart, setCart] = useState([]);
 
-  //* FUNZIONE PER AGGIUNGERE UN ARTICOLO AL CARRELLO
+
   const addToCart = (data) => {
     // Cerca se esiste già l'articolo (per esempio con id e taglia)
     const index = cart.findIndex((item) => item.id === data.id && item.size === data.size);
@@ -20,6 +20,8 @@ function CartProvider({ children }) {
     } else {
       // Altrimenti aggiungi nuovo articolo
       setCart([...cart, { ...data, quantity: data.quantity || 1 }]);
+      console.log(data);
+      
     }
   };
   //* FUNZIONE PER RIMUOVERE UN ARTICOLO AL CARRELLO

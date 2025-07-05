@@ -34,7 +34,7 @@ export default function CartPage() {
     console.log(orderWithItems);
     
     axios
-      .post(`http://localhost:3000/sneakers/checkout`, orderWithItems)
+      .post(`http://localhost:3000/sneakers/checkoutdata`, orderWithItems)
       .then((res) => {
         if (res.status === 201) {
           setOrder(defaultOrder);
