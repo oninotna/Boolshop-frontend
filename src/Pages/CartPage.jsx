@@ -1,151 +1,10 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-// import { useCart } from "../Contexts/CartContext";
-// import "../assets/css/index.css";
-
-// const defaultOrder = {
-//   name: "",
-//   surname: "",
-//   address: "",
-//   phone: "",
-//   email: "",
-//   items: [],
-// };
-
-// export default function CartPage() {
-//   const [order, setOrder] = useState(defaultOrder);
-//   const [sneakers, setSneakers] = useState([]);
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState("");
-//   const cart = useCart();
-
-//   const sendForm = () => {
-//     axios
-//       .post(`http://localhost:3000/sneakers/checkout`, order)
-//       .then((res) => {
-//         if (res.status == 201) setOrder(defaultOrder);
-//       })
-//       .catch((err) => console.error(err.message));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     sendForm();
-//   };
-
-//   const handleInputChange = (e) => {
-//     setOrder({
-//       ...order,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-
-//   return (
-//     <>
-//       {JSON.stringify(cart)}
-//       <section className="related-list">
-//         <div className="container-fluid">
-//           <h2 className="latest-title fw-bold">Il tuo carrello</h2>
-//           <p className="latest-subtitle fst-italic text-secondary">Procedi al checkout</p>
-//           <form className="row" onSubmit={handleSubmit}>
-//             <div className="col-4">
-//               <label htmlFor="name">Nome</label>
-//               <input
-//                 className="form-control"
-//                 type="text"
-//                 id="name"
-//                 name="name"
-//                 value={order.name}
-//                 onChange={handleInputChange}
-//                 required
-//               />
-//             </div>
-//             <div className="col-4">
-//               <label htmlFor="surname">Cognome</label>
-//               <input
-//                 className="form-control"
-//                 type="text"
-//                 id="surname"
-//                 name="surname"
-//                 value={order.surname}
-//                 onChange={handleInputChange}
-//                 required
-//               />
-//             </div>
-//             <div className="col-4">
-//               <label htmlFor="address">Indirizzo</label>
-//               <input
-//                 className="form-control"
-//                 type="text"
-//                 id="address"
-//                 name="address"
-//                 value={order.address}
-//                 onChange={handleInputChange}
-//                 required
-//               />
-//             </div>
-//             <div className="col-4">
-//               <label htmlFor="phone">Numero di telefono</label>
-//               <input
-//                 className="form-control"
-//                 type="number"
-//                 id="phone"
-//                 name="phone"
-//                 value={order.phone}
-//                 onChange={handleInputChange}
-//                 required
-//               />
-//             </div>
-//             <div className="col-4">
-//               <label htmlFor="email">Email</label>
-//               <input
-//                 className="form-control"
-//                 type="email"
-//                 id="email"
-//                 name="email"
-//                 value={order.email}
-//                 onChange={handleInputChange}
-//                 required
-//               />
-//             </div>
-//             <div className="col-4 mt-3 text-end">
-//               <button className="btn btn-secondary" type="submit">
-//                 Procedi al checkout
-//               </button>
-//             </div>
-//           </form>
-//         </div>
-//       </section>
-
-//       <section className="latest-list">
-//         <div className="container-fluid">
-//           <h2 className="latest-title fw-bold">Ultimi arrivi</h2>
-//           <p className="latest-subtitle fst-italic text-secondary">
-//             Le novità più fresche per i tuoi piedi
-//           </p>
-
-//           {loading && <p>Caricamento...</p>}
-//           {error && <p className="text-danger">{error}</p>}
-
-//           {!loading && !error && (
-//             <div className="row g-3 flex-nowrap">
-//               {sneakers.map((sneaker) => (
-//                 <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
-//               ))}
-//             </div>
-//           )}
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-
 //* IMPORTAZIONI
 import { useState } from "react";
 import axios from "axios";
 import { useCart } from "../Contexts/CartContext";
-import LatestList from "../Components/LatestList"; // sezione "Ultimi arrivi"
+import LatestList from "../Components/LatestList";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 import "../assets/css/index.css";
 
 //* OGGETTO DI DEFAULT PER L'ORDINE
@@ -160,29 +19,26 @@ const defaultOrder = {
 
 export default function CartPage() {
   //* STATI
-  const [order, setOrder] = useState(defaultOrder); // dati form
-  const [successMsg, setSuccessMsg] = useState(""); // messaggio di successo
+  const [order, setOrder] = useState(defaultOrder);
+  const [successMsg, setSuccessMsg] = useState("");
 
-  const { cart, addToCart } = useCart(); // ottieni carrello dal context
-  // const { items, clearCart } = useCart(); /
+  //* OTTIENI CARRELLO E FUNZIONI DAL CONTEXT
+  const { cart, clearCart, removeFromCart, updateQuantity } = useCart();
 
   //* INVIO DELL’ORDINE
   const sendForm = () => {
     const orderWithItems = {
       ...order,
-      items: cart.items || [], // aggiungi articoli del carrello
+      items: cart || [],
     };
 
     axios
       .post(`http://localhost:3000/sneakers/checkout`, orderWithItems)
       .then((res) => {
         if (res.status === 201) {
-          setOrder(defaultOrder); // resetta form
-          setSuccessMsg("✅ Ordine effettuato con successo!");
-
-          // TODO: SVUOTA IL CARRELLO
-          // chiamare qui:
-          // clearCart();
+          setOrder(defaultOrder);
+          setSuccessMsg("Ordine effettuato con successo!");
+          clearCart(); // svuota carrello
         }
       })
       .catch((err) => console.error(err.message));
@@ -190,32 +46,78 @@ export default function CartPage() {
 
   //* GESTIONE FORM
   const handleSubmit = (e) => {
-    e.preventDefault(); // evita refresh
-    setSuccessMsg(""); // pulisci messaggio precedente
-    sendForm(); // invia ordine
+    e.preventDefault();
+    setSuccessMsg("");
+    sendForm();
   };
 
-  //* CAMBIO INPUT
+  //* CAMBIO INPUT FORM
   const handleInputChange = (e) => {
     setOrder({
       ...order,
-      [e.target.name]: e.target.value, // aggiorna campo
+      [e.target.name]: e.target.value,
     });
   };
 
   //* RENDER COMPONENTE
   return (
     <>
-      {/* FORM CHECKOUT*/}
+      {/* SEZIONE RIEPILOGO CARRELLO */}
       <section className="related-list">
         <div className="container-fluid">
-          <h2 className="latest-title fw-bold">Il tuo carrello</h2>
-          <p className="latest-subtitle fst-italic text-secondary">Procedi al checkout</p>
+          <h2 className="latest-title fw-bold">Riepilogo carrello</h2>
+
+          {cart.length === 0 ? (
+            <p className="latest-subtitle fst-italic text-secondary">Il carrello è vuoto.</p>
+          ) : (
+            <div className="row g-3">
+              {cart.map((item, index) => (
+                <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
+                  {/* Immagine prodotto */}
+                  <img src={item.image} alt={item.model} width="100" className="me-3 rounded" />
+
+                  {/* Dettagli del prodotto */}
+                  <div className="flex-grow-1">
+                    <Link
+                      to={`/product/${item.id}`}
+                      className="fw-bold text-dark text-decoration-none"
+                    >
+                      {item.brand} - {item.model}
+                    </Link>
+                    <p className="mb-1">Taglia: {item.size}</p>
+
+                    {/* Input quantità */}
+                    <div className="d-flex align-items-center">
+                      <label className="me-2">Quantità:</label>
+                      <input
+                        type="number"
+                        min="1"
+                        value={item.quantity}
+                        onChange={(e) =>
+                          updateQuantity(item.id, item.size, parseInt(e.target.value))
+                        }
+                        className="form-control form-control-sm w-auto"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Pulsante Rimuovi */}
+                  <button
+                    className="btn btn-outline-danger btn-sm ms-3"
+                    onClick={() => removeFromCart(item.id, item.size)}
+                  >
+                    Rimuovi
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* MESSAGGIO SUCCESSO */}
-          {successMsg && <p className="text-success">{successMsg}</p>}
+          {successMsg && <p className="text-success mt-3">{successMsg}</p>}
 
-          <form className="row" onSubmit={handleSubmit}>
+          {/* FORM CHECKOUT */}
+          <form className="row mt-4" onSubmit={handleSubmit}>
             <div className="col-4">
               <label htmlFor="name">Nome</label>
               <input
@@ -253,7 +155,7 @@ export default function CartPage() {
               />
             </div>
             <div className="col-4">
-              <label htmlFor="phone">Numero di telefono</label>
+              <label htmlFor="phone">Telefono</label>
               <input
                 className="form-control"
                 type="number"
@@ -277,7 +179,7 @@ export default function CartPage() {
               />
             </div>
             <div className="col-4 mt-3 text-end">
-              <button className="btn btn-secondary" type="submit">
+              <button className="btn btn-secondary" type="submit" disabled={cart.length === 0}>
                 Procedi al checkout
               </button>
             </div>
@@ -285,7 +187,7 @@ export default function CartPage() {
         </div>
       </section>
 
-      {/* SEZIONE ULTIMI ARRIVI (IMPORTATA) */}
+      {/* SEZIONE ULTIMI ARRIVI */}
       <LatestList />
 
       {/* FOOTER */}
