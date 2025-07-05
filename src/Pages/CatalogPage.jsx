@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SneakersCard from "../Components/SneakersCard";
+import Footer from "../Components/Footer";
 import "../assets/css/index.css";
 
 export default function CatalogPage() {
@@ -24,22 +25,26 @@ export default function CatalogPage() {
   }, []);
 
   return (
-    <div className="container-fluid">
-      <h2 className="latest-title fw-bold mt-5">Il nostro catalogo</h2>
-      <p className="latest-subtitle fst-italic text-secondary mb-5">
-        Scopri tutti i nostri prodotti
-      </p>
+    <>
+      <div className="container-fluid">
+        <h2 className="latest-title fw-bold mt-5">Il nostro catalogo</h2>
+        <p className="latest-subtitle fst-italic text-secondary mb-5">
+          Scopri tutti i nostri prodotti
+        </p>
 
-      {loading && <p>Caricamento...</p>}
-      {error && <p className="text-danger">{error}</p>}
+        {loading && <p>Caricamento...</p>}
+        {error && <p className="text-danger">{error}</p>}
 
-      {!loading && !error && (
-        <div className="row g-3">
-          {sneakers.map((sneaker) => (
-            <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
-          ))}
-        </div>
-      )}
-    </div>
+        {!loading && !error && (
+          <div className="row g-3">
+            {sneakers.map((sneaker) => (
+              <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <Footer />
+    </>
   );
 }

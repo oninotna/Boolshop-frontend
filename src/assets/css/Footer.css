@@ -19,6 +19,12 @@
   transition: color 0.3s ease;
 }
 
+.footer-custom ul {
+  list-style-type: none;
+  padding-left: 0; 
+  margin-left: 0;  
+}
+
 .footer-custom a:hover {
   color: #bfff00;
 }
