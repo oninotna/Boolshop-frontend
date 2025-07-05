@@ -163,8 +163,8 @@ export default function CartPage() {
   const [order, setOrder] = useState(defaultOrder); // dati form
   const [successMsg, setSuccessMsg] = useState(""); // messaggio di successo
 
-  const cart = useCart(); // ottieni carrello dal context
-  // const { items, clearCart } = useCart(); // se hai funzioni nel context, puoi destrutturare così
+  const { cart, addToCart } = useCart(); // ottieni carrello dal context
+  // const { items, clearCart } = useCart(); /
 
   //* INVIO DELL’ORDINE
   const sendForm = () => {
@@ -181,7 +181,7 @@ export default function CartPage() {
           setSuccessMsg("✅ Ordine effettuato con successo!");
 
           // TODO: SVUOTA IL CARRELLO
-          // Se il tuo CartContext ha clearCart(), chiamalo qui:
+          // chiamare qui:
           // clearCart();
         }
       })
