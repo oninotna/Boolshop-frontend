@@ -1,12 +1,14 @@
-import { useState } from "react";
-import axios from "axios";
+import { useSearch } from "../Contexts/SearchContext";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar () {
-    const [search, setSearch] = useState('');
+  const {search, setSearch, submit, setSubmit} = useSearch();
+  const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        sendForm();
+        setSubmit(!submit);
+        navigate(`/catalog?search=${search}`)
     };
 
     const handleInputChange = (e) => {

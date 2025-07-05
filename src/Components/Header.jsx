@@ -1,10 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSearch } from "../Contexts/SearchContext";
 import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/index.css";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
+  const {setSearch} = useSearch();
   return (
     <nav className="navbar navbar-expand-md navbar-dark custom-navbar">
       <div className="container-fluid d-flex align-items-center justify-content-between w-100 flex-nowrap">
@@ -40,7 +42,9 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-links d-flex flex-column flex-md-row justify-content-end">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/" end>
+                <NavLink className="nav-link" to="/"
+                onClick={() => setSearch('')}
+                end>
                   Home
                 </NavLink>
               </li>
