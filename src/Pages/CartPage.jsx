@@ -85,7 +85,7 @@ export default function CartPage() {
                     >
                       {item.brand} - {item.model}
                     </Link>
-                    <p className="mb-1">Taglia: {item.size}</p>
+                    <p className="mb-1">Taglia: {item.size}<span className="ms-4">Prezzo: €{item.price * item.quantity},00</span></p>
 
                     {/* Input quantità */}
                     <div className="d-flex align-items-center">
@@ -95,7 +95,7 @@ export default function CartPage() {
                         min="1"
                         value={item.quantity}
                         onChange={(e) =>
-                          updateQuantity(item.id, item.size, parseInt(e.target.value))
+                          updateQuantity(item.id_sneaker, item.size, parseInt(e.target.value))
                         }
                         className="form-control form-control-sm w-auto"
                       />
@@ -105,7 +105,7 @@ export default function CartPage() {
                   {/* Pulsante Rimuovi */}
                   <button
                     className="btn btn-outline-danger btn-sm ms-3"
-                    onClick={() => removeFromCart(item.id, item.size)}
+                    onClick={() => removeFromCart(item.id_sneaker, item.size)}
                   >
                     Rimuovi
                   </button>

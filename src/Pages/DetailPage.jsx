@@ -50,7 +50,15 @@ export default function DetailPage() {
       return;
     }
     setErrorSize(false);
-    addToCart({ ...sneaker, size: selectedSize, quantity: selectedQty });
+    addToCart({ 
+      brand: sneaker.brand,
+      model: sneaker.model,
+      id_sneaker: sneaker.id_sneaker,
+      images: sneaker.images,
+      size: selectedSize.size,
+      id_size: selectedSize.id_size,
+      price: sneaker.price,
+      quantity: selectedQty });
     console.log(sneaker);
     
     alert("Prodotto aggiunto al carrello!");
@@ -101,23 +109,31 @@ export default function DetailPage() {
               <strong className="detail-label">Genere:</strong> {sneaker.gender}
             </p>
             <p>
-              <strong className="detail-label">Descrizione:</strong> {sneaker.description}
+              <strong className="detail-label">Descrizione:</strong>{" "}
+              {sneaker.description}
             </p>
 
             {/* Selettori */}
             <div className="d-flex flex-wrap gap-3 my-4">
               <select
-                className={`form-select w-auto ${errorSize ? "border border-danger" : ""}`}
-                value={selectedSize}
+                className={`form-select w-auto ${
+                  errorSize ? "border border-danger" : ""
+                }`}
+                value={selectedSize ? JSON.stringify(selectedSize) : ""}
                 onChange={(e) => {
-                  setSelectedSize(e.target.value);
+                  const val = e.target.value;
+                  if (val === "") {
+                    setSelectedSize("");
+                  } else {
+                    setSelectedSize(JSON.parse(val));
+                  }
                   setErrorSize(false);
                 }}
               >
                 <option value="">Seleziona taglia</option>
-                {sneaker.sizes?.map((size, idx) => (
-                  <option key={idx} value={size}>
-                    {size}
+                {sneaker.sizes?.map((size) => (
+                  <option key={size.id_size} value={JSON.stringify(size)}>
+                    {size.size}
                   </option>
                 ))}
               </select>
@@ -155,7 +171,9 @@ export default function DetailPage() {
         <section className="related-list">
           <div className="container-fluid">
             <h2 className="latest-title fw-bold">Prodotti correlati</h2>
-            <p className="latest-subtitle fst-italic text-secondary">Scopri prodotti simili</p>
+            <p className="latest-subtitle fst-italic text-secondary">
+              Scopri prodotti simili
+            </p>
 
             <div className="row g-3 flex-nowrap">
               {relatedSneaker.map((rel) => (

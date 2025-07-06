@@ -11,7 +11,7 @@ function CartProvider({ children }) {
 
   const addToCart = (data) => {
     // Cerca se esiste già l'articolo (per esempio con id e taglia)
-    const index = cart.findIndex((item) => item.id === data.id && item.size === data.size);
+    const index = cart.findIndex((item) => item.id_sneaker === data.id_sneaker && item.size === data.size);
     if (index !== -1) {
       // Se esiste, aggiorna quantità
       const updatedCart = [...cart];
@@ -25,15 +25,15 @@ function CartProvider({ children }) {
     }
   };
   //* FUNZIONE PER RIMUOVERE UN ARTICOLO AL CARRELLO
-  const removeFromCart = (id, size) => {
-    setCart(cart.filter((item) => !(item.id === id && item.size === size)));
+  const removeFromCart = (id_sneaker, size) => {
+    setCart(cart.filter((item) => !(item.id_sneaker === id_sneaker && item.size === size)));
   };
 
   //* FUNZIONE PER AUMENTARE LA QUANTITà DI UN ARTICOLO AL CARRELLO
-  const updateQuantity = (id, size, quantity) => {
+  const updateQuantity = (id_sneaker, size, quantity) => {
     if (quantity < 1) return; // evita quantità negativa o zero
     const updatedCart = cart.map((item) => {
-      if (item.id === id && item.size === size) {
+      if (item.id_sneaker === id_sneaker && item.size === size) {
         return { ...item, quantity };
       }
       return item;
