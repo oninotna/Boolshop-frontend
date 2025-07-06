@@ -6,6 +6,8 @@ import LatestList from "../Components/LatestList";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import "../assets/css/index.css";
+import RecapModal from "./RecapModal";
+
 
 //* OGGETTO DI DEFAULT PER L'ORDINE
 const defaultOrder = {
@@ -180,11 +182,15 @@ export default function CartPage() {
               />
             </div>
             <div className="col-4 mt-3 text-end">
-              <button className="btn btn-secondary" type="submit" disabled={cart.length === 0}>
+              <button className="btn btn-secondary" type="submit" 
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              disabled={cart.length === 0}>
                 Procedi al checkout
               </button>
             </div>
           </form>
+          {/* <RecapModal data={orderWithItems} /> */}
         </div>
       </section>
 
