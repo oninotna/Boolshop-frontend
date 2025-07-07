@@ -138,19 +138,19 @@ body {
 }
 
 /* SEARCHBAR container (centrata) */
-.searchbar-container {
-  flex-grow: 1;
-}
+.searchbar-container {}
 
 /* Wrapper per padding e animazione */
 .searchbar-wrapper {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 /* Searchbar input */
 .searchbar-input {
   max-width: 75%;
-  padding: 8px 16px;
+  padding: 8px 8px;
   border-radius: 20px;
   border: none;
   background-color: rgba(255, 255, 255, 0.1);
@@ -173,6 +173,10 @@ body {
 /* Placeholder visibile */
 .searchbar-input::placeholder {
   color: #ccc;
+}
+
+.my-btn-search {
+  border-radius: 18px;
 }
 
 @media (max-width: 768px) {

@@ -19,7 +19,7 @@ export default function SearchBar () {
       <form className="d-flex" onSubmit={handleSubmit}>
         <input
           type="text"
-          className="searchbar-input me-5"
+          className="searchbar-input me-3"
           placeholder="Cerca sneakers..."
           onFocus={(e) => e.target.classList.add("expanded")}
           onBlur={(e) => e.target.classList.remove("expanded")}
@@ -27,7 +27,7 @@ export default function SearchBar () {
           value={search}
           onChange={handleInputChange}
         />
-        <button className="btn btn-secondary" type="submit">
+        <button className="btn btn-secondary my-btn-search" type="submit">
           Cerca
         </button>
       </form>
