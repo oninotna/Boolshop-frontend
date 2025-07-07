@@ -14,7 +14,7 @@ export default function Header() {
         <div className="navbar-brand d-flex align-items-center">
           <Link to="/" className="brand-link">
             <img src="/img/logo.png" alt="logo" className="header-logo" />
-            <h1 className="gradient-text">ZneakDrop</h1>
+            <h1 className="gradient-text d-none">ZneakDrop</h1>
           </Link>
         </div>
 

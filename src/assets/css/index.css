@@ -6,11 +6,13 @@
 
 /* SCROLLBAR VERTICALE */
 /* Per Chrome, Edge, Safari */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: scroll; /* Assicura scroll verticale sempre abilitato */
+  overflow-y: scroll;
+  /* Assicura scroll verticale sempre abilitato */
 }
 
 /* Per Chrome e Safari */
@@ -21,9 +23,12 @@ body::-webkit-scrollbar {
 
 /* Per Firefox */
 body {
-  scrollbar-width: none; /* nasconde la scrollbar */
-  -ms-overflow-style: none; /* per vecchi IE/Edge */
+  scrollbar-width: none;
+  /* nasconde la scrollbar */
+  -ms-overflow-style: none;
+  /* per vecchi IE/Edge */
 }
+
 /* ------------------*/
 
 /* NAVBAR */
@@ -66,17 +71,18 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 64px;          /* <<< importante: stesso height della navbar */
+  height: 64px;
+  /* <<< importante: stesso height della navbar */
   margin-bottom: 0;
 }
 
 .navbar-links .nav-link,
 .navbar-links .icon-link {
-  height: 80px;                 
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;          
+  position: relative;
   padding: 0 8px;
   font-size: 1rem;
   color: white;
@@ -85,7 +91,7 @@ body {
 }
 
 .header-logo {
-  height: 5rem;        
+  height: 5rem;
   max-width: 140px;
   width: auto;
   object-fit: contain;
@@ -106,7 +112,7 @@ body {
 
 /* link */
 .nav-link:hover {
-    color: #39FF14;
+  color: #39FF14;
 }
 
 .all-img {
@@ -122,7 +128,7 @@ body {
 .active-link::after {
   content: "";
   position: absolute;
-  bottom: 0;                    
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 3px;
@@ -143,7 +149,7 @@ body {
 
 /* Searchbar input */
 .searchbar-input {
-  width: 100%;
+  max-width: 75%;
   padding: 8px 16px;
   border-radius: 20px;
   border: none;
@@ -178,17 +184,23 @@ body {
   .navbar-brand .gradient-text {
     display: none;
   }
-  
+
   .navbar-collapse {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem;
-    position: absolute;         /* posizione assoluta per ancorare sotto navbar */
-    top: 80px;                  /* subito sotto la navbar alta 80px */
-    right: 10px;                /* vicino al bordo destro (hamburger) */
-    left: auto;                 /* no espansione a sinistra */
-    width: 150px;               /* larghezza compatta */
+    position: absolute;
+    /* posizione assoluta per ancorare sotto navbar */
+    top: 80px;
+    /* subito sotto la navbar alta 80px */
+    right: 10px;
+    /* vicino al bordo destro (hamburger) */
+    left: auto;
+    /* no espansione a sinistra */
+    width: 150px;
+    /* larghezza compatta */
     border-radius: 8px;
-    z-index: 999;               /* sopra tutto */
+    z-index: 999;
+    /* sopra tutto */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
 
     opacity: 0;
@@ -196,7 +208,8 @@ body {
     pointer-events: none;
     transition: all 0.3s ease-in-out;
 
-    padding-bottom: 30px;       /* spazio in basso per bottone */
+    padding-bottom: 30px;
+    /* spazio in basso per bottone */
   }
 
   .navbar-collapse.show {
@@ -223,8 +236,10 @@ body {
   /* Bottone chiusura */
   .close-btn {
     position: absolute;
-    bottom: -20px;              /* sporge fuori dal menu */
-    left: 50%;                  /* centrato orizzontalmente */
+    bottom: -20px;
+    /* sporge fuori dal menu */
+    left: 50%;
+    /* centrato orizzontalmente */
     transform: translateX(-50%);
     width: 45px;
     height: 45px;
@@ -239,7 +254,8 @@ body {
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    z-index: 1000;              /* sopra il menu */
+    z-index: 1000;
+    /* sopra il menu */
   }
 
   .close-btn:hover {
@@ -252,7 +268,7 @@ body {
   }
 
 
-    .active-link::after {
+  .active-link::after {
     bottom: -10px;
     height: 2px;
     opacity: 0.8;
@@ -260,47 +276,58 @@ body {
 
   /* Rendi la searchbar più piccola e compatta */
   .searchbar-container {
-    flex-grow: 1; /* mantiene flessibilità */
-    max-width: 200px; /* limite larghezza */
-    margin: 0 10px; /* piccolo margine per distanziare */
+    flex-grow: 1;
+    /* mantiene flessibilità */
+    max-width: 200px;
+    /* limite larghezza */
+    margin: 0 10px;
+    /* piccolo margine per distanziare */
   }
 
   .searchbar-input {
-    padding: 6px 10px;  /* meno padding */
-    font-size: 0.85rem; /* testo più piccolo */
-    border-radius: 15px; /* più piccola e arrotondata */
+    padding: 6px 10px;
+    /* meno padding */
+    font-size: 0.85rem;
+    /* testo più piccolo */
+    border-radius: 15px;
+    /* più piccola e arrotondata */
   }
 
   /* Assicura che la navbar sia flex e allinea gli elementi */
   .custom-navbar {
     justify-content: space-between;
   }
- 
+
 }
 
-/* ----------- DETAILPAGE ------------ */ 
+/* ----------- DETAILPAGE ------------ */
 
 .text-title {
-  color: #212529; /* nero */
+  color: #212529;
+  /* nero */
   font-size: 2.5rem;
 }
 
 .text-price {
   font-size: 1rem;
-  color: #495057; /* grigio scuro */
+  color: #495057;
+  /* grigio scuro */
   font-weight: 600;
 }
 
 .detail-label {
-  color: #6c757d; /* grigio chiaro */
+  color: #6c757d;
+  /* grigio chiaro */
   font-weight: 500;
 }
 
 .thumbs-scroll {
-  max-height: 600px; /* più alta */
+  max-height: 600px;
+  /* più alta */
   overflow-y: auto;
   scrollbar-width: none;
-  width: 100%; /* compatta in larghezza */
+  width: 100%;
+  /* compatta in larghezza */
 }
 
 .thumbs-scroll::-webkit-scrollbar {
@@ -309,12 +336,15 @@ body {
 
 .thumb-img {
   cursor: pointer;
-  object-fit: contain; /* cambia da cover a contain */
-  height: 120px;       /* puoi regolare queste dimensioni */
+  object-fit: contain;
+  /* cambia da cover a contain */
+  height: 120px;
+  /* puoi regolare queste dimensioni */
   width: 100%;
   border-radius: 8px;
   transition: transform 0.2s ease;
-  background-color: #f8f9fa; /* colore neutro per sfondo */
+  background-color: #f8f9fa;
+  /* colore neutro per sfondo */
   padding: 5px;
 }
 
@@ -324,9 +354,11 @@ body {
 
 .main-img {
   border-radius: 10px;
-  max-height: 600px; /* aumentata */
+  max-height: 600px;
+  /* aumentata */
   width: 100%;
-  object-fit: contain; /* oppure 'cover' se preferisci riempire */
+  object-fit: contain;
+  /* oppure 'cover' se preferisci riempire */
   background-color: #f8f9fa;
   padding: 10px;
 }
@@ -433,4 +465,3 @@ select.border-danger {
   scrollbar-width: thin;
   scrollbar-color: #96FC02 #f8f9fa;
 }
-
