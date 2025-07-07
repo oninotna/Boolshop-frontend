@@ -60,14 +60,14 @@ export default function SneakersCard({ data }) {
 
             <div className="d-flex align-items-center justify-content-end my-2">
               <button
-                className="my-btn-count btn btn-secondary px-2"
+                className="my-btn-count "
                 onClick={() => setCount(count - 1)}
               >
                 <FontAwesomeIcon icon={faMinus} />
               </button>
               <div className="mx-3 fw-bold">{count}</div>
               <button
-                className="my-btn-count btn btn-secondary px-2" 
+                className="my-btn-count " 
                 onClick={() => setCount(count + 1)}
               >
                 <FontAwesomeIcon icon={faPlus} />
