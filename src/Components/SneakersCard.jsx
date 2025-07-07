@@ -11,6 +11,10 @@ import { useState } from "react";
 export default function SneakersCard({ data }) {
   const { addToCart } = useCart();
   const [count, setCount] = useState(1);
+  const [selectedSize, setSelectedSize] = useState("");
+  const [errorSize, setErrorSize] = useState(false);
+
+
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -58,7 +62,30 @@ export default function SneakersCard({ data }) {
               </div>
             </div>
 
-            <div className="d-flex align-items-center justify-content-end my-2">
+            <div className="d-flex align-items-center justify-content-between my-2">
+              <select
+                className={`form-select w-auto ${
+                  errorSize ? "border border-danger" : ""
+                }`}
+                value={selectedSize ? JSON.stringify(selectedSize) : ""}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (val === "") {
+                    setSelectedSize("");
+                  } else {
+                    setSelectedSize(JSON.parse(val));
+                  }
+                  setErrorSize(false);
+                }}
+              >
+                <option value="">Seleziona taglia</option>
+                {data.sizes?.map((size) => (
+                  <option key={size.id_size} value={JSON.stringify(size)}>
+                    {size.size}
+                  </option>
+                ))}
+              </select>
+              <div className="d-flex align-items-center">
               <button
                 className="my-btn-count btn btn-secondary px-2"
                 onClick={() => setCount(count - 1)}
@@ -72,6 +99,7 @@ export default function SneakersCard({ data }) {
               >
                 <FontAwesomeIcon icon={faPlus} />
               </button>
+              </div>
             </div>
 
             <div className="d-grid mt-3">
