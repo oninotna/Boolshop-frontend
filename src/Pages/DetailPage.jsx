@@ -153,7 +153,7 @@ export default function DetailPage() {
                 ))}
               </select> */}
               <div className="d-flex align-items-center">
-                <button className="btn btn-secondary px-3" onClick={() => count > 0 ? setCount(count - 1) : setCount(count)}>
+                <button className="btn btn-secondary px-3" onClick={() => count > 1 ? setCount(count - 1) : setCount(count)}>
                   <FontAwesomeIcon icon={faMinus} />
                 </button>
                 <div className="mx-3 fw-bold">{count}</div>

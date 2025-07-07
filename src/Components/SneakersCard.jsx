@@ -88,7 +88,7 @@ export default function SneakersCard({ data }) {
               <div className="d-flex align-items-center">
               <button
                 className="my-btn-count "
-                onClick={() =>count >0 ? setCount(count - 1) : setCount(count)}
+                onClick={() =>count >1 ? setCount(count - 1) : setCount(count)}
               >
                 <FontAwesomeIcon icon={faMinus} />
               </button>
