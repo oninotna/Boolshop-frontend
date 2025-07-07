@@ -5,6 +5,9 @@ import LatestList from "../Components/LatestList";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import "../assets/css/index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const defaultOrder = {
   name: "",
@@ -74,12 +77,22 @@ export default function CartPage() {
           <h2 className="latest-title fw-bold">Riepilogo carrello</h2>
 
           {cart.length === 0 ? (
-            <p className="latest-subtitle fst-italic text-secondary">Il carrello è vuoto.</p>
+            <p className="latest-subtitle fst-italic text-secondary">
+              Il carrello è vuoto.
+            </p>
           ) : (
             <div className="row g-3">
               {cart.map((item, index) => (
-                <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
-                  <img src={item.images[0]} alt={item.model} width="100" className="me-3 rounded" />
+                <div
+                  className="col-12 d-flex align-items-center border-bottom pb-3"
+                  key={index}
+                >
+                  <img
+                    src={item.images[0]}
+                    alt={item.model}
+                    width="100"
+                    className="me-3 rounded"
+                  />
                   <div className="flex-grow-1">
                     <Link
                       to={`/detailpage/${item.slug}`}
@@ -87,22 +100,44 @@ export default function CartPage() {
                     >
                       {item.brand} - {item.model}
                     </Link>
-                    <p className="mb-1">
-                      Taglia: {item.size}
-                      <span className="ms-4">Prezzo: €{item.price * item.quantity},00</span>
-                    </p>
-                    <div className="d-flex align-items-center">
+                    
+                    <div className="d-flex align-items-center mt-1">
                       <label className="me-2">Quantità:</label>
-                      <input
-                        type="number"
-                        min="1"
-                        value={item.quantity}
-                        onChange={(e) =>
-                          updateQuantity(item.id_sneaker, item.size, parseInt(e.target.value))
-                        }
-                        className="form-control form-control-sm w-auto"
-                      />
+                      <div className="d-flex align-items-center ms-3">
+                        <button
+                          className="my-btn-count"
+                          onClick={() =>
+                            item.quantity > 1 &&
+                            updateQuantity(
+                              item.id_sneaker,
+                              item.size,
+                              item.quantity - 1
+                            )
+                          }
+                        >
+                          <FontAwesomeIcon icon={faMinus} />
+                        </button>
+                        <div className="mx-3 fw-bold">{item.quantity}</div>
+                        <button
+                          className="my-btn-count"
+                          onClick={() =>
+                            updateQuantity(
+                              item.id_sneaker,
+                              item.size,
+                              item.quantity + 1
+                            )
+                          }
+                        >
+                          <FontAwesomeIcon icon={faPlus} />
+                        </button>
+                      </div>
                     </div>
+                    <p className="mt-2">
+                      Taglia: {item.size}
+                      <span className="ms-4">
+                        Prezzo: €{item.price * item.quantity},00
+                      </span>
+                    </p>
                   </div>
                   <button
                     className="btn btn-outline-danger btn-sm ms-3"
@@ -112,7 +147,9 @@ export default function CartPage() {
                   </button>
                 </div>
               ))}
-              <p className="text-center fs-4 "><strong>Prezzo totale : €{totalPrice},00 </strong></p>
+              <p className="text-center fs-4 ">
+                <strong>Prezzo totale : €{totalPrice},00 </strong>
+              </p>
             </div>
           )}
 
@@ -181,10 +218,13 @@ export default function CartPage() {
               />
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4 mt-3 text-end ">
-              <button className="btn btn-secondary" type="submit" 
-              // data-bs-toggle="modal"
-              // data-bs-target="#exampleModal"
-              disabled={cart.length === 0}>
+              <button
+                className="btn btn-secondary"
+                type="submit"
+                // data-bs-toggle="modal"
+                // data-bs-target="#exampleModal"
+                disabled={cart.length === 0}
+              >
                 Procedi al checkout
               </button>
             </div>

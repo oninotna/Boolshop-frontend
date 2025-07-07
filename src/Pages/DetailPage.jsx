@@ -23,7 +23,6 @@ export default function DetailPage() {
   const [selectedQty, setSelectedQty] = useState(1);
   const [errorSize, setErrorSize] = useState(false);
   const [liked, setLiked] = useState(false);
-  const [count, setCount] = useState(1)
   const { addToCart } = useCart();
   const { addToWish } = useWishList();
 
@@ -61,7 +60,7 @@ export default function DetailPage() {
       id_size: selectedSize.id_size,
       price: sneaker.price,
       slug: sneaker.slug,
-      quantity: count });
+      quantity: selectedQty });
     console.log(sneaker);
     
     alert("Prodotto aggiunto al carrello!");
@@ -153,11 +152,11 @@ export default function DetailPage() {
                 ))}
               </select> */}
               <div className="d-flex align-items-center">
-                <button className="btn btn-secondary px-3" onClick={() => count > 1 ? setCount(count - 1) : setCount(count)}>
+                <button className="btn btn-secondary px-3" onClick={() => selectedQty > 1 ? setSelectedQty(selectedQty - 1) : setSelectedQty(selectedQty)}>
                   <FontAwesomeIcon icon={faMinus} />
                 </button>
-                <div className="mx-3 fw-bold">{count}</div>
-                <button className="btn btn-secondary px-3" onClick={() => setCount(count + 1)}>
+                <div className="mx-3 fw-bold">{selectedQty}</div>
+                <button className="btn btn-secondary px-3" onClick={() => setSelectedQty(selectedQty + 1)}>
                   <FontAwesomeIcon icon={faPlus} />
                 </button>
               </div>

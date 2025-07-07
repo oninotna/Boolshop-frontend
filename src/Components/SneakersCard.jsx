@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function SneakersCard({ data }) {
   const { addToCart } = useCart();
-  const [count, setCount] = useState(1);
+  const [selectedQty, setSelectedQty] = useState(1);
   const [selectedSize, setSelectedSize] = useState("");
   const [errorSize, setErrorSize] = useState(false);
 
@@ -29,7 +29,7 @@ export default function SneakersCard({ data }) {
       id_size: selectedSize.id_size,
       price: data.price,
       slug: data.slug,
-      quantity: count });
+      quantity: selectedQty });
     console.log(data);
     
     alert("Prodotto aggiunto al carrello!");
@@ -98,14 +98,14 @@ export default function SneakersCard({ data }) {
               <div className="d-flex align-items-center">
               <button
                 className="my-btn-count "
-                onClick={() =>count >1 ? setCount(count - 1) : setCount(count)}
+                onClick={() =>selectedQty >1 ? setSelectedQty(selectedQty - 1) : setSelectedQty(selectedQty)}
               >
                 <FontAwesomeIcon icon={faMinus} />
               </button>
-              <div className="mx-3 fw-bold">{count}</div>
+              <div className="mx-3 fw-bold">{selectedQty}</div>
               <button
                 className="my-btn-count " 
-                onClick={() => setCount(count + 1)}
+                onClick={() => setSelectedQty(selectedQty + 1)}
               >
                 <FontAwesomeIcon icon={faPlus} />
               </button>
