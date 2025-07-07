@@ -120,8 +120,8 @@ export default function CartPage() {
           {successMsg && <p className="text-success mt-3">{successMsg}</p>}
 
           {/* FORM CHECKOUT */}
-          <form className="row mt-4" onSubmit={handleSubmit}>
-            <div className="col-4">
+          <form className="row mt-4 align-items-end" onSubmit={handleSubmit}>
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <label htmlFor="name">Nome</label>
               <input
                 className="form-control"
@@ -133,7 +133,7 @@ export default function CartPage() {
                 required
               />
             </div>
-            <div className="col-4">
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <label htmlFor="surname">Cognome</label>
               <input
                 className="form-control"
@@ -145,7 +145,7 @@ export default function CartPage() {
                 required
               />
             </div>
-            <div className="col-4">
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <label htmlFor="address">Indirizzo</label>
               <input
                 className="form-control"
@@ -157,7 +157,7 @@ export default function CartPage() {
                 required
               />
             </div>
-            <div className="col-4">
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <label htmlFor="phone">Telefono</label>
               <input
                 className="form-control"
@@ -169,7 +169,7 @@ export default function CartPage() {
                 required
               />
             </div>
-            <div className="col-4">
+            <div className="col-xs-12 col-sm-6 col-md-4">
               <label htmlFor="email">Email</label>
               <input
                 className="form-control"
@@ -181,7 +181,7 @@ export default function CartPage() {
                 required
               />
             </div>
-            <div className="col-4 mt-3 text-end">
+            <div className="col-xs-12 col-sm-6 col-md-4 mt-3 text-end ">
               <button className="btn btn-secondary" type="submit" 
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
