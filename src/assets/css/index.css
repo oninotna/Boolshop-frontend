@@ -138,9 +138,7 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-/* SEARCHBAR container (centrata) */
-/* .searchbar-container {} */
-
+/* SEARCHBAR (centrata) */
 /* Wrapper per padding e animazione */
 .searchbar-wrapper {
   width: 100%;

@@ -1,0 +1,58 @@
+/* frontend/assets/css/Toast.css */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  /* CORREZIONE: Rimosso 'transition: opacity 0.3s ease;' */
+  /* Il toast dovrebbe scomparire istantaneamente ora */
+}
+
+.custom-toast {
+  background-color: rgba(40, 167, 69, 0.8);
+  border: 1px solid rgba(40, 167, 69, 0.4);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  padding: 10px 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  opacity: 1;
+  /* La transizione è gestita dalla classe 'fade-exit-active' (ora senza transition) */
+  position: relative; /* Assicura che il posizionamento assoluto della X sia relativo a questo elemento */
+  overflow: visible; /* Assicura che la X non venga tagliata se esce dai bordi */
+}
+
+.custom-toast:hover {
+  opacity: 0.9; /* Leggera opacità per indicare hover, senza bloccare la chiusura */
+}
+
+.toast-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: #ffffff;
+  cursor: pointer;
+  /* Posizionamento assoluto per la X */
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1000; /* Assicura che sia sopra il contenuto del toast */
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1; /* Centra il carattere 'x' verticalmente */
+  pointer-events: auto; /* Assicura che il bottone sia sempre cliccabile */
+}

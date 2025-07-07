@@ -10,27 +10,33 @@ import { CartProvider } from "./Contexts/CartContext";
 import { WishListProvider } from "./Contexts/WishListContext";
 import { SearchProvider } from "./Contexts/SearchContext";
 
+// Importo nuovo componente Toast
+import ToastWithNavigate from "./Components/ToastWithNavigate";
+
 export default function App() {
   return (
     <>
-    <SearchProvider>
-      <WishListProvider>
-        <CartProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route element={<DefaultLayout />}>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/catalog" element={<CatalogPage />} />
-                <Route path="/detailpage/:slug" element={<DetailPage />} />
-                <Route path="/novelty" element={<NoveltyPage />} />
-                <Route path="/wishlist" element={<WishListPage />} />
-                <Route path="/cart" element={<CartPage />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </CartProvider>
-      </WishListProvider>
-    </SearchProvider>
+      <SearchProvider>
+        <WishListProvider>
+          <CartProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route element={<DefaultLayout />}>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/catalog" element={<CatalogPage />} />
+                  <Route path="/detailpage/:slug" element={<DetailPage />} />
+                  <Route path="/novelty" element={<NoveltyPage />} />
+                  <Route path="/wishlist" element={<WishListPage />} />
+                  <Route path="/cart" element={<CartPage />} />
+                </Route>
+              </Routes>
+
+              {/* ToastContainer con navigate dentro BrowserRouter */}
+              <ToastWithNavigate />
+            </BrowserRouter>
+          </CartProvider>
+        </WishListProvider>
+      </SearchProvider>
     </>
   );
 }
