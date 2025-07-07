@@ -59,14 +59,14 @@ export default function Header() {
                   Catalogo
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   to="/novelty"
                   className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
                 >
                   Novità
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
                   to="/wishlist"
