@@ -8,7 +8,6 @@ export default function Footer() {
     <footer className="footer-custom text-light overflow-hidden">
       <div className="container py-5">
         <div className="row">
-          
           {/* LINK UTILI - AL MOMENTO PORTANO TUTTI ALLA HOME*/}
           <div className="col-12 col-md-8">
             <div className="row">
@@ -16,16 +15,16 @@ export default function Footer() {
                 <h5 className="footer-title">Link utili</h5>
                 <ul>
                   <li>
-                    <a href="/">Privacy Policy</a>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
                   </li>
                   <li>
-                    <a href="/">Termini e condizioni</a>
+                    <Link to="/termini">Termini e condizioni</Link>
                   </li>
                   <li>
-                    <a href="/">Domande frequenti</a>
+                    <Link to="/faq">Domande frequenti</Link>
                   </li>
                   <li>
-                    <a href="/">Supporto</a>
+                    <Link to="/supporto">Supporto</Link>
                   </li>
                 </ul>
               </div>
@@ -35,33 +34,54 @@ export default function Footer() {
                 <h5 className="footer-title">Mappa del sito</h5>
                 <ul>
                   <li>
-                    <a href="/cart">Carrello</a>
+                    <Link to="/cart">Carrello</Link>
                   </li>
                   <li>
-                    <a href="/wishlist">Preferiti</a>
+                    <Link to="/wishlist">Preferiti</Link>
                   </li>
                   <li>
-                    <a href="/catalog">Tutti i prodotti</a>
+                    <Link to="/catalog">Tutti i prodotti</Link>
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* Sub-row: social icons */}
+            {/* per i link esterni usare a */}
             <div className="row">
               <div className="col-12 d-flex justify-content-md-start social-icons mt-3">
-                <Link to="https://facebook.com" target="_blank" rel="noreferrer">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                >
                   <FontAwesomeIcon icon={faFacebookF} />
-                </Link>
-                <Link to="https://instagram.com" target="_blank" rel="noreferrer">
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
                   <FontAwesomeIcon icon={faInstagram} />
-                </Link>
-                <Link to="https://twitter.com" target="_blank" rel="noreferrer">
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
                   <FontAwesomeIcon icon={faXTwitter} />
-                </Link>
-                <Link to="https://tiktok.com" target="_blank" rel="noreferrer">
+                </a>
+                <a
+                  href="https://tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok"
+                >
                   <FontAwesomeIcon icon={faTiktok} />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
