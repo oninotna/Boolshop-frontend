@@ -16,7 +16,7 @@ export default function Herospace() {
           </div>
           <div className="col-12 col-md-6 text-center text-md-end text-white">
             {/* Badge */}
-            <div className="hero-badge mt-3">SCOPRI LA NOVITÀ</div>
+            {/* <div className="hero-badge mt-3">SCOPRI LA NOVITÀ</div> */}
             {/* Titolo */}
             <h1 className="hero-title-gradient mb-3">Nike Air Force 1</h1>
             <p className="hero-subtitle">
@@ -25,7 +25,7 @@ export default function Herospace() {
             </p>
             {/* Bottone */}
             <div className="hero-btn-container mt-4 mb-3 w-100">
-              <Link to="#" className="hero-btn-modern btn btn-outline-success px-4 py-2">
+              <Link to="/detailpage/nike-air-force-1-low" className="hero-btn-modern btn btn-outline-success px-4 py-2">
                 SCOPRI ORA
               </Link>
             </div>
