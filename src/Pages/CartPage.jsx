@@ -182,8 +182,8 @@ export default function CartPage() {
             </div>
             <div className="col-xs-12 col-sm-6 col-md-4 mt-3 text-end ">
               <button className="btn btn-secondary" type="submit" 
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
+              // data-bs-toggle="modal"
+              // data-bs-target="#exampleModal"
               disabled={cart.length === 0}>
                 Procedi al checkout
               </button>
