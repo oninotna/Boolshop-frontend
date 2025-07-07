@@ -15,7 +15,7 @@ export default function LikeButton({ sneaker }) {
 
   const toggleLike = () => {
     if (liked) {
-      removeFromWish(sneaker.id_sneaker);
+      removeFromWish(sneaker);
     } else {
       addToWish(sneaker);
     }

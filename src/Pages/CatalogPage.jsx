@@ -65,7 +65,7 @@ export default function CatalogPage() {
                 ))}
               </div>
             ) : (
-              <p className="text-center text-muted fs-5 mt-5">
+              <p className="text-center text-muted fs-5 mt-5" style={{height: "40vh"}}>
                 Nessun prodotto trovato per "{search}"
               </p>
             )}

@@ -11,8 +11,12 @@ function WishListProvider({ children }) {
     setWishList([...wishList, data]);
   };
 
+  const  removeFromWish = (data) => {
+     setWishList(wishList.filter((item) => item.id_sneaker !== data.id_sneaker))
+  }
+
   return (
-    <WishListContext value={{ wishList, addToWish }}>
+    <WishListContext value={{ wishList, addToWish, removeFromWish }}>
       {children}
     </WishListContext>
   );
