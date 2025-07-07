@@ -5,6 +5,8 @@ import SneakersCard from "../Components/SneakersCard";
 import Footer from "../Components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { useCart } from "../Contexts/CartContext";
 import { useWishList } from "../Contexts/WishListContext";
@@ -21,7 +23,7 @@ export default function DetailPage() {
   const [selectedQty, setSelectedQty] = useState(1);
   const [errorSize, setErrorSize] = useState(false);
   const [liked, setLiked] = useState(false);
-
+  const [count, setCount] = useState(1)
   const { addToCart } = useCart();
   const { addToWish } = useWishList();
 
@@ -59,7 +61,7 @@ export default function DetailPage() {
       id_size: selectedSize.id_size,
       price: sneaker.price,
       slug: sneaker.slug,
-      quantity: selectedQty });
+      quantity: count });
     console.log(sneaker);
     
     alert("Prodotto aggiunto al carrello!");
@@ -139,7 +141,7 @@ export default function DetailPage() {
                 ))}
               </select>
 
-              <select
+              {/* <select
                 className="form-select w-auto"
                 value={selectedQty}
                 onChange={(e) => setSelectedQty(Number(e.target.value))}
@@ -149,12 +151,21 @@ export default function DetailPage() {
                     {i + 1}
                   </option>
                 ))}
-              </select>
+              </select> */}
+              <div className="d-flex align-items-center">
+                <button className="btn btn-secondary px-3" onClick={() => setCount(count - 1)}>
+                  <FontAwesomeIcon icon={faMinus} />
+                </button>
+                <div className="mx-3 fw-bold">{count}</div>
+                <button className="btn btn-secondary px-3" onClick={() => setCount(count + 1)}>
+                  <FontAwesomeIcon icon={faPlus} />
+                </button>
+              </div>
             </div>
 
             {/* Bottoni */}
             <div className="d-flex gap-3 mb-4">
-              <button className="btn btn-sm btn-cart" onClick={handleAddToCart}>
+              <button className="btn btn-sm btn-secondary px-3" onClick={handleAddToCart}>
                 <FontAwesomeIcon icon={faCartShopping} />
               </button>
 
