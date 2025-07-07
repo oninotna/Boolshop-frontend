@@ -14,6 +14,27 @@ export default function SneakersCard({ data }) {
   const [selectedSize, setSelectedSize] = useState("");
   const [errorSize, setErrorSize] = useState(false);
 
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      setErrorSize(true);
+      return;
+    }
+    setErrorSize(false);
+    addToCart({ 
+      brand: data.brand,
+      model: data.model,
+      id_sneaker: data.id_sneaker,
+      images: data.images,
+      size: selectedSize.size,
+      id_size: selectedSize.id_size,
+      price: data.price,
+      slug: data.slug,
+      quantity: count });
+    console.log(data);
+    
+    alert("Prodotto aggiunto al carrello!");
+  };
+
 
 
   return (
@@ -39,22 +60,11 @@ export default function SneakersCard({ data }) {
 
           <div>
             <div className="d-flex justify-content-between align-items-center">
-              <span className="fw-bold text-dark">€{data.price}</span>
+              <span className="fw-bold">€{data.price}</span>
               <div className="d-flex gap-2">
                 <button
                   className="btn btn-sm btn-cart"
-                  onClick={() => addToCart(
-                    { 
-                       brand: data.brand,
-                       model: data.model,
-                       id_sneaker: data.id_sneaker,
-                       images: data.images,
-                       size: data.size,
-                       id_size: data.id_size,
-                       price: data.price,
-                       slug: data.slug,
-                       quantity: count 
-                    })}
+                  onClick={handleAddToCart}
                 >
                   <FontAwesomeIcon icon={faCartShopping} />
                 </button>
@@ -64,7 +74,7 @@ export default function SneakersCard({ data }) {
 
             <div className="d-flex align-items-center justify-content-between my-2">
               <select
-                className={`form-select w-auto ${
+                className={`form-select w-auto py-0 ${
                   errorSize ? "border border-danger" : ""
                 }`}
                 value={selectedSize ? JSON.stringify(selectedSize) : ""}
