@@ -40,7 +40,7 @@ export default function Header() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-links d-flex flex-column flex-md-row justify-content-end">
+            <ul className="navbar-links d-flex flex-column flex-md-row justify-content-end px-0">
               <li className="nav-item">
                 <NavLink
                   to="/"
