@@ -10,37 +10,37 @@ export default function CatalogPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const {search, submit} = useSearch();
-  const [h1text, setH1text] = useState('Catalogo sneakears');
-  
+  const { search, submit } = useSearch();
+  const [h1text, setH1text] = useState("Catalogo sneakears");
+
   useEffect(() => {
     if (search.length) {
-      axios.get(`http://localhost:3000/sneakers?search=${search}`)
+      axios
+        .get(`http://localhost:3000/sneakers?search=${search}`)
         .then((response) => {
-            setSneakers(response.data);
-            setLoading(false);
-            setH1text('Risultati ricerca');
+          setSneakers(response.data);
+          setLoading(false);
+          setH1text("Risultati ricerca");
         })
         .catch((err) => {
-        console.error("Errore durante il fetch:", err);
-        setError("Impossibile caricare i dati.");
-        setLoading(false);
-      });
-    }
-    else {
-    axios
-      .get("http://localhost:3000/sneakers")
-      .then((response) => {
-        setSneakers(response.data);
+          console.error("Errore durante il fetch:", err);
+          setError("Impossibile caricare i dati.");
+          setLoading(false);
+        });
+    } else {
+      axios
+        .get("http://localhost:3000/sneakers")
+        .then((response) => {
+          setSneakers(response.data);
 
-        setLoading(false);
-        setH1text('Catalogo sneakers');
-      })
-      .catch((err) => {
-        console.error("Errore durante il fetch:", err);
-        setError("Impossibile caricare i dati.");
-        setLoading(false);
-      });
+          setLoading(false);
+          setH1text("Catalogo sneakers");
+        })
+        .catch((err) => {
+          console.error("Errore durante il fetch:", err);
+          setError("Impossibile caricare i dati.");
+          setLoading(false);
+        });
     }
   }, [submit]);
 
@@ -57,11 +57,19 @@ export default function CatalogPage() {
         {error && <p className="text-danger">{error}</p>}
 
         {!loading && !error && (
-          <div className="row g-3">
-            {sneakers.map((sneaker) => (
-              <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
-            ))}
-          </div>
+          <>
+            {sneakers.length > 0 ? (
+              <div className="row g-3">
+                {sneakers.map((sneaker) => (
+                  <SneakersCard data={sneaker} key={sneaker.id_sneaker} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-center text-muted fs-5 mt-5">
+                Nessun prodotto trovato per "{search}"
+              </p>
+            )}
+          </>
         )}
       </div>
 
