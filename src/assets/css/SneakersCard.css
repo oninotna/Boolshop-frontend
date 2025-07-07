@@ -1,18 +1,21 @@
 .card.h-100 {
-  min-height: 480px; /* adatta in base alla tua esigenza visiva */
+  min-height: 480px;
+  /* adatta in base alla tua esigenza visiva */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .brand-title {
-  font-size: 0.75rem; /* più piccolo */
+  font-size: 0.75rem;
+  /* più piccolo */
   margin-bottom: 0.3rem;
 }
 
 .model-title {
   font-size: 1rem;
-  font-weight: bold; /* grassetto */
+  font-weight: bold;
+  /* grassetto */
   margin-bottom: 0.5rem;
 }
 
@@ -21,7 +24,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-style: italic;
-  color: #adb5bd; /* grigio chiaro bootstrap */
+  color: #adb5bd;
+  /* grigio chiaro bootstrap */
   font-size: 0.85rem;
 }
 
@@ -43,8 +47,10 @@
 .card-body {
   background-color: #212529;
   color: white;
-  padding: 0.75rem; /* ridotto */
-  font-size: 0.9rem; /* più compatto */
+  padding: 0.75rem;
+  /* ridotto */
+  font-size: 0.9rem;
+  /* più compatto */
 }
 
 
@@ -83,6 +89,20 @@
   opacity: 0.9;
 }
 
+.my-btn-count {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
 /* Dropdown error */
 select.border-danger {
   border-color: #ff0019 !important;
@@ -92,9 +112,11 @@ select.border-danger {
 
 /* BOTTONE VISUALIZZA DI PIù */
 .btn-outline-secondary {
-  font-size: 0.8rem; /* leggermente più piccolo */
+  font-size: 0.8rem;
+  /* leggermente più piccolo */
   padding: 0.25rem 0.5rem;
-  color: #adb5bd; /* grigio chiaro */
+  color: #adb5bd;
+  /* grigio chiaro */
   border-color: #adb5bd;
 }
 
