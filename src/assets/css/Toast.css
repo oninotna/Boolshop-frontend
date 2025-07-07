@@ -1,4 +1,6 @@
 /* frontend/assets/css/Toast.css */
+
+/* Stili per le animazioni (possono rimanere come sono o essere ottimizzati) */
 .fade-enter {
   opacity: 0;
   transform: translateY(-10px);
@@ -13,46 +15,69 @@
 }
 .fade-exit-active {
   opacity: 0;
-  /* CORREZIONE: Rimosso 'transition: opacity 0.3s ease;' */
-  /* Il toast dovrebbe scomparire istantaneamente ora */
+  /* La transizione di uscita è gestita dalla libreria o da altre classi */
 }
 
-.custom-toast {
-  background-color: rgba(40, 167, 69, 0.8);
-  border: 1px solid rgba(40, 167, 69, 0.4);
-  border-radius: 8px;
-  color: white;
-  font-size: 0.875rem;
-  padding: 10px 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  opacity: 1;
-  /* La transizione è gestita dalla classe 'fade-exit-active' (ora senza transition) */
-  position: relative; /* Assicura che il posizionamento assoluto della X sia relativo a questo elemento */
-  overflow: visible; /* Assicura che la X non venga tagliata se esce dai bordi */
+/* Stili comuni applicati a TUTTI i toast (border-radius, box-shadow, font-size, padding) */
+/* Questi stili verranno applicati a tutte le classi Toastify__toast--type */
+.Toastify__toast {
+  border-radius: 8px !important; /* Forza il border-radius */
+  font-size: 0.875rem !important;
+  padding: 10px 14px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  cursor: pointer !important;
 }
 
-.custom-toast:hover {
-  opacity: 0.9; /* Leggera opacità per indicare hover, senza bloccare la chiusura */
+/* Stili per i toast di SUCCESSO (verde con trasparenza) */
+.Toastify__toast--success {
+  background-color: rgba(40, 167, 69, 0.85) !important; /* Verde con 85% di opacità */
+  color: white !important;
+  border: 1px solid rgba(30, 120, 50, 0.85) !important; /* Bordo verde scuro */
 }
 
-.toast-close-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.1rem;
-  color: #ffffff;
-  cursor: pointer;
-  /* Posizionamento assoluto per la X */
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  z-index: 1000; /* Assicura che sia sopra il contenuto del toast */
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1; /* Centra il carattere 'x' verticalmente */
-  pointer-events: auto; /* Assicura che il bottone sia sempre cliccabile */
+/* Stili per i toast di ERRORE (rosso con trasparenza) */
+.Toastify__toast--error {
+  background-color: rgba(220, 53, 69, 0.85) !important; /* Rosso con 85% di opacità */
+  color: white !important;
+  border: 1px solid rgba(180, 40, 50, 0.85) !important; /* Bordo rosso scuro */
+}
+
+/* Stili per i toast di INFO (blu con trasparenza) */
+.Toastify__toast--info {
+  background-color: rgba(23, 162, 184, 0.85) !important; /* Blu con 85% di opacità */
+  color: white !important;
+  border: 1px solid rgba(15, 120, 140, 0.85) !important; /* Bordo blu scuro */
+}
+
+/* Stili per i toast di WARN (giallo/arancione con trasparenza) */
+.Toastify__toast--warning {
+  background-color: rgba(255, 193, 7, 0.85) !important; /* Giallo/Arancione con 85% di opacità */
+  color: #333 !important; /* Testo scuro per contrasto */
+  border: 1px solid rgba(200, 150, 0, 0.85) !important; /* Bordo giallo scuro */
+}
+
+
+/* Stile per il bottone di chiusura (X) - se lo riabiliti in futuro */
+.Toastify__close-button {
+  color: white !important; /* Colore della 'x' */
+  opacity: 0.8 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1 !important;
+}
+
+/* Stile per la barra di progresso (se abilitata) */
+.Toastify__progress-bar--success {
+  background-color: rgba(255, 255, 255, 0.5) !important; /* Barra bianca semitrasparente */
+}
+.Toastify__progress-bar--error {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+.Toastify__progress-bar--info {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+.Toastify__progress-bar--warning {
+  background-color: rgba(0, 0, 0, 0.5) !important; /* Barra nera semitrasparente per contrasto */
 }

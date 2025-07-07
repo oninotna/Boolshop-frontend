@@ -1,42 +1,15 @@
-import { useCart } from "../Contexts/CartContext";
-import LikeButton from "./LikeButton"; // Importa il nuovo componente
+import React, { useState } from "react"; // Reintrodotto useState per gestire gli stati qui
+import LikeButton from "./LikeButton";
+import AddToCartButton from "./AddToCartButton"; // Importa il componente AddToCartButton
+import SizeQuantitySelector from "./SizeQuantitySelector"; // Importa il componente SizeQuantitySelector
 import "../assets/css/SneakersCard.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
-import { toast } from "react-toastify";
 
 export default function SneakersCard({ data }) {
-  const { addToCart } = useCart();
+  // Stati per la selezione di taglia e quantità, e per la gestione errori
   const [selectedQty, setSelectedQty] = useState(1);
   const [selectedSize, setSelectedSize] = useState("");
   const [errorSize, setErrorSize] = useState(false);
-
-  const handleAddToCart = () => {
-    if (!selectedSize) {
-      setErrorSize(true);
-      return;
-    }
-    setErrorSize(false);
-    addToCart({
-      brand: data.brand,
-      model: data.model,
-      id_sneaker: data.id_sneaker,
-      images: data.images,
-      size: selectedSize.size,
-      id_size: selectedSize.id_size,
-      price: data.price,
-      slug: data.slug,
-      quantity: selectedQty,
-    });
-    console.log(data);
-
-    toast.success("Prodotto aggiunto al carrello! Clicca qui per il carrello");
-  };
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -55,51 +28,36 @@ export default function SneakersCard({ data }) {
           </div>
 
           <div>
-            <div className="d-flex justify-content-between align-items-center">
+            {/* Riga per il prezzo */}
+            <div className="d-flex justify-content-start align-items-center mb-2">
               <span className="fw-bold">€{data.price}</span>
-              <div className="d-flex gap-2">
-                <button className="btn btn-sm btn-cart" onClick={handleAddToCart}>
-                  <FontAwesomeIcon icon={faCartShopping} />
-                </button>
-                <LikeButton sneaker={data} />
-              </div>
             </div>
 
-            <div className="d-flex align-items-center justify-content-between my-2">
-              <select
-                className={`form-select w-auto py-0 ${errorSize ? "border border-danger" : ""}`}
-                value={selectedSize ? JSON.stringify(selectedSize) : ""}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  if (val === "") {
-                    setSelectedSize("");
-                  } else {
-                    setSelectedSize(JSON.parse(val));
-                  }
-                  setErrorSize(false);
-                }}
-              >
-                <option value="">Seleziona taglia</option>
-                {data.sizes?.map((size) => (
-                  <option key={size.id_size} value={JSON.stringify(size)}>
-                    {size.size}
-                  </option>
-                ))}
-              </select>
-              <div className="d-flex align-items-center">
-                <button
-                  className="my-btn-count "
-                  onClick={() =>
-                    selectedQty > 1 ? setSelectedQty(selectedQty - 1) : setSelectedQty(selectedQty)
-                  }
-                >
-                  <FontAwesomeIcon icon={faMinus} />
-                </button>
-                <div className="mx-3 fw-bold">{selectedQty}</div>
-                <button className="my-btn-count " onClick={() => setSelectedQty(selectedQty + 1)}>
-                  <FontAwesomeIcon icon={faPlus} />
-                </button>
-              </div>
+            {/* Riga per la selezione taglia e quantità */}
+            {/* Passa gli stati e i setter al SizeQuantitySelector */}
+            <SizeQuantitySelector
+              sizes={data.sizes}
+              selectedSize={selectedSize}
+              setSelectedSize={setSelectedSize}
+              selectedQty={selectedQty}
+              setSelectedQty={setSelectedQty}
+              errorSize={errorSize}
+              setErrorSize={setErrorSize}
+            />
+
+            {/* Riga che contiene il bottone Aggiungi al Carrello e il LikeButton */}
+            <div className="d-flex justify-content-end align-items-center gap-2 mt-3">
+              {" "}
+              {/* Allineato a destra */}
+              {/* Includi il componente AddToCartButton qui.
+                  Passa tutti i dati necessari per l'aggiunta al carrello. */}
+              <AddToCartButton
+                sneaker={data}
+                selectedSize={selectedSize}
+                selectedQty={selectedQty}
+                setErrorSize={setErrorSize}
+              />
+              <LikeButton sneaker={data} />
             </div>
 
             <div className="d-grid mt-3">

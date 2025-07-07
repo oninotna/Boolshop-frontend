@@ -5,6 +5,8 @@ import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { useWishList } from "../Contexts/WishListContext";
 
+import "../assets/css/index.css";
+
 export default function LikeButton({ sneaker }) {
   const { wishList, addToWish, removeFromWish } = useWishList();
   const [liked, setLiked] = useState(false);

@@ -10,7 +10,9 @@ import { CartProvider } from "./Contexts/CartContext";
 import { WishListProvider } from "./Contexts/WishListContext";
 import { SearchProvider } from "./Contexts/SearchContext";
 
-// Importo nuovo componente Toast
+// importazioni per il Toast
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import ToastWithNavigate from "./Components/ToastWithNavigate";
 
 export default function App() {

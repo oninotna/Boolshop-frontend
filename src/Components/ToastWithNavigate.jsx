@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { ToastContainer, cssTransition, toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import "../assets/css/Toast.css";
+
+import "../assets/css/Toast.css"; // Il tuo CSS personalizzato
 
 // Creo una transizione personalizzata per l'effetto fade
 const fade = cssTransition({
@@ -10,9 +10,6 @@ const fade = cssTransition({
   exit: "fade-exit", // classe CSS per l'uscita
   duration: [300, 500], // durata (enter, exit) in millisecondi
 });
-
-// Il componente CustomCloseButton l'ho rimosso perchè non riuscivo a farlo funzionare.
-// ho semplicemente accorciato il tempo di visualizzazione avviso
 
 // Componente principale del ToastContainer che supporta navigazione
 export default function ToastWithNavigate() {
@@ -47,9 +44,8 @@ export default function ToastWithNavigate() {
       hideProgressBar // Nasconde la barra di avanzamento
       pauseOnHover // Mantiene il toast visibile se ci passi sopra
       closeOnClick={false} // Disabilita chiusura cliccando sul contenuto (importante per il tuo onClick)
-      transition={fade} // Applichiamo l'effetto fade definito sopra
-      toastClassName="custom-toast" // Classe CSS per lo stile del toast
-      closeButton={false} // CORREZIONE: Impostato esplicitamente a false per rimuovere la 'X'
+      // transition={fade} // Applichiamo l'effetto fade definito sopra
+      closeButton={false} // Impostato esplicitamente a false per rimuovere la 'X'
       onClick={handleToastClick} // Gestisce il click sul toast
     />
   );
