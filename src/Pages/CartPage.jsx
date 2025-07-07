@@ -1,15 +1,11 @@
-//* IMPORTAZIONI
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useCart } from "../Contexts/CartContext";
 import LatestList from "../Components/LatestList";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import "../assets/css/index.css";
-import RecapModal from "./RecapModal";
 
-
-//* OGGETTO DI DEFAULT PER L'ORDINE
 const defaultOrder = {
   name: "",
   surname: "",
@@ -20,41 +16,42 @@ const defaultOrder = {
 };
 
 export default function CartPage() {
-  //* STATI
   const [order, setOrder] = useState(defaultOrder);
   const [successMsg, setSuccessMsg] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  //* OTTIENI CARRELLO E FUNZIONI DAL CONTEXT
   const { cart, clearCart, removeFromCart, updateQuantity } = useCart();
 
-  //* INVIO DELL’ORDINE
   const sendForm = () => {
     const orderWithItems = {
       ...order,
       items: cart || [],
     };
-    console.log(orderWithItems);
-    
+
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+
     axios
       .post(`http://localhost:3000/sneakers/checkoutdata`, orderWithItems)
       .then((res) => {
         if (res.status === 201) {
           setOrder(defaultOrder);
+          setTotalPrice(total);
           setSuccessMsg("Ordine effettuato con successo!");
-          clearCart(); // svuota carrello
+          clearCart();
         }
       })
       .catch((err) => console.error(err.message));
   };
 
-  //* GESTIONE FORM
   const handleSubmit = (e) => {
     e.preventDefault();
     setSuccessMsg("");
     sendForm();
   };
 
-  //* CAMBIO INPUT FORM
   const handleInputChange = (e) => {
     setOrder({
       ...order,
@@ -62,10 +59,16 @@ export default function CartPage() {
     });
   };
 
-  //* RENDER COMPONENTE
+  useEffect(() => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+    setTotalPrice(total);
+  }, [cart]);
+
   return (
     <>
-      {/* SEZIONE RIEPILOGO CARRELLO */}
       <section className="related-list">
         <div className="container-fluid">
           <h2 className="latest-title fw-bold">Riepilogo carrello</h2>
@@ -76,10 +79,7 @@ export default function CartPage() {
             <div className="row g-3">
               {cart.map((item, index) => (
                 <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
-                  {/* Immagine prodotto */}
                   <img src={item.images[0]} alt={item.model} width="100" className="me-3 rounded" />
-
-                  {/* Dettagli del prodotto */}
                   <div className="flex-grow-1">
                     <Link
                       to={`/detailpage/${item.slug}`}
@@ -87,9 +87,10 @@ export default function CartPage() {
                     >
                       {item.brand} - {item.model}
                     </Link>
-                    <p className="mb-1">Taglia: {item.size}<span className="ms-4">Prezzo: €{item.price * item.quantity},00</span></p>
-
-                    {/* Input quantità */}
+                    <p className="mb-1">
+                      Taglia: {item.size}
+                      <span className="ms-4">Prezzo: €{item.price * item.quantity},00</span>
+                    </p>
                     <div className="d-flex align-items-center">
                       <label className="me-2">Quantità:</label>
                       <input
@@ -103,8 +104,6 @@ export default function CartPage() {
                       />
                     </div>
                   </div>
-
-                  {/* Pulsante Rimuovi */}
                   <button
                     className="btn btn-outline-danger btn-sm ms-3"
                     onClick={() => removeFromCart(item.id_sneaker, item.size)}
@@ -113,10 +112,10 @@ export default function CartPage() {
                   </button>
                 </div>
               ))}
+              <p className="text-center fs-4 "><strong>Prezzo totale : €{totalPrice},00 </strong></p>
             </div>
           )}
 
-          {/* MESSAGGIO SUCCESSO */}
           {successMsg && <p className="text-success mt-3">{successMsg}</p>}
 
           {/* FORM CHECKOUT */}
@@ -190,14 +189,10 @@ export default function CartPage() {
               </button>
             </div>
           </form>
-          {/* <RecapModal data={orderWithItems} /> */}
         </div>
       </section>
 
-      {/* SEZIONE ULTIMI ARRIVI */}
       <LatestList />
-
-      {/* FOOTER */}
       <Footer />
     </>
   );
