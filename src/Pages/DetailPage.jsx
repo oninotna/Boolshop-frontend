@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import SneakersCard from "../Components/SneakersCard";
