@@ -58,6 +58,7 @@ export default function DetailPage() {
       size: selectedSize.size,
       id_size: selectedSize.id_size,
       price: sneaker.price,
+      slug: sneaker.slug,
       quantity: selectedQty });
     console.log(sneaker);
     
