@@ -4,7 +4,6 @@ import SneakersCard from "../Components/SneakersCard";
 import Footer from "../Components/Footer";
 import "../assets/css/index.css";
 import { useSearch } from "../Contexts/SearchContext";
-import UserPopUp from "../Components/userPopUp";
 
 export default function CatalogPage() {
   const [sneakers, setSneakers] = useState([]);
@@ -12,51 +11,42 @@ export default function CatalogPage() {
   const [error, setError] = useState(null);
   const { search, submit } = useSearch();
   const [h1text, setH1text] = useState("Catalogo sneakears");
-  const [sortOrder, setSortOrder] = useState("");
 
   useEffect(() => {
-    setLoading(true);
+    if (search.length) {
+      axios
+        .get(`http://localhost:3000/sneakers?search=${search}`)
+        .then((response) => {
+          setSneakers(response.data);
+          setLoading(false);
+          setH1text("Risultati ricerca");
+        })
+        .catch((err) => {
+          console.error("Errore durante il fetch:", err);
+          setError("Impossibile caricare i dati.");
+          setLoading(false);
+        });
+    } else {
+      axios
+        .get("http://localhost:3000/sneakers")
+        .then((response) => {
+          setSneakers(response.data);
 
-    const params = new URLSearchParams();
-    if (search.length) params.append("search", search);
-    if (sortOrder) params.append("name", sortOrder);
-
-    axios
-      .get(`http://localhost:3000/sneakers?${params.toString()}`)
-      .then((response) => {
-        setSneakers(response.data);
-        setH1text(search.length ? "Risultati ricerca" : "Catalogo sneakers");
-        setError(null);
-      })
-      .catch((err) => {
-        console.error("Errore durante il fetch:", err);
-        setError("Impossibile caricare i dati.");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [submit, sortOrder]);
+          setLoading(false);
+          setH1text("Catalogo sneakers");
+        })
+        .catch((err) => {
+          console.error("Errore durante il fetch:", err);
+          setError("Impossibile caricare i dati.");
+          setLoading(false);
+        });
+    }
+  }, [submit]);
 
   return (
     <>
       <div className="container-fluid">
         <h2 className="latest-title fw-bold mt-5">{h1text}</h2>
-        <div className="mb-4">
-          <label htmlFor="sortOrder" className="me-2 fw-semibold">
-            Ordina per nome:
-          </label>
-          <select
-            id="sortOrder"
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-            className="form-select d-inline w-auto"
-            disabled={loading}
-          >
-            <option value="">Predefinito</option>
-            <option value="ASC">A-Z</option>
-            <option value="DESC">Z-A</option>
-          </select>
-        </div>
 
         {/* <p className="latest-subtitle fst-italic text-secondary mb-5">
           Scopri tutti i nostri prodotti
@@ -87,7 +77,6 @@ export default function CatalogPage() {
       </div>
 
       <Footer />
-      <UserPopUp />
     </>
   );
 }
