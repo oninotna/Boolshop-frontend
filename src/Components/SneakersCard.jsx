@@ -16,6 +16,7 @@ export default function SneakersCard({ data }) {
       <div className="card h-100 shadow-sm">
         <div className="img-wrapper">
           <img src={data.images[0]} alt={data.model || "modello"} className="card-img-top" />
+          <LikeButton sneaker={data} />
         </div>
 
         <div className="card-body d-flex flex-column justify-content-between">
@@ -25,14 +26,14 @@ export default function SneakersCard({ data }) {
             <p className="card-text desc-limit">
               {data.description || "Modello esclusivo e versatile per ogni occasione."}
             </p>
-          </div>
 
-          <div>
             {/* Riga per il prezzo */}
             <div className="d-flex justify-content-start align-items-center mb-2">
               <span className="fw-bold">€{data.price}</span>
             </div>
+          </div>
 
+          <div>
             {/* Riga per la selezione taglia e quantità */}
             {/* Passa gli stati e i setter al SizeQuantitySelector */}
             <SizeQuantitySelector
@@ -45,25 +46,21 @@ export default function SneakersCard({ data }) {
               setErrorSize={setErrorSize}
             />
 
-            {/* Riga che contiene il bottone Aggiungi al Carrello e il LikeButton */}
-            <div className="d-flex justify-content-end align-items-center gap-2 mt-3">
-              {" "}
-              {/* Allineato a destra */}
-              {/* Includi il componente AddToCartButton qui.
-                  Passa tutti i dati necessari per l'aggiunta al carrello. */}
-              <AddToCartButton
-                sneaker={data}
-                selectedSize={selectedSize}
-                selectedQty={selectedQty}
-                setErrorSize={setErrorSize}
-              />
-              <LikeButton sneaker={data} />
-            </div>
-
-            <div className="d-grid mt-3">
-              <Link to={`/detailpage/${data.slug}`} className="btn btn-outline-secondary btn-sm">
-                Visualizza di più
-              </Link>
+            {/* Riga con AddToCart e Visualizza di più affiancati */}
+            <div className="card-footer-buttons">
+              <div>
+                <AddToCartButton
+                  sneaker={data}
+                  selectedSize={selectedSize}
+                  selectedQty={selectedQty}
+                  setErrorSize={setErrorSize}
+                />
+              </div>
+              <div>
+                <Link to={`/detailpage/${data.slug}`} className="btn btn-outline-secondary btn-sm">
+                  Visualizza di più
+                </Link>
+              </div>
             </div>
           </div>
         </div>

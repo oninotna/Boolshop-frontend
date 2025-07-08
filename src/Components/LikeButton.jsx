@@ -1,44 +1,39 @@
-// Components/LikeButton.jsx
-import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { useWishList } from "../Contexts/WishListContext";
 
-import "../assets/css/index.css";
+//* tolti useState(liked) + useEffect() che derivavano se la sneaker fosse nella wishlist
+// Questo comportava:
+// - Stato duplicato (già lo sai dal contesto)
+// - Codice più lungo
+// - Possibili disallineamenti tra wishList e liked
+// quindi questo componente non mantiene stato locale, ma si basa interamente sul contesto globale
 
 export default function LikeButton({ sneaker }) {
+  // Recupera funzioni e dati dal contesto WishList
   const { wishList, addToWish, removeFromWish } = useWishList();
-  const [liked, setLiked] = useState(false);
 
-  //# si potrebbe evitare liked come stato locale e derivare direttamente da wishList (contesto)
-  // # Così si evitano possibili disallineamenti e non serve useEffect.
-  // const liked = wishList.some((item) => item.id_sneaker === sneaker.id_sneaker);
+  // Determina se la sneaker è già nella wishlist
+  // (evitiamo useState: deriviamo direttamente dallo stato globale)
+  const liked = wishList.some((item) => item.id_sneaker === sneaker.id_sneaker);
 
-  // const toggleLike = () => {
-  //   if (liked) {
-  //     removeFromWish(sneaker);
-  //   } else {
-  //     addToWish(sneaker);
-  //   }
-  // };
-
-  useEffect(() => {
-    setLiked(wishList.some((item) => item.id_sneaker === sneaker.id_sneaker));
-  }, [wishList, sneaker]);
-
+  // Gestisce il toggle del "mi piace":
+  // - Se è già nella wishlist, la rimuove
+  // - Altrimenti la aggiunge
   const toggleLike = () => {
-    if (liked) {
-      removeFromWish(sneaker);
-    } else {
-      addToWish(sneaker);
-    }
-    setLiked(!liked);
+    liked ? removeFromWish(sneaker) : addToWish(sneaker);
   };
 
   return (
-    <button className={`btn-like btn-sm ${liked ? "liked" : "not-liked"}`} onClick={toggleLike}>
-      <FontAwesomeIcon icon={liked ? faHeartSolid : faHeartRegular} />
+    <button
+      className={`btn-like btn-sm ${liked ? "liked" : ""}`}
+      onClick={toggleLike}
+      aria-label={liked ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}
+    >
+      <FontAwesomeIcon
+        icon={liked ? faHeartSolid : faHeartRegular} // Cuore pieno se liked, vuoto altrimenti
+      />
     </button>
   );
 }
