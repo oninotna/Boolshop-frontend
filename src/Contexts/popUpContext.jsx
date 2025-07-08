@@ -25,5 +25,8 @@ return (
 </PopUpContext.Provider>)
     
 
-
 }
+
+function usePopUpContext () {
+return useContext(PopUpContext)}
+export{PopUpContextProvider, usePopUpContext}
