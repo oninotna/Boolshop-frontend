@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SneakersCard from "../Components/SneakersCard";
 import Footer from "../Components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +26,7 @@ export default function DetailPage() {
   const [liked, setLiked] = useState(false);
   const { addToCart } = useCart();
   const { addToWish } = useWishList();
-
+ const navigate = useNavigate()
   useEffect(() => {
     axios.get(`http://localhost:3000/sneakers/${slug}`).then((res) => {
       const data = res.data.sneaker;
@@ -37,6 +37,7 @@ export default function DetailPage() {
       setSelectedSize("");
       setSelectedQty(1);
       setLiked(false); // reset su cambio sneaker
+    }).catch((err)=>{navigate("*");
     });
   }, [slug]);
 
