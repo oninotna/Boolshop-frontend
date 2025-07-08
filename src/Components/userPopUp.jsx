@@ -5,7 +5,6 @@ import "../assets/css/userPopUp.css"
 
 export default function UserPopUp() {
   const { saveUserData } = usePopUpContext();
-
   const startingFormData = { name: "", surname: "", email: "" };
   const [formData, setFormData] = useState(startingFormData);
   const [isHide, setIsHide] = useState(() => {
@@ -13,6 +12,7 @@ export default function UserPopUp() {
   });
 
 // handlers
+
   const handleOnChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

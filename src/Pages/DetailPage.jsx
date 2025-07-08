@@ -201,7 +201,7 @@ export default function DetailPage() {
         </section>
       </div>
       <Footer />
-        <UserPopUp />
+      <UserPopUp />
     </>
   );
 }
