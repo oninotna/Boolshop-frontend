@@ -7,27 +7,38 @@ export default function UserPopUp() {
 
   const startingFormData = { name: "", surname: "", email: "" };
   const [formData, setFormData] = useState(startingFormData);
+  const [isHide, setIsHide] = useState(() => {
+    return sessionStorage.getItem("userPopUpClosed") === "true";
+  });
 
+// handlers
   const handleOnChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     saveUserData(formData);
-
+    sessionStorage.setItem("userPopUpClosed", "true");
     axios
       .post("http://localhost:3000/sneakers/popup", formData)
       .then((response) => {
-        console.log( response.data);
+        console.log(response.data);
         alert("Dati inviati con successo");
+        if (response.data ) {setIsHide(true)};
       })
       .catch((err) => {
-        console.error(" Errore:");
-        alert(" Errore durante l'invio dei dati");
+        console.error("Errore:");
+        alert("Errore durante l'invio dei dati");
       });
   };
+
+  const handleClose = () => {
+    setIsHide(true);
+    sessionStorage.setItem("userPopUpClosed", "true");
+  };
+
+  if (isHide) return null;
 
   return (
     <div className="my-5">
@@ -70,9 +81,10 @@ export default function UserPopUp() {
               required
             />
           </div>
-          <div className="col-12 mt-3">
-            <button type="submit" className="btn btn-primary btn-xl">
-              Conferma i tuoi dati
+          <div className="col-12 mt-3 d-flex justify-content-around ">
+            <button type="submit" className="btn btn-primary btn-xl">Conferma i tuoi dati</button>
+            <button type="button" onClick={handleClose} className="btn btn-success btn-xl">
+              Ho già immesso i miei dati
             </button>
           </div>
         </form>
