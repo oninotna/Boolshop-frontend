@@ -6,7 +6,7 @@ export default function WishListPage() {
   const { wishList } = useWishList();
 
   return (<>
-    wishList.length ? (
+    {wishList.length ? (
       <div className="container">
     <h1 className="my-3 text-center">La tua lista dei desideri</h1>
     <div className="row">
@@ -15,7 +15,7 @@ export default function WishListPage() {
     </div>
   ) : (
     <h1 className="my-3 text-center">La tua lista dei desideri è vuota</h1>
-  )
+  )}
    <UserPopUp />
    </>);
 }
