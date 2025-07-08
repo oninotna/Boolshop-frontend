@@ -158,6 +158,8 @@ export default function CartPage() {
           {successMsg && <p className="text-success mt-3">{successMsg}</p>}
 
           {/* FORM CHECKOUT */}
+
+          {cart.length ? ( 
           <form className="row mt-4 align-items-end" onSubmit={handleSubmit}>
             <div className="col-xs-12 col-sm-6 col-md-4">
               <label htmlFor="name">Nome</label>
@@ -235,7 +237,7 @@ export default function CartPage() {
                 <option value="klarna">klarna</option>
               </select>
             </div> */}
-            <div className="col-xs-12 col-sm-6 col-md-4 mt-3 justify-content-end ">
+            <div className="col-xs-12 col-sm-6 col-md-4 mt-3 d-flex justify-content-end ">
               <button
                 className="btn btn-secondary"
                 type="submit"
@@ -246,7 +248,8 @@ export default function CartPage() {
                 Procedi al checkout
               </button>
             </div>
-          </form>
+          </form>) 
+          : ''}
         </div>
       </section>
       < UserPopUp />
