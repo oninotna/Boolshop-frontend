@@ -101,7 +101,7 @@ body {
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
 }
 
-/* Wishlist: neon pink */
+/* Wishlist: neon red */
 .icon-link.wishlist-icon:hover {
   color: #ff0000;
 }
@@ -184,9 +184,9 @@ body {
     max-width: 100px;
   }
 
-  .navbar-brand .gradient-text {
+  /* .navbar-brand .gradient-text {
     display: none;
-  }
+  } */
 
   .navbar-collapse {
     background-color: rgba(0, 0, 0, 0.8);
@@ -373,39 +373,7 @@ body {
   padding-bottom: 0.5rem;
 }
 
-/* Carrello */
-.btn-cart {
-  background-color: #343a40;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  transition: all 0.2s ease-in-out;
-  border-radius: 4px;
-}
 
-.btn-cart:hover {
-  background-color: #212529;
-}
-
-/* Wishlist */
-.btn-like {
-  background-color: transparent;
-  border: 1px solid #ccc;
-  color: #ff0019;
-  padding: 8px 12px;
-  transition: all 0.2s ease-in-out;
-  border-radius: 4px;
-}
-
-.btn-like.liked {
-  background-color: #ff0019;
-  color: white;
-  border-color: #ff0019;
-}
-
-.btn-like:hover {
-  opacity: 0.9;
-}
 
 /* Dropdown error */
 select.border-danger {
