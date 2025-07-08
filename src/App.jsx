@@ -9,6 +9,7 @@ import DetailPage from "./Pages/DetailPage";
 import { CartProvider } from "./Contexts/CartContext";
 import { WishListProvider } from "./Contexts/WishListContext";
 import { SearchProvider } from "./Contexts/SearchContext";
+import { PopUpContextProvider } from "./Contexts/popUpContext";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
     <SearchProvider>
       <WishListProvider>
         <CartProvider>
+          <PopUpContextProvider>
           <BrowserRouter>
             <Routes>
               <Route element={<DefaultLayout />}>
@@ -28,6 +30,7 @@ export default function App() {
               </Route>
             </Routes>
           </BrowserRouter>
+          </PopUpContextProvider>
         </CartProvider>
       </WishListProvider>
     </SearchProvider>

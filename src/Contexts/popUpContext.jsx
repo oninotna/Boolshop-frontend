@@ -21,13 +21,6 @@ function PopUpContextProvider({ children }) {
     setUserData(data);
     setShowPopUp(false);
 
-    axios.post("http://localhost:3000/sneakers/popup", data)
-      .then(() => {
-        console.log("Dati utente salvati nel backend");
-      })
-      .catch((error) => {
-        console.error("Errore durante il salvataggio:", error);
-      });
   };
 
   return <PopUpContext.Provider value={{ userData, saveUserData, showPopUp }}>
