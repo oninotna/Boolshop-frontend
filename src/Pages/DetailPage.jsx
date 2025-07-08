@@ -10,7 +10,7 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { useCart } from "../Contexts/CartContext";
 import { useWishList } from "../Contexts/WishListContext";
-
+import { toast } from "react-toastify";
 import "../assets/css/index.css";
 
 export default function DetailPage() {
@@ -48,6 +48,10 @@ export default function DetailPage() {
   const handleAddToCart = () => {
     if (!selectedSize) {
       setErrorSize(true);
+      toast.error("Seleziona una taglia prima di aggiungere al carrello!", {
+              autoClose: 2000,
+              hideProgressBar: true,
+            })
       return;
     }
     setErrorSize(false);
@@ -63,7 +67,8 @@ export default function DetailPage() {
       quantity: selectedQty });
     console.log(sneaker);
     
-    alert("Prodotto aggiunto al carrello!");
+    // alert("Prodotto aggiunto al carrello!");
+    toast.success("Prodotto aggiunto al carrello! Clicca qui per il carrello"); 
   };
 
   const toggleWish = () => {
