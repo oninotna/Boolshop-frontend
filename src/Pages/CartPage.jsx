@@ -8,6 +8,7 @@ import "../assets/css/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import UserPopUp from "../Components/userPopUp";
 
 const defaultOrder = {
   name: "",
@@ -248,9 +249,10 @@ export default function CartPage() {
           </form>
         </div>
       </section>
-
+      < UserPopUp />
       <LatestList />
       <Footer />
+      <UserPopUp />
     </>
   );
 }

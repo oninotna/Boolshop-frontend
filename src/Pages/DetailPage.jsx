@@ -11,6 +11,7 @@ import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { useCart } from "../Contexts/CartContext";
 import { useWishList } from "../Contexts/WishListContext";
 import { toast } from "react-toastify";
+import UserPopUp from "../Components/userPopUp";
 import "../assets/css/index.css";
 
 export default function DetailPage() {
@@ -200,6 +201,7 @@ export default function DetailPage() {
         </section>
       </div>
       <Footer />
+        <UserPopUp />
     </>
   );
 }

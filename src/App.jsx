@@ -9,6 +9,7 @@ import DetailPage from "./Pages/DetailPage";
 import { CartProvider } from "./Contexts/CartContext";
 import { WishListProvider } from "./Contexts/WishListContext";
 import { SearchProvider } from "./Contexts/SearchContext";
+import { PopUpContextProvider } from "./Contexts/popUpContext";
 
 // importazioni per il Toast
 import "react-toastify/dist/ReactToastify.css";
@@ -21,7 +22,8 @@ export default function App() {
       <SearchProvider>
         <WishListProvider>
           <CartProvider>
-            <BrowserRouter>
+            <PopUpContextProvider> 
+            <BrowserRouter> 
               <Routes>
                 <Route element={<DefaultLayout />}>
                   <Route path="/" element={<HomePage />} />
@@ -32,10 +34,9 @@ export default function App() {
                   <Route path="/cart" element={<CartPage />} />
                 </Route>
               </Routes>
-
-              {/* ToastContainer con navigate dentro BrowserRouter */}
               <ToastWithNavigate />
             </BrowserRouter>
+             </PopUpContextProvider>
           </CartProvider>
         </WishListProvider>
       </SearchProvider>
