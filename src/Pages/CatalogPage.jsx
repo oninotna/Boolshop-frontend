@@ -16,7 +16,7 @@ export default function CatalogPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Estraggo parametri dalla URL per sincronizzarli
+  
   const params = new URLSearchParams(location.search);
   const order = params.get("order") || "";
 
@@ -27,7 +27,7 @@ export default function CatalogPage() {
 
     if (search.length) urlParams.append("search", search);
 
-    // Mappa per convertire order → query param
+    
     if (order === "name_asc") urlParams.append("name", "ASC");
     else if (order === "name_desc") urlParams.append("name", "DESC");
     else if (order === "price_asc") urlParams.append("price", "ASC");
@@ -63,7 +63,7 @@ export default function CatalogPage() {
       <div className="container-fluid">
         <h2 className="latest-title fw-bold mt-5">{h1text}</h2>
 
-        {/* Select per ordinamento */}
+        
         <div className="mb-4">
           <label htmlFor="orderSelect" className="form-label fw-semibold">
             Ordina per:
