@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { usePopUpContext } from "../Contexts/popUpContext";
+import { toast } from "react-toastify";
 import "../assets/css/userPopUp.css"
 
 export default function UserPopUp() {
@@ -25,12 +26,12 @@ export default function UserPopUp() {
       .post("http://localhost:3000/sneakers/popup", formData)
       .then((response) => {
         console.log(response.data);
-        alert("Dati inviati con successo");
+        toast.success("Dati inviati correttamente");
         if (response.data ) {setIsHide(true)};
       })
       .catch((err) => {
-        console.error("Errore:");
-        alert("Errore durante l'invio dei dati");
+        console.error(err);
+        toast.error("Errore nell'immissione dei dati");
       });
   };
 
@@ -45,7 +46,7 @@ export default function UserPopUp() {
   <div className="modal-overlay">
     <div className="modal-container">
       <div className="container my-2">
-        <h2 className="text-center">Inserisci i tuoi dati</h2>
+        <h3 className="text-center">Benvenuto su zneakdrop! <br /> Registrati alla nostra newsletter e ricevi subito il 5% di sconto sul tuo primo ordine!</h3>
         <form className="row d-flex" onSubmit={handleSubmit}>
           <div className="col-4">
             <label htmlFor="name" className="form-label">Nome</label>
