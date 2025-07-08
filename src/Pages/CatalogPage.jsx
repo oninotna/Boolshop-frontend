@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import SneakersCard from "../Components/SneakersCard";
 import Footer from "../Components/Footer";
@@ -11,28 +12,33 @@ export default function CatalogPage() {
   const [error, setError] = useState(null);
   const { search, submit } = useSearch();
   const [h1text, setH1text] = useState("Catalogo sneakers");
-  const [order, setOrder] = useState(""); // stato per select ordinamento
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Estraggo parametri dalla URL per sincronizzarli
+  const params = new URLSearchParams(location.search);
+  const order = params.get("order") || "";
 
   useEffect(() => {
     setLoading(true);
 
-    let url = "http://localhost:3000/sneakers";
+    const urlParams = new URLSearchParams();
 
-    const params = new URLSearchParams();
-    if (search.length) params.append("search", search);
+    if (search.length) urlParams.append("search", search);
 
-    // Gestione parametri di ordinamento (solo uno alla volta)
-    if (order === "name_asc") params.append("name", "ASC");
-    else if (order === "name_desc") params.append("name", "DESC");
-    else if (order === "price_asc") params.append("price", "ASC");
-    else if (order === "price_desc") params.append("price", "DESC");
-    else if (order === "date_asc") params.append("date", "ASC");
-    else if (order === "date_desc") params.append("date", "DESC");
+    // Mappa per convertire order → query param
+    if (order === "name_asc") urlParams.append("name", "ASC");
+    else if (order === "name_desc") urlParams.append("name", "DESC");
+    else if (order === "price_asc") urlParams.append("price", "ASC");
+    else if (order === "price_desc") urlParams.append("price", "DESC");
+    else if (order === "date_asc") urlParams.append("date", "ASC");
+    else if (order === "date_desc") urlParams.append("date", "DESC");
 
-    url += `?${params.toString()}`;
+    const fetchUrl = `http://localhost:3000/sneakers?${urlParams.toString()}`;
 
     axios
-      .get(url)
+      .get(fetchUrl)
       .then((response) => {
         setSneakers(response.data);
         setH1text(search.length ? "Risultati ricerca" : "Catalogo sneakers");
@@ -47,7 +53,9 @@ export default function CatalogPage() {
   }, [submit, order]);
 
   const handleOrderChange = (e) => {
-    setOrder(e.target.value);
+    const selected = e.target.value;
+    params.set("order", selected);
+    navigate({ search: params.toString() });
   };
 
   return (
