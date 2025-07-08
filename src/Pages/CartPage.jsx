@@ -100,7 +100,7 @@ export default function CartPage() {
                     >
                       {item.brand} - {item.model}
                     </Link>
-                    
+
                     <div className="d-flex align-items-center mt-1">
                       <label className="me-2">Quantità:</label>
                       <div className="d-flex align-items-center ms-3">
@@ -217,7 +217,20 @@ export default function CartPage() {
                 required
               />
             </div>
-            <div className="col-xs-12 col-sm-6 col-md-4 mt-3 text-end ">
+            <div className="col-xs-12 col-sm-6 col-md-4  mt-3">
+              <select
+                className="form-select  "
+                aria-label="Default select example"
+              >
+                <option selected>metodo di pagamento</option>
+                <option value="1">Mastercard</option>
+                <option value="2">Paypal</option>
+                <option value="3">Visa</option>
+                <option value="4">Apple pay</option>
+                <option value="5">klarna</option>
+              </select>
+            </div>
+            <div className="col-xs-12 col-sm-6 col-md-4 mt-3 justify-content-end ">
               <button
                 className="btn btn-secondary"
                 type="submit"
