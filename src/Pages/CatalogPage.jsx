@@ -4,6 +4,7 @@ import SneakersCard from "../Components/SneakersCard";
 import Footer from "../Components/Footer";
 import "../assets/css/index.css";
 import { useSearch } from "../Contexts/SearchContext";
+import UserPopUp from "../Components/userPopUp";
 
 export default function CatalogPage() {
   const [sneakers, setSneakers] = useState([]);
@@ -74,6 +75,7 @@ export default function CatalogPage() {
       </div>
 
       <Footer />
+      <UserPopUp />
     </>
   );
 }

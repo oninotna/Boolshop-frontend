@@ -10,6 +10,7 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { useCart } from "../Contexts/CartContext";
 import { useWishList } from "../Contexts/WishListContext";
+import UserPopUp from "../Components/userPopUp";
 
 import "../assets/css/index.css";
 
@@ -195,6 +196,7 @@ export default function DetailPage() {
         </section>
       </div>
       <Footer />
+        <UserPopUp />
     </>
   );
 }

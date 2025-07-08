@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { usePopUpContext } from "../Contexts/popUpContext";
+import "../assets/css/userPopUp.css"
 
 export default function UserPopUp() {
   const { saveUserData } = usePopUpContext();
@@ -41,7 +42,8 @@ export default function UserPopUp() {
   if (isHide) return null;
 
   return (
-    <div className="my-5">
+  <div className="modal-overlay">
+    <div className="modal-container">
       <div className="container my-2">
         <h2 className="text-center">Inserisci i tuoi dati</h2>
         <form className="row d-flex" onSubmit={handleSubmit}>
@@ -81,7 +83,7 @@ export default function UserPopUp() {
               required
             />
           </div>
-          <div className="col-12 mt-3 d-flex justify-content-around ">
+          <div className="col-12 mt-3 d-flex justify-content-around">
             <button type="submit" className="btn btn-primary btn-xl">Conferma i tuoi dati</button>
             <button type="button" onClick={handleClose} className="btn btn-success btn-xl">
               Ho già immesso i miei dati
@@ -90,5 +92,6 @@ export default function UserPopUp() {
         </form>
       </div>
     </div>
-  );
+  </div>
+);
 }
