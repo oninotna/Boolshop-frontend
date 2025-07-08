@@ -21,13 +21,15 @@ export default function UserPopUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     saveUserData(formData);
-    sessionStorage.setItem("userPopUpClosed", "true");
+    
     axios
       .post("http://localhost:3000/sneakers/popup", formData)
       .then((response) => {
         console.log(response.data);
         toast.success("Dati inviati correttamente");
-        if (response.data ) {setIsHide(true)};
+        if (response.data) {sessionStorage.setItem("userPopUpClosed", "true");
+          setIsHide(true);
+        };
       })
       .catch((err) => {
         console.error(err);
