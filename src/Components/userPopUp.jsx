@@ -46,7 +46,7 @@ export default function UserPopUp() {
   <div className="modal-overlay">
     <div className="modal-container">
       <div className="container my-2">
-        <h3 className="text-center">Benvenuto su zneakdrop! <br /> Registrati alla nostra newsletter e ricevi subito il 5% di sconto sul tuo primo ordine!</h3>
+        <h3 className="text-center">Benvenuto su zneakdrop! <br /> Registrati alla nostra newsletter e resta aggiornato sulle nosre ultime novità</h3>
         <form className="row d-flex" onSubmit={handleSubmit}>
           <div className="col-4">
             <label htmlFor="name" className="form-label">Nome</label>
