@@ -99,15 +99,14 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    data-bs-toggle="offcanvas"
-                    data-bs-target={
-                      canBeOpen === true ? "#offcanvasPreviewCart" : " "
-                    }
-                    onClick={
-                      canBeOpen === false
-                        ? toast.error("il tuo carrello è vuoto")
-                        : null
-                    }
+                    data-bs-toggle={canBeOpen ? "offcanvas" : ""}
+                    data-bs-target={canBeOpen ? "#offcanvasPreviewCart" : ""}
+                    onClick={(e) => {
+                      if (!canBeOpen) {
+                        e.preventDefault();
+                        toast.error("Il tuo carrello è vuoto");
+                      }
+                    }}
                     aria-controls="offcanvasPreviewCart"
                     className="icon-link cart-icon"
                   >
