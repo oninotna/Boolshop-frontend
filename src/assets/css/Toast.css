@@ -1,5 +1,3 @@
-/* frontend/assets/css/Toast.css */
-
 /* Stili per le animazioni (possono rimanere come sono o essere ottimizzati) */
 .fade-enter {
   opacity: 0;
@@ -57,7 +55,7 @@
 }
 
 
-/* Stile per il bottone di chiusura (X) - se lo riabiliti in futuro */
+/* Stile per il bottone di chiusura (X) - NON ABILITATO */
 .Toastify__close-button {
   color: white !important; /* Colore della 'x' */
   opacity: 0.8 !important;
@@ -68,7 +66,7 @@
   opacity: 1 !important;
 }
 
-/* Stile per la barra di progresso (se abilitata) */
+/* Stile per la barra di progresso (NON ABILITATA) */
 .Toastify__progress-bar--success {
   background-color: rgba(255, 255, 255, 0.5) !important; /* Barra bianca semitrasparente */
 }

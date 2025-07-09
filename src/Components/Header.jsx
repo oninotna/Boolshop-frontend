@@ -6,11 +6,7 @@ import { toast } from "react-toastify";
 import "../assets/css/off-canvas-btn.css";
 // import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState, useEffect } from "react";
-import {
-  faHeart,
-  faCartShopping,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/index.css";
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
@@ -69,9 +65,7 @@ export default function Header() {
                     to="/"
                     onClick={() => setSearch("")}
                     end
-                    className={({ isActive }) =>
-                      "nav-link" + (isActive ? " active-link" : "")
-                    }
+                    className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
                   >
                     Home
                   </NavLink>
@@ -80,9 +74,7 @@ export default function Header() {
                   <NavLink
                     to="/catalog"
                     onClick={() => setSearch("")}
-                    className={({ isActive }) =>
-                      "nav-link" + (isActive ? " active-link" : "")
-                    }
+                    className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
                   >
                     Catalogo
                   </NavLink>
@@ -92,8 +84,7 @@ export default function Header() {
                   <NavLink
                     to="/wishlist"
                     className={({ isActive }) =>
-                      "icon-link wishlist-icon" +
-                      (isActive ? " active-link" : "")
+                      "icon-link wishlist-icon" + (isActive ? " active-link" : "")
                     }
                   >
                     <FontAwesomeIcon icon={faHeart} />
@@ -125,6 +116,8 @@ export default function Header() {
           </div>
         </div>
       </nav>
+
+      {/* 🔁 BOTTONE PREVIEW RIPRISTINATO */}
       {canBeOpen ? (
         <Link
           className="fixed-canvas-button btn btn-secondary"
@@ -143,6 +136,8 @@ export default function Header() {
       ) : (
         ""
       )}
+
+      {/* 🔁 OFFCANVAS */}
       <div
         className="offcanvas offcanvas-start"
         tabIndex="-1"
@@ -160,28 +155,20 @@ export default function Header() {
             aria-label="Close"
           ></button>
         </div>
+
         <div className="offcanvas-body">
-          <div className="row ">
+          <div className="row">
             {canBeOpen ? (
               cart.map((item, index) => (
-                <div
-                  className="col-12 d-flex align-items-center border-bottom pb-3"
-                  key={index}
-                >
-                  <img
-                    src={item.images[0]}
-                    alt={item.model}
-                    width="100"
-                    className="me-3 rounded"
-                  />
+                <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
+                  <img src={item.images[0]} alt={item.model} width="100" className="me-3 rounded" />
                   <div className="flex-grow-1">
                     <p>
                       <strong>
                         {item.brand} - {item.model}
                       </strong>
                     </p>
-
-                    <p className="mt-2"> Taglia: {item.size}</p>
+                    <p className="mt-2">Taglia: {item.size}</p>
                     <p>Prezzo: €{item.price * item.quantity},00</p>
                   </div>
                   <button
