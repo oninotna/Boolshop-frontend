@@ -18,6 +18,10 @@
 
 /* Stili comuni applicati a TUTTI i toast (border-radius, box-shadow, font-size, padding) */
 /* Questi stili verranno applicati a tutte le classi Toastify__toast--type */
+.custom-toast-margin {
+  margin-bottom: 70px !important; /* esempio per spostarlo sopra il bottone */
+}
+
 .Toastify__toast {
   border-radius: 8px !important; /* Forza il border-radius */
   font-size: 0.875rem !important;

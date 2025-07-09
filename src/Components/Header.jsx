@@ -117,12 +117,12 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* 🔁 BOTTONE PREVIEW RIPRISTINATO */}
+      {/* 🔁 BOTTONE PREVIEW */}
       {canBeOpen ? (
         <Link
-          className="fixed-canvas-button btn btn-secondary"
-          data-bs-toggle={canBeOpen ? "offcanvas" : ""}
-          data-bs-target={canBeOpen ? "#offcanvasPreviewCart" : ""}
+          className="fixed-canvas-button cart-icon-button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasPreviewCart"
           onClick={(e) => {
             if (!canBeOpen) {
               e.preventDefault();
@@ -131,7 +131,7 @@ export default function Header() {
           }}
           aria-controls="offcanvasPreviewCart"
         >
-          Preview del carrello
+          <FontAwesomeIcon icon={faCartShopping} />
         </Link>
       ) : (
         ""
