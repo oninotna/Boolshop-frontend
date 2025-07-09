@@ -30,8 +30,23 @@ export default function SneakersCard({ data }) {
 
         <div className="card-body d-flex flex-column justify-content-between">
           <div>
-            <h6 className="mb-1 brand-title">{data.brand}</h6>
-            <h5 className="mb-2 fw-semibold model-title">{data.model}</h5>
+            <div className="d-flex justify-content-between">
+              <div>
+                <h6 className="mb-1 brand-title">{data.brand}</h6>
+                <h5 className="mb-2 fw-semibold model-title">{data.model}</h5>
+              </div>
+              <div>
+                <button
+                  className={`btn btn-sm ${
+                    isInCompare ? "btn-danger" : "btn-outline-secondary"
+                  }`}
+                  disabled={!isInCompare && compareList.length >= 3}
+                  onClick={() => toggleCompare(data)}
+                >
+                  {isInCompare ? "Rimuovi dal Confronto" : "Confronta"}
+                </button>
+              </div>
+            </div>
             <p className="card-text desc-limit">
               {data.description ||
                 "Modello esclusivo e versatile per ogni occasione."}
@@ -53,7 +68,7 @@ export default function SneakersCard({ data }) {
             />
 
             <div className="card-footer-buttons d-flex flex-column gap-1">
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between gap-4">
                 <AddToCartButton
                   sneaker={data}
                   selectedSize={selectedSize}
@@ -67,16 +82,6 @@ export default function SneakersCard({ data }) {
                   Visualizza di più
                 </Link>
               </div>
-
-              <button
-                className={`btn btn-sm ${
-                  isInCompare ? "btn-danger" : "btn-outline-secondary"
-                }`}
-                disabled={!isInCompare && compareList.length >= 3}
-                onClick={() => toggleCompare(data)}
-              >
-                {isInCompare ? "Rimuovi dal Confronto" : "Confronta"}
-              </button>
             </div>
           </div>
         </div>
