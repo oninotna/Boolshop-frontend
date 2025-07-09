@@ -132,8 +132,8 @@ export default function Header() {
         id="offcanvasPreviewCart"
         aria-labelledby="offcanvasCanvasTitle"
       >
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasCanvasTitle">
+        <div className="offcanvas-header text-center">
+          <h5 className="offcanvas-title text-center" id="offcanvasCanvasTitle">
             Preview carrello
           </h5>
           <button
