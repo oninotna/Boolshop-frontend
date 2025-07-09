@@ -19,7 +19,7 @@ export default function ComparePage() {
             <tr className="align-middle text-center">
               <th>Caratteristica</th>
               {compareList.map((item) => (
-                <th key={item.id} className="position-relative  ">
+                <th key={item.id_sneaker} className="position-relative  ">
                   {item.model}
                   <button
                     className="btn btn-sm btn-danger compare-remove-btn"
@@ -36,7 +36,7 @@ export default function ComparePage() {
             <tr>
               <td>Immagine</td>
               {compareList.map((item) => (
-                <td key={item.id}>
+                <td key={item.id_sneaker}>
                   <img
                     className="img-dimension"
                     src={item.images[0]}
@@ -48,19 +48,19 @@ export default function ComparePage() {
             <tr>
               <td>Brand</td>
               {compareList.map((item) => (
-                <td key={item.id}>{item.brand}</td>
+                <td key={item.id_sneaker}>{item.brand}</td>
               ))}
             </tr>
             <tr>
               <td>Prezzo</td>
               {compareList.map((item) => (
-                <td key={item.id}>€{item.price}</td>
+                <td key={item.id_sneaker}>€{item.price}</td>
               ))}
             </tr>
             <tr>
               <td>Descrizione</td>
               {compareList.map((item) => (
-                <td key={item.id}>{item.description}</td>
+                <td key={item.id_sneaker}>{item.description}</td>
               ))}
             </tr>
           </tbody>
