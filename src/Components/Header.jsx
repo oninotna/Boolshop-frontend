@@ -1,13 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../Contexts/SearchContext";
+import { useCart } from "../Contexts/CartContext";
 import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../assets/css/index.css";
 import SearchBar from "./SearchBar";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate= useNavigate()
+    const { cart, removeFromCart} = useCart();
   const {setSearch} = useSearch();
-  return (
+  return (<>
     <nav className="navbar navbar-expand-md navbar-dark custom-navbar">
       <div className="container-fluid d-flex align-items-center justify-content-between w-100 flex-nowrap">
         {/* Colonna sinistra: logo */}
@@ -80,7 +84,7 @@ export default function Header() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  to="/cart"
+                  data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
                   className={({ isActive }) =>
                     "icon-link cart-icon" + (isActive ? " active-link" : "")
                   }
@@ -104,5 +108,51 @@ export default function Header() {
         </div>
       </div>
     </nav>
+    <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div className="offcanvas-header">
+    <h5 className="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div className="offcanvas-body">
+   <div className="row g-3">
+                 {cart.map((item, index) => (
+                   <div
+                     className="col-12 d-flex align-items-center border-bottom pb-3"
+                     key={index}
+                   >
+                     <img
+                       src={item.images[0]}
+                       alt={item.model}
+                       width="100"
+                       className="me-3 rounded"
+                     />
+                     <div className="flex-grow-1">
+                       <Link
+                         to={`/detailpage/${item.slug}`}
+                         className="fw-bold text-dark text-decoration-none"
+                       >
+                         {item.brand} - {item.model}
+                       </Link>
+                       <p className="mt-2">
+                         Taglia: {item.size}
+                         <span className="ms-4">
+                           Prezzo: €{item.price * item.quantity},00
+                         </span>
+                       </p>
+                     </div>
+                     <button
+                       className="btn btn-outline-danger btn-sm ms-3"
+                       onClick={() => removeFromCart(item.id_sneaker, item.size)}
+                     >
+                       Rimuovi
+                     </button>
+                  
+                   </div>
+                 ))}
+               </div>  
+                <Link  data-bs-dismiss="offcanvas" className="btn btn-secondary"onClick={()=>{navigate("/cart")}}>Vai alla pagina del carrello</Link>
+  </div>
+</div>
+</>
   );
 }
