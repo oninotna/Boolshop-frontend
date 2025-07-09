@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../Contexts/SearchContext";
 import { useCart } from "../Contexts/CartContext";
 import { toast } from "react-toastify";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState, useEffect } from "react";
 import {
   faHeart,
@@ -148,49 +149,53 @@ export default function Header() {
         </div>
         <div className="offcanvas-body">
           <div className="row ">
-            {cart.map((item, index) => (
-              <div
-                className="col-12 d-flex align-items-center border-bottom pb-3"
-                key={index}
-              >
-                <img
-                  src={item.images[0]}
-                  alt={item.model}
-                  width="100"
-                  className="me-3 rounded"
-                />
-                <div className="flex-grow-1">
-                  <p>
-                    <strong>
-                      {item.brand} - {item.model}
-                    </strong>
-                  </p>
-
-                  <p className="mt-2"> Taglia: {item.size}</p>
-                  <p>Prezzo: €{item.price * item.quantity},00</p>
-                </div>
-                <button
-                  className="btn btn-outline-danger btn-sm ms-3"
-                  onClick={() => removeFromCart(item.id_sneaker, item.size)}
-                  data-bs-toggle="offcanvas"
-                  data-bs-target={
-                    canBeOpen === true ? "#offcanvasPreviewCart" : " "
-                  }
+            {canBeOpen ? (
+              cart.map((item, index) => (
+                <div
+                  className="col-12 d-flex align-items-center border-bottom pb-3"
+                  key={index}
                 >
-                  Rimuovi
-                </button>
-              </div>
-            ))}
+                  <img
+                    src={item.images[0]}
+                    alt={item.model}
+                    width="100"
+                    className="me-3 rounded"
+                  />
+                  <div className="flex-grow-1">
+                    <p>
+                      <strong>
+                        {item.brand} - {item.model}
+                      </strong>
+                    </p>
+
+                    <p className="mt-2"> Taglia: {item.size}</p>
+                    <p>Prezzo: €{item.price * item.quantity},00</p>
+                  </div>
+                  <button
+                    className="btn btn-outline-danger btn-sm ms-3"
+                    onClick={() => removeFromCart(item.id_sneaker, item.size)}
+                  >
+                    Rimuovi
+                  </button>
+                </div>
+              ))
+            ) : (
+              <h3>Il tuo carrello è vuoto</h3>
+            )}
           </div>
-          <Link
-            data-bs-dismiss="offcanvas"
-            className="btn btn-secondary"
-            onClick={() => {
-              navigate("/cart");
-            }}
-          >
-            Vai alla pagina del carrello
-          </Link>
+          {canBeOpen ? (
+            <Link
+              data-bs-dismiss="offcanvas"
+              className="btn btn-secondary"
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              Vai alla pagina del carrello
+            </Link>
+          ) : (
+            " "
+          )}
         </div>
       </div>
     </>
