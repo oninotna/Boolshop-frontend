@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../Contexts/SearchContext";
 import { useCart } from "../Contexts/CartContext";
+import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import {
   faHeart,
@@ -102,8 +103,13 @@ export default function Header() {
                     data-bs-target={
                       canBeOpen === true ? "#offcanvasPreviewCart" : " "
                     }
+                    onClick={
+                      canBeOpen === false
+                        ? toast.error("il tuo carrello è vuoto")
+                        : null
+                    }
                     aria-controls="offcanvasPreviewCart"
-                    className= "icon-link cart-icon"                   
+                    className="icon-link cart-icon"
                   >
                     <FontAwesomeIcon icon={faCartShopping} />
                   </NavLink>
@@ -167,6 +173,10 @@ export default function Header() {
                 <button
                   className="btn btn-outline-danger btn-sm ms-3"
                   onClick={() => removeFromCart(item.id_sneaker, item.size)}
+                  data-bs-toggle="offcanvas"
+                  data-bs-target={
+                    canBeOpen === true ? "#offcanvasPreviewCart" : " "
+                  }
                 >
                   Rimuovi
                 </button>
