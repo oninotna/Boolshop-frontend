@@ -1,4 +1,4 @@
-import React from "react"; // Rimosso useState
+import React from "react";
 import { useCart } from "../Contexts/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -6,21 +6,29 @@ import { toast } from "react-toastify";
 
 /**
  * Componente AddToCartButton
- * Questo componente è ora un bottone semplice che aggiunge l'articolo al carrello.
- * La selezione di taglia e quantità è gestita esternamente e passata tramite props.
+ *
+ * Questo componente rappresenta un pulsante per aggiungere una sneaker al carrello.
+ * Mostra solo l'icona nei dispositivi piccoli e testo + icona nei dispositivi più grandi.
  *
  * @param {object} props - Le props del componente.
  * @param {object} props.sneaker - L'oggetto sneaker da aggiungere.
  * @param {object} props.selectedSize - L'oggetto taglia selezionato.
  * @param {number} props.selectedQty - La quantità selezionata.
  * @param {function} props.setErrorSize - Funzione per impostare lo stato di errore della taglia.
+ * @param {string} [props.className] - Classi CSS addizionali per il pulsante.
  */
-export default function AddToCartButton({ sneaker, selectedSize, selectedQty, setErrorSize }) {
+export default function AddToCartButton({
+  sneaker,
+  selectedSize,
+  selectedQty,
+  setErrorSize,
+  className = "",
+}) {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      setErrorSize(true); // Imposta l'errore se nessuna taglia è selezionata
+      setErrorSize(true);
       toast.error("Seleziona una taglia prima di aggiungere al carrello!", {
         autoClose: 2000,
         hideProgressBar: true,
@@ -28,7 +36,7 @@ export default function AddToCartButton({ sneaker, selectedSize, selectedQty, se
       return;
     }
 
-    setErrorSize(false); // Resetta l'errore
+    setErrorSize(false);
 
     addToCart({
       brand: sneaker.brand,
@@ -47,10 +55,9 @@ export default function AddToCartButton({ sneaker, selectedSize, selectedQty, se
   };
 
   return (
-    // Il bottone "Aggiungi al Carrello" sarà affiancato al LikeButton
-    <button className="btn btn-sm btn-cart" onClick={handleAddToCart}>
-      <FontAwesomeIcon icon={faCartShopping} className="me-2" />
-      Aggiungi
+    <button className={`btn btn-sm btn-cart ${className}`} onClick={handleAddToCart}>
+      <FontAwesomeIcon icon={faCartShopping} className="me-0 me-md-2" />
+      <span className="d-none d-md-inline">Aggiungi</span>
     </button>
   );
 }
