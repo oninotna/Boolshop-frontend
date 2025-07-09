@@ -1,5 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookF, faInstagram, faXTwitter, faTiktok } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebookF,
+  faInstagram,
+  faXTwitter,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
 import "../assets/css/Footer.css";
 import { Link } from "react-router-dom";
 
@@ -15,16 +20,16 @@ export default function Footer() {
                 <h5 className="footer-title">Link utili</h5>
                 <ul>
                   <li>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <Link to="#">Privacy Policy</Link>
                   </li>
                   <li>
-                    <Link to="/termini">Termini e condizioni</Link>
+                    <Link to="#">Termini e condizioni</Link>
                   </li>
                   <li>
-                    <Link to="/faq">Domande frequenti</Link>
+                    <Link to="#">Domande frequenti</Link>
                   </li>
                   <li>
-                    <Link to="/supporto">Supporto</Link>
+                    <Link to="#">Supporto</Link>
                   </li>
                 </ul>
               </div>
@@ -88,7 +93,11 @@ export default function Footer() {
 
           {/* COLONNA DESTRA – Logo intero */}
           <div className="col-12 col-md-4 footer-logo-col d-flex align-items-center justify-content-center justify-content-md-end">
-            <img src="/img/logo.png" alt="Logo BoolSneakers" className="footer-logo" />
+            <img
+              src="/img/logo.png"
+              alt="Logo BoolSneakers"
+              className="footer-logo"
+            />
           </div>
         </div>
       </div>
