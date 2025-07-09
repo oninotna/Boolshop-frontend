@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../Contexts/SearchContext";
 import { useCart } from "../Contexts/CartContext";
+import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import {
   faHeart,
@@ -98,12 +99,16 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    data-bs-toggle="offcanvas"
-                    data-bs-target={
-                      canBeOpen === true ? "#offcanvasPreviewCart" : " "
-                    }
+                    data-bs-toggle={canBeOpen ? "offcanvas" : ""}
+                    data-bs-target={canBeOpen ? "#offcanvasPreviewCart" : ""}
+                    onClick={(e) => {
+                      if (!canBeOpen) {
+                        e.preventDefault();
+                        toast.error("Il tuo carrello è vuoto");
+                      }
+                    }}
                     aria-controls="offcanvasPreviewCart"
-                    className= "icon-link cart-icon"                   
+                    className="icon-link cart-icon"
                   >
                     <FontAwesomeIcon icon={faCartShopping} />
                   </NavLink>
@@ -167,6 +172,10 @@ export default function Header() {
                 <button
                   className="btn btn-outline-danger btn-sm ms-3"
                   onClick={() => removeFromCart(item.id_sneaker, item.size)}
+                  data-bs-toggle="offcanvas"
+                  data-bs-target={
+                    canBeOpen === true ? "#offcanvasPreviewCart" : " "
+                  }
                 >
                   Rimuovi
                 </button>
