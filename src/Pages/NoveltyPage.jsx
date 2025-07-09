@@ -1,4 +1,5 @@
 import UserPopUp from "../Components/userPopUp";
+import RecapModal from "../Components/RecapModal";
 
 export default function NoveltyPage () {
 
