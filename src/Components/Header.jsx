@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../Contexts/SearchContext";
 import { useCart } from "../Contexts/CartContext";
 import { toast } from "react-toastify";
-import "../assets/css/off-canvas-btn.css";
-// import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState, useEffect } from "react";
-import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
-import "../assets/css/index.css";
-import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
+import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
+import SearchBar from "./SearchBar";
+
+import "../assets/css/index.css";
+import "../assets/css/off-canvas-btn.css";
+import "../assets/css/LatestList.css";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -145,17 +146,21 @@ export default function Header() {
         id="offcanvasPreviewCart"
         aria-labelledby="offcanvasCanvasTitle"
       >
-        <div className="offcanvas-header text-center">
-          <h5 className="offcanvas-title text-center" id="offcanvasCanvasTitle">
-            Preview carrello
-          </h5>
+        <section className="offcanvas-header">
+          <div className="container-fluid p-0">
+            <h2 className="latest-title fs-5 fw-bold mt-3 mb-3 mx-2" id="offcanvasCanvasTitle">
+              Preview carrello
+            </h2>
+          </div>
           <button
             type="button"
-            className="btn-close text-reset"
+            className="offcanvas-close-btn"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-          ></button>
-        </div>
+          >
+            &times;
+          </button>
+        </section>
 
         <div className="offcanvas-body">
           <div className="row">
