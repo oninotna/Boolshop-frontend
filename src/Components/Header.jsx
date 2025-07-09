@@ -103,9 +103,7 @@ export default function Header() {
                       canBeOpen === true ? "#offcanvasPreviewCart" : " "
                     }
                     aria-controls="offcanvasPreviewCart"
-                    className={({ isActive }) =>
-                      "icon-link cart-icon" + (isActive ? " active-link" : "")
-                    }
+                    className= "icon-link cart-icon"                   
                   >
                     <FontAwesomeIcon icon={faCartShopping} />
                   </NavLink>

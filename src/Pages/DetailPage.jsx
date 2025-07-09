@@ -175,12 +175,12 @@ export default function DetailPage() {
                 <FontAwesomeIcon icon={faCartShopping} />
               </button>
 
-              <button
+              {/* <button
                 className={`btn-like btn-sm ${liked ? "liked" : "not-liked"}`}
                 onClick={toggleWish}
               >
                 <FontAwesomeIcon icon={liked ? faHeartSolid : faHeartRegular} />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
