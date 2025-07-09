@@ -127,7 +127,7 @@
 }
 
 .hero-img-container:hover {
-  transform: translateX(-12%) rotate(-6deg) scale(1.1); /* Zoom e inclinazione al passaggio del mouse */
+  transform: translateX(-12%) rotate(-6deg) scale(1.4); /* Zoom e inclinazione al passaggio del mouse */
 }
 
 .hero-img-container img {
