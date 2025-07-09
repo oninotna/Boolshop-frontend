@@ -10,7 +10,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
   overflow-y: scroll;
   background-color: #f8f9fa;
   /* Assicura scroll verticale sempre abilitato */
@@ -110,7 +110,7 @@ body {
 
 /* Cart: neon cyan */
 .icon-link.cart-icon:hover {
-  color: #00ffff;
+  color: #39ff14;
 }
 
 /* link */
