@@ -4,7 +4,7 @@ import { useSearch } from "../Contexts/SearchContext";
 import { useCart } from "../Contexts/CartContext";
 import { toast } from "react-toastify";
 import "../assets/css/off-canvas-btn.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+// import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState, useEffect } from "react";
 import {
   faHeart,
