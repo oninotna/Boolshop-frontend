@@ -64,8 +64,9 @@ export default function CatalogPage() {
     <>
       <div className="container-fluid">
         <h2 className="latest-title fw-bold mt-5">{h1text}</h2>
+        <p className="latest-subtitle fst-italic text-secondary">Scopri il nostro catalogo!</p>
 
-        <div className="mb-4">
+        <div className="mb-5">
           <label htmlFor="orderSelect" className="form-label fw-semibold">
             Ordina per:
           </label>
@@ -97,20 +98,14 @@ export default function CatalogPage() {
                 ))}
               </div>
             ) : (
-              <p
-                className="text-center text-muted fs-5 mt-5"
-                style={{ height: "40vh" }}
-              >
+              <p className="text-center text-muted fs-5 mt-5" style={{ height: "40vh" }}>
                 Nessun prodotto trovato per "{search}"
               </p>
             )}
           </>
         )}
         {compareList.length >= 2 && (
-          <Link
-            to="/compare"
-            className="btn btn-secondary fixed-compare-button"
-          >
+          <Link to="/compare" className="btn btn-secondary fixed-compare-button">
             Vai al Confronto ({compareList.length})
           </Link>
         )}
