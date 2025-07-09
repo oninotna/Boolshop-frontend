@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../Contexts/SearchContext";
 import { useCart } from "../Contexts/CartContext";
 import { toast } from "react-toastify";
+import "../assets/css/off-canvas-btn.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState, useEffect } from "react";
 import {
@@ -53,6 +54,7 @@ export default function Header() {
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
+              ew
               data-bs-target="#navbarNav"
               aria-controls="navbarNav"
               aria-expanded="false"
@@ -100,16 +102,10 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    data-bs-toggle={canBeOpen ? "offcanvas" : ""}
-                    data-bs-target={canBeOpen ? "#offcanvasPreviewCart" : ""}
-                    onClick={(e) => {
-                      if (!canBeOpen) {
-                        e.preventDefault();
-                        toast.error("Il tuo carrello è vuoto");
-                      }
-                    }}
-                    aria-controls="offcanvasPreviewCart"
-                    className="icon-link cart-icon"
+                    className={({ isActive }) =>
+                      "icon-link cart-icon" + (isActive ? " active-link" : "")
+                    }
+                    to={"/cart"}
                   >
                     <FontAwesomeIcon icon={faCartShopping} />
                   </NavLink>
@@ -130,6 +126,24 @@ export default function Header() {
           </div>
         </div>
       </nav>
+      {canBeOpen ? (
+        <Link
+          className="fixed-canvas-button btn btn-secondary"
+          data-bs-toggle={canBeOpen ? "offcanvas" : ""}
+          data-bs-target={canBeOpen ? "#offcanvasPreviewCart" : ""}
+          onClick={(e) => {
+            if (!canBeOpen) {
+              e.preventDefault();
+              toast.error("Il tuo carrello è vuoto");
+            }
+          }}
+          aria-controls="offcanvasPreviewCart"
+        >
+          Preview del carrello
+        </Link>
+      ) : (
+        ""
+      )}
       <div
         className="offcanvas offcanvas-start"
         tabIndex="-1"

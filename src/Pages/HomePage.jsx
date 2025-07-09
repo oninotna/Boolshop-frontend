@@ -16,7 +16,7 @@ export default function HomePage() {
       <Footer />
       <UserPopUp />
       {compareList.length >= 2 && (
-        <Link to="/compare" className="btn btn-primary fixed-compare-button">
+        <Link to="/compare" className="btn btn-secondary fixed-compare-button">
           Vai al Confronto ({compareList.length})
         </Link>
       )}

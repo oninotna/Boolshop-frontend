@@ -20,7 +20,6 @@ export default function CatalogPage() {
   const location = useLocation();
   const { compareList } = useCompare();
 
-  
   const params = new URLSearchParams(location.search);
   const order = params.get("order") || "";
 
@@ -31,7 +30,6 @@ export default function CatalogPage() {
 
     if (search.length) urlParams.append("search", search);
 
-    
     if (order === "name_asc") urlParams.append("name", "ASC");
     else if (order === "name_desc") urlParams.append("name", "DESC");
     else if (order === "price_asc") urlParams.append("price", "ASC");
@@ -67,7 +65,6 @@ export default function CatalogPage() {
       <div className="container-fluid">
         <h2 className="latest-title fw-bold mt-5">{h1text}</h2>
 
-        
         <div className="mb-4">
           <label htmlFor="orderSelect" className="form-label fw-semibold">
             Ordina per:
@@ -110,7 +107,10 @@ export default function CatalogPage() {
           </>
         )}
         {compareList.length >= 2 && (
-          <Link to="/compare" className="btn btn-primary fixed-compare-button">
+          <Link
+            to="/compare"
+            className="btn btn-secondary fixed-compare-button"
+          >
             Vai al Confronto ({compareList.length})
           </Link>
         )}
