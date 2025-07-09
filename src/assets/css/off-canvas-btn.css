@@ -1,8 +1,98 @@
-
-
-.fixed-canvas-button {
+/* Posizione e forma */ 
+.cart-icon-button {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   z-index: 1000;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #94FB01;
+  border: 2px solid #94FB01;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  color: #212529; /* colore scuro per contrasto */
+  transition: background-color 0.2s ease;
+}
+
+.scale-icon {
+  font-size: 1.5rem; /* o 2rem per un effetto più evidente */
+}
+
+.cart-icon {
+  font-size: 1.75rem; /* come per la bilancia */
+  color: #212529; /* o quello che usi */
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #94FB01;
+  color: #212529;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.cart-icon-button:hover {
+  background-color: #a6ff33;
+  color: #212529;
+}
+
+/* Contenitore header offcanvas con flex */
+.offcanvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0.5rem 1rem; /* un po' di padding */
+  position: relative; /* per riferimento bottone assoluto */
+}
+
+/* Bottone chiudi tondo rosso */
+.offcanvas-close-btn {
+position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+    z-index: 1050;
+}
+
+/* Hover più scuro */
+.offcanvas-close-btn:hover,
+.offcanvas-close-btn:focus {
+  background-color: #b02a37;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+
+/* Responsive: su schermi molto piccoli riduci leggermente */
+@media (max-width: 375px) {
+  .offcanvas-close-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    top: 8px;
+    right: 8px;
+  }
 }

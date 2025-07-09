@@ -3,17 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSearch } from "../Contexts/SearchContext";
 import { useCart } from "../Contexts/CartContext";
 import { toast } from "react-toastify";
-import "../assets/css/off-canvas-btn.css";
-// import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState, useEffect } from "react";
-import {
-  faHeart,
-  faCartShopping,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
-import "../assets/css/index.css";
-import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
+import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
+import SearchBar from "./SearchBar";
+
+import "../assets/css/index.css";
+import "../assets/css/off-canvas-btn.css";
+import "../assets/css/LatestList.css";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -69,9 +66,7 @@ export default function Header() {
                     to="/"
                     onClick={() => setSearch("")}
                     end
-                    className={({ isActive }) =>
-                      "nav-link" + (isActive ? " active-link" : "")
-                    }
+                    className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
                   >
                     Home
                   </NavLink>
@@ -80,9 +75,7 @@ export default function Header() {
                   <NavLink
                     to="/catalog"
                     onClick={() => setSearch("")}
-                    className={({ isActive }) =>
-                      "nav-link" + (isActive ? " active-link" : "")
-                    }
+                    className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
                   >
                     Catalogo
                   </NavLink>
@@ -92,8 +85,7 @@ export default function Header() {
                   <NavLink
                     to="/wishlist"
                     className={({ isActive }) =>
-                      "icon-link wishlist-icon" +
-                      (isActive ? " active-link" : "")
+                      "icon-link wishlist-icon" + (isActive ? " active-link" : "")
                     }
                   >
                     <FontAwesomeIcon icon={faHeart} />
@@ -125,11 +117,13 @@ export default function Header() {
           </div>
         </div>
       </nav>
+
+      {/* 🔁 BOTTONE PREVIEW */}
       {canBeOpen ? (
         <Link
-          className="fixed-canvas-button btn btn-secondary"
-          data-bs-toggle={canBeOpen ? "offcanvas" : ""}
-          data-bs-target={canBeOpen ? "#offcanvasPreviewCart" : ""}
+          className="fixed-canvas-button cart-icon-button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasPreviewCart"
           onClick={(e) => {
             if (!canBeOpen) {
               e.preventDefault();
@@ -138,50 +132,49 @@ export default function Header() {
           }}
           aria-controls="offcanvasPreviewCart"
         >
-          Preview del carrello
+          <FontAwesomeIcon icon={faCartShopping} className="cart-icon" />
+          <span className="cart-count">{cart.length}</span>
         </Link>
       ) : (
         ""
       )}
+
+      {/* 🔁 OFFCANVAS */}
       <div
         className="offcanvas offcanvas-start"
         tabIndex="-1"
         id="offcanvasPreviewCart"
         aria-labelledby="offcanvasCanvasTitle"
       >
-        <div className="offcanvas-header text-center">
-          <h5 className="offcanvas-title text-center" id="offcanvasCanvasTitle">
-            Preview carrello
-          </h5>
+        <section className="offcanvas-header">
+          <div className="container-fluid p-0">
+            <h2 className="latest-title fs-5 fw-bold mt-3 mb-3 mx-2" id="offcanvasCanvasTitle">
+              Preview carrello
+            </h2>
+          </div>
           <button
             type="button"
-            className="btn-close text-reset"
+            className="offcanvas-close-btn"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-          ></button>
-        </div>
+          >
+            &times;
+          </button>
+        </section>
+
         <div className="offcanvas-body">
-          <div className="row ">
+          <div className="row">
             {canBeOpen ? (
               cart.map((item, index) => (
-                <div
-                  className="col-12 d-flex align-items-center border-bottom pb-3"
-                  key={index}
-                >
-                  <img
-                    src={item.images[0]}
-                    alt={item.model}
-                    width="100"
-                    className="me-3 rounded"
-                  />
+                <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
+                  <img src={item.images[0]} alt={item.model} width="100" className="me-3 rounded" />
                   <div className="flex-grow-1">
                     <p>
                       <strong>
                         {item.brand} - {item.model}
                       </strong>
                     </p>
-
-                    <p className="mt-2"> Taglia: {item.size}</p>
+                    <p className="mt-2">Taglia: {item.size}</p>
                     <p>Prezzo: €{item.price * item.quantity},00</p>
                   </div>
                   <button

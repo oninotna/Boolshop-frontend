@@ -10,10 +10,40 @@
 .fixed-compare-button {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 90px;
   z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #94FB01;
+  border: 2px solid #94FB01;
+  color: #212529;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
 }
 .img-dimension {
   width: 300px;
   height: 300px;
+}
+
+
+.fixed-compare-button:hover {
+  background-color: #94FB01;
+  color: #fff;
+}
+
+.compare-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #94FB01;
+  color: #212529;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
 }

@@ -39,7 +39,8 @@ export default function ToastWithNavigate() {
 
   return (
     <ToastContainer
-      position="top-right" // Posizione del toast
+      position="bottom-right" // Posizione del toast
+      toastClassName="custom-toast-margin"
       autoClose={2000} // Tempo di visualizzazione ridotto a 2 secondi
       hideProgressBar // Nasconde la barra di avanzamento
       pauseOnHover // Mantiene il toast visibile se ci passi sopra

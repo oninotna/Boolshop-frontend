@@ -76,152 +76,142 @@ export default function CartPage() {
     <>
       <section className="related-list">
         <div className="container-fluid">
-          <h2 className="latest-title fw-bold">Riepilogo carrello</h2>
+          <h2 className="latest-title fw-bold">Carrello</h2>
 
           {cart.length === 0 ? (
-            <p className="latest-subtitle fst-italic text-secondary">
-              Il carrello è vuoto.
-            </p>
+            <p className="latest-subtitle fst-italic text-secondary">Il carrello è vuoto.</p>
           ) : (
-            <div className="row g-3">
-              {cart.map((item, index) => (
-                <div
-                  className="col-12 d-flex align-items-center border-bottom pb-3"
-                  key={index}
-                >
-                  <img
-                    src={item.images[0]}
-                    alt={item.model}
-                    width="100"
-                    className="me-3 rounded"
-                  />
-                  <div className="flex-grow-1">
-                    <Link
-                      to={`/detailpage/${item.slug}`}
-                      className="fw-bold text-dark text-decoration-none"
-                    >
-                      {item.brand} - {item.model}
-                    </Link>
-
-                    <div className="d-flex align-items-center mt-1">
-                      <label className="me-2">Quantità:</label>
-                      <div className="d-flex align-items-center ms-3">
-                        <button
-                          className="my-btn-count"
-                          onClick={() =>
-                            item.quantity > 1 &&
-                            updateQuantity(
-                              item.id_sneaker,
-                              item.size,
-                              item.quantity - 1
-                            )
-                          }
-                        >
-                          <FontAwesomeIcon icon={faMinus} />
-                        </button>
-                        <div className="mx-3 fw-bold">{item.quantity}</div>
-                        <button
-                          className="my-btn-count"
-                          onClick={() =>
-                            updateQuantity(
-                              item.id_sneaker,
-                              item.size,
-                              item.quantity + 1
-                            )
-                          }
-                        >
-                          <FontAwesomeIcon icon={faPlus} />
-                        </button>
-                      </div>
-                    </div>
-                    <p className="mt-2">
-                      Taglia: {item.size}
-                      <span className="ms-4">
-                        Prezzo: €{item.price * item.quantity},00
-                      </span>
-                    </p>
-                  </div>
-                  <button
-                    className="btn btn-outline-danger btn-sm ms-3"
-                    onClick={() => removeFromCart(item.id_sneaker, item.size)}
-                  >
-                    Rimuovi
-                  </button>
-                </div>
-              ))}
-              <p className="text-center fs-4 ">
-                <strong>Prezzo totale : €{totalPrice},00 </strong>
+            <>
+              <p className="latest-subtitle fst-italic text-secondary">
+                Tutti prodotti nel tuo carrello.
               </p>
-            </div>
+              <div className="row g-3">
+                {cart.map((item, index) => (
+                  <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
+                    <img
+                      src={item.images[0]}
+                      alt={item.model}
+                      width="100"
+                      className="me-3 rounded"
+                    />
+                    <div className="flex-grow-1">
+                      <Link
+                        to={`/detailpage/${item.slug}`}
+                        className="fw-bold text-dark text-decoration-none"
+                      >
+                        {item.brand} - {item.model}
+                      </Link>
+
+                      <div className="d-flex align-items-center mt-1">
+                        <label className="me-2">Quantità:</label>
+                        <div className="d-flex align-items-center ms-3">
+                          <button
+                            className="my-btn-count"
+                            onClick={() =>
+                              item.quantity > 1 &&
+                              updateQuantity(item.id_sneaker, item.size, item.quantity - 1)
+                            }
+                          >
+                            <FontAwesomeIcon icon={faMinus} />
+                          </button>
+                          <div className="mx-3 fw-bold">{item.quantity}</div>
+                          <button
+                            className="my-btn-count"
+                            onClick={() =>
+                              updateQuantity(item.id_sneaker, item.size, item.quantity + 1)
+                            }
+                          >
+                            <FontAwesomeIcon icon={faPlus} />
+                          </button>
+                        </div>
+                      </div>
+                      <p className="mt-2">
+                        Taglia: {item.size}
+                        <span className="ms-4">Prezzo: €{item.price * item.quantity},00</span>
+                      </p>
+                    </div>
+                    <button
+                      className="btn btn-outline-danger btn-sm ms-3"
+                      onClick={() => removeFromCart(item.id_sneaker, item.size)}
+                    >
+                      Rimuovi
+                    </button>
+                  </div>
+                ))}
+                <p className="text-center fs-4 ">
+                  <strong>Prezzo totale : €{totalPrice},00 </strong>
+                </p>
+              </div>
+            </>
           )}
 
           {successMsg && <p className="text-success mt-3">{successMsg}</p>}
 
           {/* FORM CHECKOUT */}
 
-          {cart.length ? ( 
-          <form className="row mt-4 align-items-end" onSubmit={handleSubmit}>
-            <div className="col-xs-12 col-sm-6 col-md-4">
-              <label htmlFor="name">Nome</label>
-              <input
-                className="form-control"
-                type="text"
-                id="name"
-                name="name"
-                value={order.name}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
-              <label htmlFor="surname">Cognome</label>
-              <input
-                className="form-control"
-                type="text"
-                id="surname"
-                name="surname"
-                value={order.surname}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
-              <label htmlFor="address">Indirizzo</label>
-              <input
-                className="form-control"
-                type="text"
-                id="address"
-                name="address"
-                value={order.address}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
-              <label htmlFor="phone">Telefono</label>
-              <input
-                className="form-control"
-                type="number"
-                id="phone"
-                name="phone"
-                value={order.phone}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="col-xs-12 col-sm-6 col-md-4">
-              <label htmlFor="email">Email</label>
-              <input
-                className="form-control"
-                type="email"
-                id="email"
-                name="email"
-                value={order.email}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            {/* <div className="col-xs-12 col-sm-6 col-md-4  mt-3">
+          {cart.length ? (
+            <form className="row mt-4 align-items-end" onSubmit={handleSubmit}>
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <label htmlFor="name">Nome</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={order.name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <label htmlFor="surname">Cognome</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  id="surname"
+                  name="surname"
+                  value={order.surname}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <label htmlFor="address">Indirizzo</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  id="address"
+                  name="address"
+                  value={order.address}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <label htmlFor="phone">Telefono</label>
+                <input
+                  className="form-control"
+                  type="number"
+                  id="phone"
+                  name="phone"
+                  value={order.phone}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-4">
+                <label htmlFor="email">Email</label>
+                <input
+                  className="form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={order.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              {/* <div className="col-xs-12 col-sm-6 col-md-4  mt-3">
               <select
                 className="form-select"
                 aria-label="Default select example"
@@ -237,22 +227,24 @@ export default function CartPage() {
                 <option value="klarna">klarna</option>
               </select>
             </div> */}
-            <div className="col-xs-12 col-sm-6 col-md-4 mt-3 d-flex justify-content-end ">
-              <button
-                className="btn btn-secondary"
-                type="submit"
-                // data-bs-toggle="modal"
-                // data-bs-target="#exampleModal"
-                disabled={cart.length === 0}
-              >
-                Procedi al checkout
-              </button>
-            </div>
-          </form>) 
-          : ''}
+              <div className="col-xs-12 col-sm-6 col-md-4 mt-3 d-flex justify-content-end ">
+                <button
+                  className="btn btn-secondary"
+                  type="submit"
+                  // data-bs-toggle="modal"
+                  // data-bs-target="#exampleModal"
+                  disabled={cart.length === 0}
+                >
+                  Procedi al checkout
+                </button>
+              </div>
+            </form>
+          ) : (
+            ""
+          )}
         </div>
       </section>
-      < UserPopUp />
+      <UserPopUp />
       <LatestList />
       <Footer />
       <UserPopUp />
