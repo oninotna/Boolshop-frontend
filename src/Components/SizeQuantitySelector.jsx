@@ -30,7 +30,9 @@ export default function SizeQuantitySelector({
     <div className="d-flex justify-content-between my-2 size-qty-wrapper">
       {/* Selettore della taglia */}
       <select
-        className={`form-select w-auto py-0 ${errorSize ? "border border-danger" : ""}`}
+        className={`form-select w-auto py-0 ${
+          errorSize ? "border border-danger" : ""
+        }`}
         value={selectedSize ? JSON.stringify(selectedSize) : ""}
         onChange={(e) => {
           const val = e.target.value;
@@ -51,7 +53,7 @@ export default function SizeQuantitySelector({
       </select>
 
       {/* Contatore quantità */}
-      <div className="d-flex">
+      {/* <div className="d-flex">
         <button
           className="my-btn-count"
           onClick={() =>
@@ -64,7 +66,7 @@ export default function SizeQuantitySelector({
         <button className="my-btn-count" onClick={() => setSelectedQty(selectedQty + 1)}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import { useCompare } from "../Contexts/CompareContext";
-import React, { useState } from "react"; // Reintrodotto useState per gestire gli stati qui
+import React, { useState } from "react";
 import LikeButton from "./LikeButton";
-import AddToCartButton from "./AddToCartButton"; // Importa il componente AddToCartButton
-import SizeQuantitySelector from "./SizeQuantitySelector"; // Importa il componente SizeQuantitySelector
+import AddToCartButton from "./AddToCartButton";
+import SizeQuantitySelector from "./SizeQuantitySelector";
 import "../assets/css/SneakersCard.css";
 import { Link } from "react-router-dom";
 
