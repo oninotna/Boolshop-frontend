@@ -144,7 +144,7 @@ export default function Header() {
           ></button>
         </div>
         <div className="offcanvas-body">
-          <div className="row g-3">
+          <div className="row ">
             {cart.map((item, index) => (
               <div
                 className="col-12 d-flex align-items-center border-bottom pb-3"
@@ -157,18 +157,14 @@ export default function Header() {
                   className="me-3 rounded"
                 />
                 <div className="flex-grow-1">
-                  <Link
-                    to={`/detailpage/${item.slug}`}
-                    className="fw-bold text-dark text-decoration-none"
-                  >
-                    {item.brand} - {item.model}
-                  </Link>
-                  <p className="mt-2">
-                    Taglia: {item.size}
-                    <span className="ms-4">
-                      Prezzo: €{item.price * item.quantity},00
-                    </span>
+                  <p>
+                    <strong>
+                      {item.brand} - {item.model}
+                    </strong>
                   </p>
+
+                  <p className="mt-2"> Taglia: {item.size}</p>
+                  <p>Prezzo: €{item.price * item.quantity},00</p>
                 </div>
                 <button
                   className="btn btn-outline-danger btn-sm ms-3"
