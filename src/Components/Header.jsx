@@ -54,7 +54,6 @@ export default function Header() {
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
-              ew
               data-bs-target="#navbarNav"
               aria-controls="navbarNav"
               aria-expanded="false"
