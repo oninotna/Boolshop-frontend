@@ -4,7 +4,10 @@ import axios from "axios";
 import SneakersCard from "../Components/SneakersCard";
 import Footer from "../Components/Footer";
 import "../assets/css/index.css";
+import "../assets/css/Compare.css";
 import { useSearch } from "../Contexts/SearchContext";
+import { useCompare } from "../Contexts/CompareContext";
+import { Link } from "react-router-dom";
 
 export default function CatalogPage() {
   const [sneakers, setSneakers] = useState([]);
@@ -15,6 +18,7 @@ export default function CatalogPage() {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const { compareList } = useCompare();
 
   // Estraggo parametri dalla URL per sincronizzarli
   const params = new URLSearchParams(location.search);
@@ -104,6 +108,11 @@ export default function CatalogPage() {
               </p>
             )}
           </>
+        )}
+        {compareList.length >= 2 && (
+          <Link to="/compare" className="btn btn-primary fixed-compare-button">
+            Vai al Confronto ({compareList.length})
+          </Link>
         )}
       </div>
 
