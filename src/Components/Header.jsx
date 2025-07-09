@@ -131,7 +131,8 @@ export default function Header() {
           }}
           aria-controls="offcanvasPreviewCart"
         >
-          <FontAwesomeIcon icon={faCartShopping} />
+          <FontAwesomeIcon icon={faCartShopping} className="cart-icon" />
+          <span className="cart-count">{cart.length}</span>
         </Link>
       ) : (
         ""

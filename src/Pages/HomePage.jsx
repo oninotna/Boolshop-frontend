@@ -6,6 +6,9 @@ import UserPopUp from "../Components/userPopUp";
 import { useCompare } from "../Contexts/CompareContext";
 import { Link } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faScaleBalanced } from "@fortawesome/free-solid-svg-icons";
+
 export default function HomePage() {
   const { compareList } = useCompare();
   return (
@@ -16,8 +19,9 @@ export default function HomePage() {
       <Footer />
       <UserPopUp />
       {compareList.length >= 2 && (
-        <Link to="/compare" className="btn btn-secondary fixed-compare-button">
-          Vai al Confronto ({compareList.length})
+        <Link to="/compare" className="fixed-compare-button" title="Confronta">
+          <FontAwesomeIcon icon={faScaleBalanced} className="scale-icon" />
+          <span className="compare-count">{compareList.length}</span>
         </Link>
       )}
     </div>

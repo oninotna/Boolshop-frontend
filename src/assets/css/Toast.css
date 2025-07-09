@@ -19,7 +19,7 @@
 /* Stili comuni applicati a TUTTI i toast (border-radius, box-shadow, font-size, padding) */
 /* Questi stili verranno applicati a tutte le classi Toastify__toast--type */
 .custom-toast-margin {
-  margin-bottom: 70px !important; /* esempio per spostarlo sopra il bottone */
+  margin-bottom: 75px !important; 
 }
 
 .Toastify__toast {
