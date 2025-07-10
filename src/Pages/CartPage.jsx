@@ -245,7 +245,6 @@ export default function CartPage() {
       <UserPopUp />
       <LatestList />
       <Footer />
-      <UserPopUp />
     </>
   );
 }
