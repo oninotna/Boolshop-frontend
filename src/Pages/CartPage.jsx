@@ -179,7 +179,8 @@ export default function CartPage() {
             </>
           )}
 
-          {successMsg && <p className="text-success mt-3">{successMsg}</p>}
+          {successMsg && <p className="text-success text-center mt-3"><strong>{successMsg}<br />
+          Riceverai un'email con i dettagli dell'ordine!</strong></p>}
 
           {/* FORM CHECKOUT */}
 
