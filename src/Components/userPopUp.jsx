@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { usePopUpContext } from "../Contexts/popUpContext";
-import { toast } from "react-toastify";
 import "../assets/css/userPopUp.css";
 
 export default function UserPopUp() {
@@ -24,7 +23,6 @@ export default function UserPopUp() {
     axios
       .post("http://localhost:3000/sneakers/popup", formData)
       .then((response) => {
-        toast.success("Dati inviati correttamente");
         if (response.data) {
           sessionStorage.setItem("userPopUpClosed", "true");
           setIsHide(true);
@@ -125,7 +123,7 @@ export default function UserPopUp() {
             <div className="container my-2 ">
               <h3 className="text-center">
                 <span className="fs-1 fw-bold ">
-                  I tuoi dati sono stati confermati correttamente
+                  I tuoi dati sono stati inviati correttamente
                 </span>
               </h3>
               <div className="d-flex justify-content-center">
