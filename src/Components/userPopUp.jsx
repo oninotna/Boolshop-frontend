@@ -121,11 +121,12 @@ export default function UserPopUp() {
         <div className="modal-overlay ">
           <div className="modal-container relative">
             <div className="container my-2 ">
-              <h3 className="text-center">
+              <p className="text-center">
                 <span className="fs-1 fw-bold ">
-                  I tuoi dati sono stati inviati correttamente
+                  I tuoi dati sono stati inviati correttamente! <br />
+                  Riceverai presto un e-mail di conferma!
                 </span>
-              </h3>
+              </p>
               <div className="d-flex justify-content-center">
                 <button
                   type="button"
