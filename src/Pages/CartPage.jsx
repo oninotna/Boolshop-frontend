@@ -226,28 +226,11 @@ export default function CartPage() {
                   required
                 />
               </div>
-              {/* <div className="col-xs-12 col-sm-6 col-md-4  mt-3">
-              <select
-                className="form-select"
-                aria-label="Default select example"
-                name="payment"
-                value={order.payment}
-                onChange={handleInputChange}
-              >
-                <option value={""}>metodo di pagamento</option>
-                <option value="mastercard">Mastercard</option>
-                <option value="paypal">Paypal</option>
-                <option value="visa">Visa</option>
-                <option value="applepay">Apple pay</option>
-                <option value="klarna">klarna</option>
-              </select>
-            </div> */}
+
               <div className="col-xs-12 col-sm-6 col-md-4 mt-3 d-flex justify-content-end ">
                 <button
                   className="btn btn-secondary"
                   type="submit"
-                  // data-bs-toggle="modal"
-                  // data-bs-target="#exampleModal"
                   disabled={cart.length === 0}
                 >
                   Procedi al checkout
