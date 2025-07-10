@@ -55,7 +55,7 @@ export default function UserPopUp() {
                 sulle nostre ultime novità!
               </h3>
               <form className="row d-flex mt-4" onSubmit={handleSubmit}>
-                <div className="col-4">
+                <div className="col-sm-8 col-md-4">
                   <label htmlFor="name" className="form-label">
                     Nome
                   </label>
@@ -69,7 +69,7 @@ export default function UserPopUp() {
                     required
                   />
                 </div>
-                <div className="col-4">
+                <div className="col-sm-8 col-md-4">
                   <label htmlFor="surname" className="form-label">
                     Cognome
                   </label>
@@ -83,7 +83,7 @@ export default function UserPopUp() {
                     required
                   />
                 </div>
-                <div className="col-4">
+                <div className="col-sm-8 col-md-4">
                   <label htmlFor="email" className="form-label">
                     Email
                   </label>
