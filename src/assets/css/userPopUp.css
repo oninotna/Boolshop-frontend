@@ -33,6 +33,11 @@
   width: 30px;
   transform: translate(-50%, -50%);}
 
+  @media screen and (max-width: 768px){
+  .cst-close-button{left:96%}
+
+
+  }
   @media screen and (max-width: 468px){
   .cst-close-button{left:94%}
 
