@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import UserPopUp from "../Components/userPopUp";
+import { toast } from "react-toastify";
+
 
 const defaultOrder = {
   name: "",
@@ -54,6 +56,24 @@ export default function CartPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSuccessMsg("");
+    if (order.name.length < 2 || typeof order.name != 'string') {
+      toast.error(`Il nome deve essere composto da almeno due caratteri 
+      e non può contenere numeri o caratteri speciali`); return };
+
+    if (order.surname.length < 2 || typeof order.surname != 'string') {
+    toast.error(`Il cognome deve essere composto da almeno due caratteri 
+    e non può contenere numeri o caratteri speciali`); return };
+
+    if (order.address.length < 10) {
+      toast.error(`Inserisci correttamente l'indirizzo`); return };
+
+    if (typeof order.phone !== 'string' || order.phone.replace(/\s+/g, '').length < 10 || 
+    !/^\+?\d+$/.test(order.phone.replace(/\s+/g, ''))) {
+      toast.error(`Controlla che il numero sia corretto`); return };
+    
+    if (order.email.length < 10 || !order.email.includes('@')) {
+      toast.error(`Controlla che l'email sia corretta`); return };
+
     sendForm();
   };
 
@@ -206,7 +226,7 @@ export default function CartPage() {
                 <label htmlFor="phone">Telefono</label>
                 <input
                   className="form-control"
-                  type="number"
+                  type="tel"
                   id="phone"
                   name="phone"
                   value={order.phone}
@@ -218,7 +238,7 @@ export default function CartPage() {
                 <label htmlFor="email">Email</label>
                 <input
                   className="form-control"
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                   value={order.email}
