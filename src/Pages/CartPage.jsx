@@ -111,7 +111,7 @@ export default function CartPage() {
                         <label className="me-2">Quantità:</label>
                         <div className="d-flex align-items-center ms-3">
                           <button
-                            className="my-btn-count btn btn-secondary "
+                            className="btn btn-secondary "
                             onClick={() =>
                               item.quantity > 1 &&
                               updateQuantity(
@@ -125,7 +125,7 @@ export default function CartPage() {
                           </button>
                           <div className="mx-3 fw-bold">{item.quantity}</div>
                           <button
-                            className="my-btn-count btn btn-secondary "
+                            className="btn btn-secondary  "
                             onClick={() =>
                               updateQuantity(
                                 item.id_sneaker,

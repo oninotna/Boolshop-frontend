@@ -65,11 +65,8 @@ background: transparent;
   opacity: 0.9;
 }
 
-/* Bottone carrello e visualizza stesso peso */
-.btn-secondary,
-.btn-outline-light {
-  min-height: 40px;
-}
+
+
 
 /* Piccole regolazioni responsive */
 @media (max-width: 768px) {
