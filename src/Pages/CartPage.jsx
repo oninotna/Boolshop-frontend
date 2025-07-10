@@ -67,8 +67,7 @@ export default function CartPage() {
     if (order.address.length < 10) {
       toast.error(`Inserisci correttamente l'indirizzo`); return };
 
-    if (typeof order.phone !== 'string' || order.phone.replace(/\s+/g, '').length < 10 || 
-    !/^\+?\d+$/.test(order.phone.replace(/\s+/g, ''))) {
+    if (typeof order.phone !== 'string' || order.phone.replace(/\s+/g, '').length < 10 || !/^\+?\d+$/.test(order.phone.replace(/\s+/g, ''))) {
       toast.error(`Controlla che il numero sia corretto`); return };
     
     if (order.email.length < 10 || !order.email.includes('@')) {
