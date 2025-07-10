@@ -79,7 +79,9 @@ export default function CartPage() {
           <h2 className="latest-title fw-bold">Carrello</h2>
 
           {cart.length === 0 ? (
-            <p className="latest-subtitle fst-italic text-secondary">Il carrello è vuoto.</p>
+            <p className="latest-subtitle fst-italic text-secondary">
+              Il carrello è vuoto.
+            </p>
           ) : (
             <>
               <p className="latest-subtitle fst-italic text-secondary">
@@ -87,7 +89,10 @@ export default function CartPage() {
               </p>
               <div className="row g-3">
                 {cart.map((item, index) => (
-                  <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
+                  <div
+                    className="col-12 d-flex align-items-center border-bottom pb-3"
+                    key={index}
+                  >
                     <img
                       src={item.images[0]}
                       alt={item.model}
@@ -106,19 +111,27 @@ export default function CartPage() {
                         <label className="me-2">Quantità:</label>
                         <div className="d-flex align-items-center ms-3">
                           <button
-                            className="my-btn-count"
+                            className="my-btn-count btn btn-secondary "
                             onClick={() =>
                               item.quantity > 1 &&
-                              updateQuantity(item.id_sneaker, item.size, item.quantity - 1)
+                              updateQuantity(
+                                item.id_sneaker,
+                                item.size,
+                                item.quantity - 1
+                              )
                             }
                           >
                             <FontAwesomeIcon icon={faMinus} />
                           </button>
                           <div className="mx-3 fw-bold">{item.quantity}</div>
                           <button
-                            className="my-btn-count"
+                            className="my-btn-count btn btn-secondary "
                             onClick={() =>
-                              updateQuantity(item.id_sneaker, item.size, item.quantity + 1)
+                              updateQuantity(
+                                item.id_sneaker,
+                                item.size,
+                                item.quantity + 1
+                              )
                             }
                           >
                             <FontAwesomeIcon icon={faPlus} />
@@ -127,7 +140,9 @@ export default function CartPage() {
                       </div>
                       <p className="mt-2">
                         Taglia: {item.size}
-                        <span className="ms-4">Prezzo: €{item.price * item.quantity},00</span>
+                        <span className="ms-4">
+                          Prezzo: €{item.price * item.quantity},00
+                        </span>
                       </p>
                     </div>
                     <button
