@@ -21,3 +21,14 @@
     background-color: #c6c6c6;
     z-index: 1060;
 }
+.relative{ position: relative}
+
+.cst-close-button{
+ position: absolute;
+  top: 6%;
+  left: 98%;
+  font-size: 1.5rem;
+  color: #4cfe2c;
+  height: 30px;
+  width: 30px;
+  transform: translate(-50%, -50%);}
