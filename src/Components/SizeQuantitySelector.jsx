@@ -30,7 +30,7 @@ export default function SizeQuantitySelector({
     <div className="d-flex justify-content-between my-2 size-qty-wrapper">
       {/* Selettore della taglia */}
       <select
-        className={`form-select w-auto py-0 ${
+        className={`form-select w-100 py-0 ${
           errorSize ? "border border-danger" : ""
         }`}
         value={selectedSize ? JSON.stringify(selectedSize) : ""}

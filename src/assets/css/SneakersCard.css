@@ -8,7 +8,7 @@
 
 .img-wrapper {
   position: relative;
-  height: 180px; /* altezza immagine ridotta */
+  height: 250px; /* altezza immagine ridotta */
   background-color: #f8f9fa;
   padding: 10px;
   display: flex;

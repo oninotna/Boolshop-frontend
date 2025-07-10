@@ -107,10 +107,12 @@ export default function CatalogPage() {
             )}
           </>
         )}
+        {compareList.length >= 2 && (
         <Link to="/compare" className="fixed-compare-button" title="Confronta">
-          <FontAwesomeIcon icon={faScaleBalanced} />
+          <FontAwesomeIcon icon={faScaleBalanced} className="scale-icon" />
           <span className="compare-count">{compareList.length}</span>
         </Link>
+      )}
       </div>
 
       <Footer />

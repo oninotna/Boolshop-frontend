@@ -46,7 +46,7 @@ export default function SneakersCard({ data }) {
             </div>
           </div>
 
-          <div className="mt-auto">
+          <div className="mt-2">
             <SizeQuantitySelector
               sizes={data.sizes}
               selectedSize={selectedSize}
