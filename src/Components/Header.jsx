@@ -5,7 +5,11 @@ import { useCart } from "../Contexts/CartContext";
 import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { faHeart, faCartShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faCartShopping,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "./SearchBar";
 
 import "../assets/css/index.css";
@@ -66,7 +70,9 @@ export default function Header() {
                     to="/"
                     onClick={() => setSearch("")}
                     end
-                    className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
+                    className={({ isActive }) =>
+                      "nav-link" + (isActive ? " active-link" : "")
+                    }
                   >
                     Home
                   </NavLink>
@@ -75,7 +81,9 @@ export default function Header() {
                   <NavLink
                     to="/catalog"
                     onClick={() => setSearch("")}
-                    className={({ isActive }) => "nav-link" + (isActive ? " active-link" : "")}
+                    className={({ isActive }) =>
+                      "nav-link" + (isActive ? " active-link" : "")
+                    }
                   >
                     Catalogo
                   </NavLink>
@@ -85,7 +93,8 @@ export default function Header() {
                   <NavLink
                     to="/wishlist"
                     className={({ isActive }) =>
-                      "icon-link wishlist-icon" + (isActive ? " active-link" : "")
+                      "icon-link wishlist-icon" +
+                      (isActive ? " active-link" : "")
                     }
                   >
                     <FontAwesomeIcon icon={faHeart} />
@@ -148,7 +157,10 @@ export default function Header() {
       >
         <section className="offcanvas-header">
           <div className="container-fluid p-0">
-            <h2 className="latest-title fs-5 fw-bold mt-3 mb-3 mx-2" id="offcanvasCanvasTitle">
+            <h2
+              className="latest-title fs-5 fw-bold mt-3 mb-3 mx-2"
+              id="offcanvasCanvasTitle"
+            >
               Preview carrello
             </h2>
           </div>
@@ -166,8 +178,16 @@ export default function Header() {
           <div className="row">
             {canBeOpen ? (
               cart.map((item, index) => (
-                <div className="col-12 d-flex align-items-center border-bottom pb-3" key={index}>
-                  <img src={item.images[0]} alt={item.model} width="100" className="me-3 rounded" />
+                <div
+                  className="col-12 d-flex align-items-center border-bottom pb-3"
+                  key={index}
+                >
+                  <img
+                    src={item.images[0]}
+                    alt={item.model}
+                    width="100"
+                    className="me-3 rounded"
+                  />
                   <div className="flex-grow-1">
                     <p>
                       <strong>
@@ -176,6 +196,7 @@ export default function Header() {
                     </p>
                     <p className="mt-2">Taglia: {item.size}</p>
                     <p>Prezzo: €{item.price * item.quantity},00</p>
+                    <p>quantità: {item.quantity}</p>
                   </div>
                   <button
                     className="btn btn-outline-danger btn-sm ms-3"
