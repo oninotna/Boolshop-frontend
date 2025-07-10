@@ -67,7 +67,9 @@ export default function CatalogPage() {
     <>
       <div className="container-fluid">
         <h2 className="latest-title fw-bold mt-5">{h1text}</h2>
-        <p className="latest-subtitle fst-italic text-secondary">Scopri il nostro catalogo!</p>
+        <p className="latest-subtitle fst-italic text-secondary">
+          Scopri il nostro catalogo!
+        </p>
 
         <div className="mb-5">
           <label htmlFor="orderSelect" className="form-label fw-semibold">
@@ -84,7 +86,7 @@ export default function CatalogPage() {
             <option value="name_desc">Nome (Z-A)</option>
             <option value="price_asc">Prezzo (crescente)</option>
             <option value="price_desc">Prezzo (decrescente)</option>
-            <option value="date_asc">Data (più vecchi)</option>
+            <option value="date_asc">Data (meno recenti)</option>
             <option value="date_desc">Data (più recenti)</option>
           </select>
         </div>
@@ -101,18 +103,25 @@ export default function CatalogPage() {
                 ))}
               </div>
             ) : (
-              <p className="text-center text-muted fs-5 mt-5" style={{ height: "40vh" }}>
+              <p
+                className="text-center text-muted fs-5 mt-5"
+                style={{ height: "40vh" }}
+              >
                 Nessun prodotto trovato per "{search}"
               </p>
             )}
           </>
         )}
         {compareList.length >= 2 && (
-        <Link to="/compare" className="fixed-compare-button" title="Confronta">
-          <FontAwesomeIcon icon={faScaleBalanced} className="scale-icon" />
-          <span className="compare-count">{compareList.length}</span>
-        </Link>
-      )}
+          <Link
+            to="/compare"
+            className="fixed-compare-button"
+            title="Confronta"
+          >
+            <FontAwesomeIcon icon={faScaleBalanced} className="scale-icon" />
+            <span className="compare-count">{compareList.length}</span>
+          </Link>
+        )}
       </div>
 
       <Footer />
