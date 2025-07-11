@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { usePopUpContext } from "../Contexts/popUpContext";
 import "../assets/css/userPopUp.css";
-
+import { toast } from "react-toastify";
 export default function UserPopUp() {
   const { saveUserData } = usePopUpContext();
   const startingFormData = { name: "", surname: "", email: "" };
